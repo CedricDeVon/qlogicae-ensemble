@@ -227,7 +227,7 @@ data:
           value: The QLogicae workspace
 
         - name: qlogicae-ensemble-current-version-number
-          value: 1.0.1
+          value: 1.0.2
 
         - name: qlogicae-ensemble-current-version-label
           value: v${{ qlogicae-ensemble-current-version-number }}
