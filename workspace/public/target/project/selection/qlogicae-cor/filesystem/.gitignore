@@ -1,0 +1,17 @@
+
+.temp/
+.temporary/
+temp/
+temporary/
+.out/
+.output/
+.outputs/
+out/
+output/
+outputs/
+.dist/
+dist/
+.build/
+build/
+reports/
+.reports/

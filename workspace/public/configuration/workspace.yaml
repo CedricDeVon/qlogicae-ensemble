@@ -49,7 +49,7 @@ data:
     process: shell
     is-process-override-enabled: false
 
-    targets:
+    targets:      
       value-cache-debug:
         enter-full-path: ${{ current-root-full-path }}/workspace/public/toolset/qlogicae-logis
         commands:
@@ -58,11 +58,20 @@ data:
               workspace_manager.singleton.debug_value_cache();\""
             is-enabled: true
 
+      qlogicae-ensemble-deploy:
+        enter-full-path: ${{ current-root-full-path }}
+        commands:
+          - run: git add .
+          - run: git commit -m "deployment attempt"
+          - run: git tag ${{ qlogicae-ensemble-current-version-label }}
+          - run: git push
+          - run: git push --tags
+
       qlogicae-upkeep-deploy:
         enter-full-path: ${{ current-root-selection-full-path }}/qlogicae-upkeep
         commands:
           - run: git add .
-          - run: git commit -m "project '${{ qlogicae-upkeep-base-brand-name }}' version '${{ qlogicae-upkeep-current-version-label }}' deployment attempt"
+          - run: git commit -m "deployment attempt"
           - run: git tag ${{ qlogicae-upkeep-current-version-label }}
           - run: git push
           - run: git push --tags
@@ -71,7 +80,7 @@ data:
         enter-full-path: ${{ current-root-selection-full-path }}/qlogicae-delasaurus
         commands:
           - run: git add .
-          - run: git commit -m "project '${{ qlogicae-delasaurus-base-brand-name }}' version '${{ qlogicae-delasaurus-current-version-label }}' deployment attempt"
+          - run: git commit -m "deployment attempt"
           - run: git tag ${{ qlogicae-delasaurus-current-version-label }}
           - run: git push
           - run: git push --tags
@@ -80,7 +89,7 @@ data:
         enter-full-path: ${{ current-root-selection-full-path }}/qlogicae-scaf
         commands:
           - run: git add .
-          - run: git commit -m "project '${{ qlogicae-scaf-base-brand-name }}' version '${{ qlogicae-scaf-current-version-label }}' deployment attempt"
+          - run: git commit -m "deployment attempt"
           - run: git tag ${{ qlogicae-scaf-current-version-label }}
           - run: git push
           - run: git push --tags
@@ -89,7 +98,7 @@ data:
         enter-full-path: ${{ current-root-selection-full-path }}/qlogicae-logis
         commands:
           - run: git add .
-          - run: git commit -m "project '${{ qlogicae-logis-base-brand-name }}' version '${{ qlogicae-logis-current-version-label }}' deployment attempt"
+          - run: git commit -m "deployment attempt"
           - run: git tag ${{ qlogicae-logis-current-version-label }}
           - run: git push
           - run: git push --tags
@@ -98,7 +107,7 @@ data:
         enter-full-path: ${{ current-root-selection-full-path }}/qlogicae-cor
         commands:
           - run: git add .
-          - run: git commit -m "project '${{ qlogicae-cor-base-brand-name }}' deployment attempt"
+          - run: git commit -m "deployment attempt"
           - run: git push
           - run: git push --tags
 
@@ -112,7 +121,7 @@ data:
         enter-full-path: ${{ current-root-selection-full-path }}/qlogicae-cor/python
         commands:
           - run: git add .
-          - run: git commit -m "project '${{ qlogicae-cor-base-brand-name }}' version '${{ qlogicae-cor-python-current-version-label }}' deployment attempt"
+          - run: git commit -m "deployment attempt"
           - run: git tag ${{ qlogicae-cor-python-current-version-label }}
           - run: qlogicae-cor-deploy
 
@@ -122,7 +131,7 @@ data:
           - run: cargo build-release
           - run: cargo workflow-deploy
           - run: git add .
-          - run: git commit -m "project '${{ qlogicae-cor-base-brand-name }}' version '${{ qlogicae-cor-rust-current-version-label }}' deployment attempt"
+          - run: git commit -m "deployment attempt"
           - run: git tag ${{ qlogicae-cor-rust-current-version-label }}
           - run: qlogicae-cor-deploy
 
@@ -196,6 +205,32 @@ data:
         
         - name: main-company-base-logo-filesystem-path
           value: ./project/asset/${{ main-company-base-name }}1.png
+
+
+
+        - name: qlogicae-ensemble-display-brand-name
+          value: ${{ main-company-display-name }} ${{ qlogicae-ensemble-display-project-name }}
+
+        - name: qlogicae-ensemble-display-brand-name
+          value: ${{ main-company-display-name }} ${{ qlogicae-ensemble-display-project-name }}
+
+        - name: qlogicae-ensemble-base-brand-name
+          value: ${{ main-company-base-name }}-${{ qlogicae-ensemble-base-project-name }}
+
+        - name: qlogicae-ensemble-display-project-name
+          value: Ensemble
+
+        - name: qlogicae-ensemble-base-project-name
+          value: ensemble
+
+        - name: qlogicae-ensemble-base-description
+          value: The QLogicae workspace
+
+        - name: qlogicae-ensemble-current-version-number
+          value: 1.0.1
+
+        - name: qlogicae-ensemble-current-version-label
+          value: v${{ qlogicae-ensemble-current-version-number }}
 
 
 

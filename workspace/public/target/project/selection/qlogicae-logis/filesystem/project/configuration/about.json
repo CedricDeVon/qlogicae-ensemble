@@ -1,0 +1,66 @@
+{
+    "data": {
+        "brand-name": {
+            "name": "Brand Name",
+            "value": "${{ qlogicae-logis-display-brand-name }}",
+            "is-tabular": false
+        },
+
+        "project-version": {
+            "name": "Project Version",
+            "value": "${{ qlogicae-logis-current-version-label }}",
+            "is-tabular": true
+        },
+
+        "project-description": {
+            "name": "Description",
+            "value": "${{ qlogicae-logis-base-description }}",
+            "is-tabular": false
+        },
+
+        "project-name": {
+            "name": "Project Name",
+            "value": "${{ qlogicae-logis-display-project-name }}",
+            "is-tabular": true
+        },
+
+        "company-name": {
+            "name": "Company Name",
+            "value": "${{ main-company-display-name }}",
+            "is-tabular": true
+        },
+
+        "workspace-name": {
+            "name": "Workspace Name",
+            "value": "${{ qlogicae-logis-base-brand-name }}",
+            "is-tabular": false
+        },
+
+        "author-name": {
+            "name": "Author Name",
+            "value": "${{ main-author-full-name }}",
+            "is-tabular": true
+        },
+
+        "author-email": {
+            "name": "Author Email",
+            "value": "${{ main-author-base-email }}",
+            "is-tabular": true
+        },
+
+        "repository-link": {
+            "name": "Repository Link",
+            "value": "${{ qlogicae-logis-base-repository-link }}",
+            "is-tabular": true
+        },
+
+        "repository-keywords": {
+            "name": "Repository Keywords",
+            "value": ["${{ main-company-base-name }}", "${{ qlogicae-logis-base-project-name }}"],
+            "is-tabular": true
+        }
+    },
+    "metadata": {
+
+    }
+}
