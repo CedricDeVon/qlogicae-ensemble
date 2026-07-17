@@ -1,0 +1,46 @@
+data:
+  selection:
+    project:
+      targets:
+        qlogicae-logis:
+          full-path: ${{ current-root-selection-full-path }}/qlogicae-logis
+
+  script:
+    targets:      
+      qlogicae-logis-deploy:
+        enter-full-path: ${{ current-root-selection-full-path }}/qlogicae-logis
+        commands:
+          - run: git add .
+          - run: git commit -m "deployment attempt"
+          - run: git tag ${{ qlogicae-logis-current-version-label }}
+          - run: git push
+          - run: git push --tags
+
+  macros:  
+    file:
+      targets:
+        qlogicae-logis-display-brand-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-logis-display-project-name }}
+
+        qlogicae-logis-base-brand-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-logis-base-project-name }}
+
+        qlogicae-logis-display-project-name:
+          value: Logis
+
+        qlogicae-logis-base-project-name:
+          value: logis
+
+        qlogicae-logis-base-description:
+          value: The project management tool for QLogicae projects
+
+        qlogicae-logis-current-version-number:
+          value: 1.0.4
+
+        qlogicae-logis-current-version-label:
+          value: v${{ qlogicae-logis-current-version-number }}
+
+        qlogicae-logis-base-repository-link:
+          value: https://github.com/CedricDeVon/qlogicae-logis
+
+metadata:

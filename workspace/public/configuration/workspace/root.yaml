@@ -1,0 +1,264 @@
+data:
+  selection:
+    # is-enabled:
+    #   value: true
+    #   is-override: false
+
+  script:
+    # is-enabled:
+    #   value: true
+    #   is-override: false
+
+    # process:
+    #   value: shell
+    #   is-override: false
+
+    # delay:
+    #   value: 1
+
+    targets:      
+      value-cache-debug:
+        # is-enabled:
+        #   value: true
+        #   is-override: false
+        enter-full-path: ${{ current-root-full-path }}/workspace/public/toolset/qlogicae-logis
+        commands:
+          - run: "python3 -c \"
+              from qlogicae_logis.v1 import workspace_manager;
+              workspace_manager.singleton.debug_value_cache();\""
+
+            # is-enabled:
+            #   value: false
+            
+            # process:
+            #   value: subprocess
+
+            # delay:
+            #   value: 1      
+
+    clean:
+      # is-enabled:
+      #   value: true
+
+      exclude:
+        targets:
+          - full-path: ${{ current-root-full-path }}/other
+          - full-path: ${{ current-root-full-path }}/.github  
+
+      include:
+        targets:
+          root:
+            - full-path: ${{ current-root-full-path }}/workspace/private/temporary/intermediate
+
+  # time:
+  #   zone:
+  #     value: utc
+
+  # log:
+    # is-enabled:
+    #   value: true
+    #   is-override: false
+      
+    # is-verbose: 
+    #   value: true
+    #   is-override: false
+      
+    # file:
+      # is-enabled:
+      #   value: true
+
+      # is-verbose: 
+      #   value: true
+
+      # targets:
+      #   - full-path: ${{ current-root-full-path }}/workspace/private/temporary/log/${{ current-date }}.log            
+
+    # console:
+      # is-enabled:
+      #   value: true
+
+      # is-verbose: 
+      #   value: false
+
+  macros:  
+    file:
+      targets:
+        main-author-full-name:
+          value: Vaughn Cedric L. Araneta
+
+        main-author-base-email:
+          value: vaughncedriclipardoaraneta@gmail.com
+        
+        main-company-display-name:
+          value: QLogicae
+
+        main-company-base-name:
+          value: qlogicae
+        
+        main-company-base-logo-filesystem-path:
+          value: ./project/asset/${{ main-company-base-name }}1.png
+
+metadata:
+
+
+
+
+# typescript-account-login:
+#   enter-full-path: ${{ current-main-full-path }}/selection/typescript
+#   commands:
+#     - run: npm login
+
+# rust-account-login:
+#   enter-full-path: ${{ current-root-selection-full-path }}/rust
+#   commands:
+#     - run: cargo login ${{ rust-cargo-io-api-key }}
+
+
+
+# typescript-toolset-verify:
+#   enter-full-path: ${{ current-root-selection-full-path }}/typescript
+#   commands:
+#     - run: docker --version
+#     - run: git --version
+#     - run: gh --version
+#     - run: node --version
+#     - run: fnm --version
+#     - run: npm --version
+#     - run: bun --version
+#     - run: bunx corepack --version
+#     - run: bunx pnpm --version
+#     - run: bunx yarn --version
+
+# rust-toolset-verify:
+#   enter-full-path: ${{ current-root-selection-full-path }}/rust
+#   commands:
+#     - run: rustc --version
+#     - run: rustup --version
+#     - run: cargo --version
+#     - run: cargo fmt --version
+#     - run: cargo clippy --version
+#     - run: cargo nextest --version
+#     - run: cargo audit --version
+#     - run: rustup target list
+
+
+
+# typescript-test-unit:
+#   enter-full-path: ${{ current-root-selection-full-path }}/typescript
+#   commands:
+#     - run: bun run test:unit
+
+# rust-test-unit:
+#   enter-full-path: ${{ current-root-selection-full-path }}/rust
+#   commands:
+#     - run: cargo test-unit
+
+
+
+# typescript-test-benchmark:
+#   enter-full-path: ${{ current-root-selection-full-path }}/typescript
+#   commands:
+#     - run: bun run test:benchmark
+
+# rust-test-benchmark:
+#   enter-full-path: ${{ current-root-selection-full-path }}/rust
+#   commands:
+#     - run: echo "rust-test-benchmark"
+
+
+
+# typescript-format:
+#   enter-full-path: ${{ current-root-selection-full-path }}/typescript
+#   commands:
+#     - run: bun run format
+
+# rust-format:
+#   enter-full-path: ${{ current-root-selection-full-path }}/rust
+#   commands:
+#     - run: cargo format-check
+#     - run: cargo format-write
+
+
+
+# typescript-lint:
+#   enter-full-path: ${{ current-root-selection-full-path }}/typescript
+#   commands:
+#     - run: bun run lint
+
+# rust-lint:
+#   enter-full-path: ${{ current-root-selection-full-path }}/rust
+#   commands:
+#     - run: cargo lint
+
+
+
+# typescript-build:
+#   enter-full-path: ${{ current-root-selection-full-path }}/typescript
+
+#   commands:
+#     - run: bun run build
+
+# rust-build:
+#   enter-full-path: ${{ current-root-selection-full-path }}/rust
+
+#   commands:
+#     - run: cargo build-debug
+#     - run: cargo build-release
+
+
+
+# typescript-setup:
+#   enter-full-path: ${{ current-root-selection-full-path }}/typescript
+#   commands:
+#     - run: bun install
+
+# rust-setup:
+#   enter-full-path: ${{ current-root-selection-full-path }}/rust
+#   commands:
+#     - run: echo "rust-setup"
+
+
+
+# typescript-update:
+#   enter-full-path: ${{ current-root-selection-full-path }}/typescript
+#   commands:
+#     - run: bun update
+
+# rust-update:
+#   enter-full-path: ${{ current-root-selection-full-path }}/rust
+#   commands:
+#     - run: cargo update
+
+
+
+# typescript-deploy-check:
+#   enter-full-path: ${{ current-root-selection-full-path }}/typescript
+#   commands:
+#     - run: bun run deploy:check
+
+# rust-deploy-check:
+#   enter-full-path: ${{ current-root-selection-full-path }}/rust
+#   commands:
+#     - run: cargo deploy-inspect
+#     - run: cargo deploy-check
+
+
+
+# typescript-deploy:
+#   enter-full-path: ${{ current-root-selection-full-path }}/typescript
+#   commands:
+#     - run: bun run workflow:deploy
+
+# rust-deploy:
+#   enter-full-path: ${{ current-root-selection-full-path }}/rust
+#   commands:
+#     - run: cargo workflow-deploy
+
+
+# git-hotfix:
+#   enter-full-path: ${{ current-root-full-path }}
+#   commands:
+#     - run: git add .
+#     - run: git commit -m 'hotfix'
+#     - run: git push origin
+

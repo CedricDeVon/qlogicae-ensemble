@@ -1,0 +1,27 @@
+data:
+  selection:
+    project:
+      targets:
+        qlogicae-cor-python:
+          full-path: ${{ current-root-selection-full-path }}/qlogicae-cor/python
+
+  script:
+    targets:      
+      qlogicae-cor-python-deploy:
+        enter-full-path: ${{ current-root-selection-full-path }}/qlogicae-cor/python
+        commands:
+          - run: git add .
+          - run: git commit -m "deployment attempt"
+          - run: git tag ${{ qlogicae-cor-python-current-version-label }}
+          - run: qlogicae-cor-deploy
+
+  macros:  
+    file:
+      targets:
+        qlogicae-cor-python-current-version-number:
+          value: 1.0.9
+
+        qlogicae-cor-python-current-version-label:
+          value: python-v${{ qlogicae-cor-python-current-version-number }}
+
+metadata:

@@ -1,0 +1,43 @@
+data:
+  selection:
+    project:
+      targets:
+        qlogicae-ensemble:
+          full-path: ${{ current-root-selection-full-path }}/qlogicae-ensemble
+
+  script:
+    targets:      
+      qlogicae-ensemble-deploy:
+        enter-full-path: ${{ current-root-selection-full-path }}/qlogicae-ensemble
+        commands:
+          - run: git add .
+          - run: git commit -m "deployment attempt"
+          - run: git tag ${{ qlogicae-ensemble-current-version-label }}
+          - run: git push
+          - run: git push --tags
+
+  macros:  
+    file:
+      targets:
+        qlogicae-ensemble-display-brand-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-ensemble-display-project-name }}
+
+        qlogicae-ensemble-base-brand-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-ensemble-base-project-name }}
+
+        qlogicae-ensemble-display-project-name:
+          value: Ensemble
+
+        qlogicae-ensemble-base-project-name:
+          value: ensemble
+
+        qlogicae-ensemble-base-description:
+          value: The QLogicae workspace
+
+        qlogicae-ensemble-current-version-number:
+          value: 1.0.3
+
+        qlogicae-ensemble-current-version-label:
+          value: v${{ qlogicae-ensemble-current-version-number }}
+
+metadata:
