@@ -5,23 +5,27 @@ data:
         qlogicae-cor-rust:
           full-path: ${{ current-root-selection-full-path }}/qlogicae-cor/rust
 
-  script:
-    targets:      
-      qlogicae-cor-rust-deploy:
-        enter-full-path: ${{ current-root-selection-full-path }}/qlogicae-cor/rust
-        commands:
-          - run: cargo build-release
-          - run: cargo workflow-deploy
-          - run: git add .
-          - run: git commit -m "deployment attempt"
-          - run: git tag ${{ qlogicae-cor-rust-current-version-label }}
-          - run: qlogicae-cor-deploy
+  # script:
+  #   targets:      
+  #     qlogicae-cor-rust-deploy:
+  #       enter-full-path:
+  #         value: ${{ current-root-selection-full-path }}/qlogicae-cor/rust
+          
+  #       commands:
+  #         - run: cargo build-release
+  #         - run: cargo workflow-deploy
+  #         - run: git add .
+  #         - run: git commit -m "deployment attempt"
+  #         - run: git tag ${{ qlogicae-cor-rust-current-version-label }}
+  #         - run: git push
+  #         - run: git push --tags
+  #         # - run: qlogicae-cor-deploy
 
   macros:  
     file:
       targets:
         qlogicae-cor-rust-current-version-number:
-          value: 1.0.3
+          value: 1.0.4
 
         qlogicae-cor-rust-current-version-label:
           value: rust-v${{ qlogicae-cor-rust-current-version-number }}

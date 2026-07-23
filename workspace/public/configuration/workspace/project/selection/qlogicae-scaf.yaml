@@ -5,16 +5,18 @@ data:
         qlogicae-scaf:
           full-path: ${{ current-root-selection-full-path }}/qlogicae-scaf
 
-  script:
-    targets:      
-      qlogicae-scaf-deploy:
-        enter-full-path: ${{ current-root-selection-full-path }}/qlogicae-scaf
-        commands:
-          - run: git add .
-          - run: git commit -m "deployment attempt"
-          - run: git tag ${{ qlogicae-scaf-current-version-label }}
-          - run: git push
-          - run: git push --tags
+  # script:
+  #   targets:      
+  #     qlogicae-scaf-deploy:
+  #       enter-full-path:
+  #         value: ${{ current-root-selection-full-path }}/qlogicae-scaf
+          
+  #       commands:
+  #         - run: git add .
+  #         - run: git commit -m "deployment attempt"
+  #         - run: git tag ${{ qlogicae-scaf-current-version-label }}
+  #         - run: git push
+  #         - run: git push --tags
 
   macros:  
     file:

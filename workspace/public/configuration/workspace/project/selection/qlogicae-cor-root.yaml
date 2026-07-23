@@ -1,3 +1,41 @@
 data:
+  selection:
+    project:
+      targets:
+        qlogicae-cor-root:
+          full-path: ${{ current-root-selection-full-path }}/qlogicae-cor
+
+  # script:
+  #   targets:      
+  #     qlogicae-cor-deploy:
+  #       enter-full-path:
+  #         value: ${{ current-root-selection-full-path }}/qlogicae-cor
+          
+  #       commands:
+  #         - run: git add .
+  #         - run: git commit -m "deployment attempt"
+  #         - run: git push
+  #         - run: git push --tags
+
+  macros:  
+    file:
+      targets:
+        qlogicae-cor-display-brand-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-cor-display-project-name }}
+
+        qlogicae-cor-base-brand-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-cor-base-project-name }}
+
+        qlogicae-cor-display-project-name:
+          value: Cor
+
+        qlogicae-cor-base-project-name:
+          value: cor
+
+        qlogicae-cor-base-description:
+          value: The core library for QLogicae projects
+
+        qlogicae-cor-base-repository-link:
+          value: https://github.com/CedricDeVon/qlogicae-cor
 
 metadata:

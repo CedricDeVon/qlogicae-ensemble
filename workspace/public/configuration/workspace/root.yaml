@@ -1,86 +1,243 @@
 data:
   selection:
-    # is-enabled:
-    #   value: true
-    #   is-override: false
+    default:
+      is-default-included:
+        value: true
 
-  script:
-    # is-enabled:
-    #   value: true
-    #   is-override: false
+  #       group-1:
+  #         targets:
+  #           projec1-1:
+  #           projec1-2:
 
-    # process:
-    #   value: shell
-    #   is-override: false
+  # project:
+  #   targets:
+  #     qlogicae-root:
+  #       full-path: ${{ current-root-selection-full-path }}
 
-    # delay:
-    #   value: 1
+  #       project-2:
+  #         full-path: ${{ current-root-selection-full-path }}/project-2
 
-    targets:      
-      value-cache-debug:
-        # is-enabled:
-        #   value: true
-        #   is-override: false
-        enter-full-path: ${{ current-root-full-path }}/workspace/public/toolset/qlogicae-logis
+      
+  workflow:
+    is-enabled:
+      value: true
+
+    selection:      
+      qlogicae-ensemble-build:
+        enter-full-path:
+          value: ${{ current-root-full-path }}
+
         commands:
-          - run: "python3 -c \"
-              from qlogicae_logis.v1 import workspace_manager;
-              workspace_manager.singleton.debug_value_cache();\""
+          - run:
+              value: "cp -r ${{ current-root-full-path }}/workspace ${{ current-root-full-path }}/selection/qlogicae-ensemble/workspace"
+              
 
-            # is-enabled:
-            #   value: false
+      qlogicae-logis-build:
+        enter-full-path:
+          value: ${{ current-root-full-path }}
+
+        commands:
+          - run:
+              value: command-template-apply
+
+            argument:
+              targets:
+                - qlogicae-logis-complex
+
+          - run:
+              value: "cp -r ${{ current-root-full-path }}/qlogicae_logis ${{ current-root-full-path }}/selection/qlogicae-logis/qlogicae_logis"
+              
+          - run:
+              value: "cp -r ${{ current-root-full-path }}/test ${{ current-root-full-path }}/selection/qlogicae-logis/test"
             
-            # process:
-            #   value: subprocess
 
-            # delay:
-            #   value: 1      
 
-    clean:
-      # is-enabled:
-      #   value: true
+      value-cache-debug:
+        is-enabled:
+          value: true
 
-      exclude:
-        targets:
-          - full-path: ${{ current-root-full-path }}/other
-          - full-path: ${{ current-root-full-path }}/.github  
+        delay:
+          value: 0
 
-      include:
-        targets:
-          root:
-            - full-path: ${{ current-root-full-path }}/workspace/private/temporary/intermediate
+        process:
+          value: shell
+          override: false
+    
+        enter-full-path:
+          value: ${{ current-root-full-path }}
+
+        commands:
+          - run:
+              value: command-template-apply
+
+            argument:
+              targets:
+                - all
+
+            is-enabled:
+              value: true
+
+            process:
+              value: subprocess
+
+            delay:
+              value: 2
+
+          - run:
+              value: "python3 -c \"
+                from qlogicae_logis.v1 import workspace_manager;
+                workspace_manager.singleton.debug_value_cache();\""
+
+
+
+      # python-demo:
+      #   enter-full-path:
+      #     value: ${{ current-root-full-path }}/aa
+          
+      #   commands:
+      #     # - run: "python3 -m venv .venv"
+      #     #   process:
+      #     #     value: shell
+      #     - run: "python3 -m venv .venv && . .venv/bin/activate && pip list"
+      #       process:
+      #         value: shell
+
+
+  command:
+    template:
+      is-enabled:
+        value: true
+
+      cleanup:
+        is-enabled:
+          value: true
+
+  #   clean:
+  #     is-enabled:
+  #       value: true
+
+  #     default:
+  #       exclude:
+  #         is-enabled:
+  #           value: true
+
+  #     exclude:
+  #       targets:
+  #         - full-path: ${{ current-root-full-path }}/other
+  #         - full-path: ${{ current-root-full-path }}/.github  
+
+  #     include:
+  #       targets:
+  #         root:
+  #           - full-path: ${{ current-root-full-path }}/workspace/private/temporary
+
+
+    # export:
+    #   is-enabled:
+    #     value: true
+
+    #   cleanup:
+    #     is-enabled:
+    #       value: true
+
+    #   default:
+    #     filesystem-input:
+    #       is-enabled:
+    #         value: true
+
+    #     group:
+    #       is-enabled:
+    #         value: true
+
+    #     selection:
+    #       is-enabled:
+    #         value: true
+
+    #   group:
+    #     group-1:
+    #       is-enabled:
+    #         value: true
+
+    #       selection:
+    #         workspace-1:
+
+    #   selection:
+    #     workspace-1:
+    #       is-enabled:
+    #         value: true
+
+    #       input:    
+    #         root-path:
+    #           value: ${{ current-root-full-path }}
+
+    #         targets:
+    #           - relative-path: project.code-workspace
+
+    #       output:
+    #         full-path: ${{ current-root-full-path }}
+
+    #       compression:
+    #         format:
+    #           value: zip
+
+    #         type:
+    #           value: deflated
+
+    #         level:
+    #           value: 6
+
+    #         is-zip-64-allowed:
+    #           value: true
+
+    #         is-timestamp-strict:
+    #           value: true
+
+
 
   # time:
   #   zone:
-  #     value: utc
+  #     value: local
+
+
 
   # log:
-    # is-enabled:
-    #   value: true
-    #   is-override: false
+  #   is-enabled:
+  #     value: true
+  #     override: false
       
-    # is-verbose: 
-    #   value: true
-    #   is-override: false
-      
-    # file:
-      # is-enabled:
-      #   value: true
+  #   is-verbose: 
+  #     value: true
+  #     override: false
 
-      # is-verbose: 
-      #   value: true
+  #   file:
+  #     is-default-included:
+  #       value: true
 
-      # targets:
-      #   - full-path: ${{ current-root-full-path }}/workspace/private/temporary/log/${{ current-date }}.log            
+  #     is-enabled:
+  #       value: true
 
-    # console:
-      # is-enabled:
-      #   value: true
+  #     is-verbose: 
+  #       value: true
 
-      # is-verbose: 
-      #   value: false
+  #     targets:
+  #       - full-path: ${{ current-root-full-path }}/workspace/private/temporary/log/${{ current-date }}.log            
 
-  macros:  
+  #   console:
+  #     is-enabled:
+  #       value: true
+
+  #     is-verbose: 
+  #       value: false
+
+  macros:
+    # default:
+    #   value-cache:
+    #     is-enabled:
+    #       value: true
+
+    # value-cache:
+    #   targets:
+
     file:
       targets:
         main-author-full-name:

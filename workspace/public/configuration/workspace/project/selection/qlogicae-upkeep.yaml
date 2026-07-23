@@ -5,16 +5,18 @@ data:
         qlogicae-upkeep:
           full-path: ${{ current-root-selection-full-path }}/qlogicae-upkeep
 
-  script:
-    targets:      
-      qlogicae-upkeep-deploy:
-        enter-full-path: ${{ current-root-selection-full-path }}/qlogicae-upkeep
-        commands:
-          - run: git add .
-          - run: git commit -m "deployment attempt"
-          - run: git tag ${{ qlogicae-upkeep-current-version-label }}
-          - run: git push
-          - run: git push --tags
+  # script:
+  #   targets:      
+  #     qlogicae-upkeep-deploy:
+  #       enter-full-path:
+  #         value: ${{ current-root-selection-full-path }}/qlogicae-upkeep
+          
+  #       commands:
+  #         - run: git add .
+  #         - run: git commit -m "deployment attempt"
+  #         - run: git tag ${{ qlogicae-upkeep-current-version-label }}
+  #         - run: git push
+  #         - run: git push --tags
 
   macros:  
     file:

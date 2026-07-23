@@ -5,17 +5,19 @@ data:
         qlogicae-ensemble:
           full-path: ${{ current-root-selection-full-path }}/qlogicae-ensemble
 
-  script:
-    targets:      
-      qlogicae-ensemble-deploy:
-        enter-full-path: ${{ current-root-selection-full-path }}/qlogicae-ensemble
-        commands:
-          - run: git add .
-          - run: git commit -m "deployment attempt"
-          - run: git tag ${{ qlogicae-ensemble-current-version-label }}
-          - run: git push
-          - run: git push --tags
+  workflow:
+    is-enabled:
+      value: true
 
+    selection:      
+      qlogicae-ensemble-build:
+        enter-full-path:
+          value: ${{ current-root-full-path }}
+
+        commands:
+          - run:
+              value: "cp -r ${{ current-root-full-path }}/workspace ${{ current-root-full-path }}/selection/qlogicae-ensemble"
+              
   macros:  
     file:
       targets:
@@ -35,7 +37,7 @@ data:
           value: The QLogicae workspace
 
         qlogicae-ensemble-current-version-number:
-          value: 1.0.3
+          value: 1.0.4
 
         qlogicae-ensemble-current-version-label:
           value: v${{ qlogicae-ensemble-current-version-number }}

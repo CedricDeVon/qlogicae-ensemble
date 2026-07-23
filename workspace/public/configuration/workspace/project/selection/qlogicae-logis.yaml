@@ -5,16 +5,28 @@ data:
         qlogicae-logis:
           full-path: ${{ current-root-selection-full-path }}/qlogicae-logis
 
-  script:
-    targets:      
-      qlogicae-logis-deploy:
-        enter-full-path: ${{ current-root-selection-full-path }}/qlogicae-logis
-        commands:
-          - run: git add .
-          - run: git commit -m "deployment attempt"
-          - run: git tag ${{ qlogicae-logis-current-version-label }}
-          - run: git push
-          - run: git push --tags
+  # script:
+  #   targets:      
+  #     qlogicae-logis-build:
+  #       enter-full-path:
+  #         value: ${{ current-root-full-path }}
+
+  #       commands:
+  #         - run: cp -r ${{ current-root-full-path }}/qlogicae_logis ${{ current-root-selection-full-path }}/qlogicae-logis
+  #         # - run: cp ${{ current-root-selection-full-path }}/qlogicae-logis/pyproject.toml ${{ current-root-full-path }}/pyproject.toml
+  #         # - run: cp ${{ current-root-selection-full-path }}/qlogicae-logis/requirements.txt ${{ current-root-full-path }}/requirements.txt
+
+  #     qlogicae-logis-deploy:
+  #       enter-full-path:
+  #         value: ${{ current-root-selection-full-path }}/qlogicae-logis
+          
+  #       commands:
+  #         - run: qlogicae-logis-build
+  #         - run: git add .
+  #         - run: git commit -m "deployment attempt"
+  #         - run: git tag ${{ qlogicae-logis-current-version-label }}
+  #         - run: git push
+  #         - run: git push --tags
 
   macros:  
     file:
@@ -32,10 +44,10 @@ data:
           value: logis
 
         qlogicae-logis-base-description:
-          value: The project management tool for QLogicae projects
+          value: The project orchestration tool for QLogicae projects
 
         qlogicae-logis-current-version-number:
-          value: 1.0.4
+          value: 1.1.0
 
         qlogicae-logis-current-version-label:
           value: v${{ qlogicae-logis-current-version-number }}

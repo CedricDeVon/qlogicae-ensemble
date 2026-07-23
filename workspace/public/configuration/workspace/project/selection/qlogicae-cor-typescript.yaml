@@ -5,19 +5,21 @@ data:
         qlogicae-cor-typescript:
           full-path: ${{ current-root-selection-full-path }}/qlogicae-cor/typescript
 
-  script:
-    targets:      
-      qlogicae-cor-typescript-deploy:
-        enter-full-path: ${{ current-root-selection-full-path }}/qlogicae-cor/typescript
-        commands:
-          - run: bun run workflow:deploy
-          - run: qlogicae-cor-deploy
+  # script:
+  #   targets:      
+  #     qlogicae-cor-typescript-deploy:
+  #       enter-full-path:
+  #         value: ${{ current-root-selection-full-path }}/qlogicae-cor/typescript
+          
+  #       commands:
+  #         - run: bun run workflow:deploy
+  #         # - run: qlogicae-cor-deploy
 
   macros:  
     file:
       targets:
         qlogicae-cor-typescript-current-version-number:
-          value: 1.2.17
+          value: 1.2.18
 
         qlogicae-cor-typescript-current-version-label:
           value: typescript-v${{ qlogicae-cor-typescript-current-version-number }}

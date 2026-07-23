@@ -5,12 +5,14 @@ data:
         qlogicae-pondux:
           full-path: ${{ current-root-selection-full-path }}/qlogicae-pondux
 
-  script:
-    targets:      
-      qlogicae-pondux-deploy:
-        enter-full-path: ${{ current-root-selection-full-path }}/qlogicae-pondux
-        commands:
-          - run: bun run workflow:deploy
+  # script:
+  #   targets:      
+  #     qlogicae-pondux-deploy:
+  #       enter-full-path:
+  #         value: ${{ current-root-selection-full-path }}/qlogicae-pondux
+          
+  #       commands:
+  #         - run: bun run workflow:deploy
 
   macros:  
     file:
@@ -31,7 +33,7 @@ data:
           value: The cli for QLogicae projects
 
         qlogicae-pondux-current-version-number:
-          value: 0.1.7
+          value: 0.1.8
 
         qlogicae-pondux-current-version-label:
           value: v${{ qlogicae-pondux-current-version-number }}
