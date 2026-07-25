@@ -1,8 +1,8 @@
 data:
-  selection:
-    default:
-      is-default-included:
-        value: true
+  # selection:
+  #   default:
+  #     is-default-included:
+  #       value: true
 
   #       group-1:
   #         targets:
@@ -17,41 +17,11 @@ data:
   #       project-2:
   #         full-path: ${{ current-root-selection-full-path }}/project-2
 
-      
   workflow:
     is-enabled:
       value: true
 
     selection:      
-      qlogicae-ensemble-build:
-        enter-full-path:
-          value: ${{ current-root-full-path }}
-
-        commands:
-          - run:
-              value: "cp -r ${{ current-root-full-path }}/workspace ${{ current-root-full-path }}/selection/qlogicae-ensemble/workspace"
-              
-
-      qlogicae-logis-build:
-        enter-full-path:
-          value: ${{ current-root-full-path }}
-
-        commands:
-          - run:
-              value: command-template-apply
-
-            argument:
-              targets:
-                - qlogicae-logis-complex
-
-          - run:
-              value: "cp -r ${{ current-root-full-path }}/qlogicae_logis ${{ current-root-full-path }}/selection/qlogicae-logis/qlogicae_logis"
-              
-          - run:
-              value: "cp -r ${{ current-root-full-path }}/test ${{ current-root-full-path }}/selection/qlogicae-logis/test"
-            
-
-
       value-cache-debug:
         is-enabled:
           value: true
@@ -61,6 +31,10 @@ data:
 
         process:
           value: shell
+          override: true
+
+        is_atomic:
+          value: true
           override: false
     
         enter-full-path:
@@ -80,6 +54,9 @@ data:
             process:
               value: subprocess
 
+            is_atomic:
+              value: true
+
             delay:
               value: 2
 
@@ -87,8 +64,6 @@ data:
               value: "python3 -c \"
                 from qlogicae_logis.v1 import workspace_manager;
                 workspace_manager.singleton.debug_value_cache();\""
-
-
 
       # python-demo:
       #   enter-full-path:
@@ -102,34 +77,37 @@ data:
       #       process:
       #         value: shell
 
-
   command:
-    template:
-      is-enabled:
-        value: true
-
-      cleanup:
-        is-enabled:
-          value: true
-
-  #   clean:
+  #   template:
   #     is-enabled:
   #       value: true
 
-  #     default:
-  #       exclude:
-  #         is-enabled:
-  #           value: true
+  #     cleanup:
+  #       is-enabled:
+  #         value: true
 
-  #     exclude:
-  #       targets:
-  #         - full-path: ${{ current-root-full-path }}/other
-  #         - full-path: ${{ current-root-full-path }}/.github  
+    filesystem:
+      clean:
+        is-enabled:
+          value: true
 
-  #     include:
-  #       targets:
-  #         root:
-  #           - full-path: ${{ current-root-full-path }}/workspace/private/temporary
+        default:
+          exclude:
+            is-enabled:
+              value: true
+
+        exclude:
+          targets:
+            - full-path: ${{ current-root-full-path }}/other
+            - full-path: ${{ current-root-full-path }}/.github  
+            - full-path: ${{ current-root-full-path }}/.venv
+            - full-path: ${{ current-root-full-path }}/project
+            - full-path: ${{ current-root-full-path }}/qlogicae_logis
+
+        include:
+          targets:
+            root:
+              - full-path: ${{ current-root-full-path }}/workspace/private/temporary
 
 
     # export:

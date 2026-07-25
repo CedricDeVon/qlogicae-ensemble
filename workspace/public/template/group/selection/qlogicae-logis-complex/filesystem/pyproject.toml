@@ -30,7 +30,17 @@ classifiers = [
     "Topic :: System :: Systems Administration",
     "Topic :: Utilities",
 ]
-dependencies = []
+dependencies = [
+    "pydantic>=2.13,<3",
+    "pyfiglet>=1.0.4,<2",
+    "PyYAML>=6.0,<7",
+    "qlogicae-cor>=1.0.8,<2",
+    "rich>=15,<16",
+    "textual>=8,<9",
+    "typer>=0.26,<1",
+    "tomli_w>=1.2.0,<2",
+    "tomlkit>=0.15.0,<1"
+]
 
 
 [project.optional-dependencies]
@@ -47,9 +57,8 @@ dev = [
     "pympler"
 ]
 
-
 [project.scripts]
-qlogicae-logis = "qlogicae_logis.v1.cli.app:main"
+qlogicae-logis = "${{ qlogicae-logis-source-brand-name }}.v1.cli.app:main"
 
 
 [project.urls]
@@ -67,15 +76,38 @@ build-backend = "hatchling.build"
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
-testpaths = ["./test/unit"]
+testpaths = ["./test/${{ qlogicae-logis-source-brand-name }}/v1/unit"]
 python_files = ["test_*.py"]
 addopts = "-ra"
 
 
 [tool.coverage.run]
-source = ["qlogicae_logis"]
+source = [
+    "${{ qlogicae-logis-source-brand-name }}.v1.value_cache_storage_manager",
+    "${{ qlogicae-logis-source-brand-name }}.v1.macros_manager",
+    "${{ qlogicae-logis-source-brand-name }}.v1.object_merge_manager",
+]
 branch = true
 
+
+[tool.hatch.build]
+include = [
+    "LICENSE",
+    "README.md",
+    "SECURITY.md",
+    "project/**/*",
+    "qlogicae_logis/**/*",
+]
+exclude = [
+    "**/__pycache__",
+    "**/*.pyc",
+    "test",
+    ".github",
+    ".gitignore",
+    ".vscode",
+    "requirements.txt",
+    "output",
+]
 
 [tool.coverage.report]
 show_missing = true
@@ -137,38 +169,60 @@ skip-magic-trailing-comma = false
 
 
 [tool.hatch.envs.default.scripts]
-typecheck ="""
-    mypy
-"""
 lint = """
-    ruff check . --fix
+    ruff check ${{ qlogicae-logis-source-brand-name }} --fix
 """
-format = """
-    ruff format .
+test-unit = """
+    pytest -vv \
+        --cov \
+        --cov-branch \
+        --cov-report=term-missing \
+        --cov-report=html:\"${{ qlogicae-logis-output-test-unit-relative-path }}/html\" \
+        --cov-report=xml:\"${{ qlogicae-logis-output-test-unit-relative-path }}/coverage.xml\" \
+        --cov-report=json:\"${{ qlogicae-logis-output-test-unit-relative-path }}/coverage.json\" \
+        --junitxml=\"${{ qlogicae-logis-output-test-unit-relative-path }}/junit.xml\" \
 """
-deploy-check = """
-    twine check ./output/build/*
+test-benchmark-memory-usage-create = """
+    scalene run --html --outfile ${{ qlogicae-logis-output-test-benchmark-relative-path }}/scalene.html test/qlogicae_logis/v1/benchmark/test_full_setup_memory_usage.py ;
+    memray run -o ${{ qlogicae-logis-output-test-benchmark-relative-path }}/memray.bin -m test.qlogicae_logis.v1.benchmark.test_full_setup_memory_usage
 """
-clean-build = """
-    rm -rf ./output/build &&
-    mkdir -p ./output/build
+test-benchmark-memory-usage-view = """
+    scalene view ${{ qlogicae-logis-output-test-benchmark-relative-path }}/scalene.json
+    memray tree ${{ qlogicae-logis-output-test-benchmark-relative-path }}/memray.bin
 """
-clean-test = """
-    rm -rf ./output/test &&
-    mkdir -p ./output/test
+test-pip-deployment = """
+    twine check ${{ qlogicae-logis-output-build-release-relative-path }}/dist/*
 """
-build = """
-    hatch run clean-build &&
-    hatch build &&
-    mv dist/* ./output/build
+deploy = """
+    twine upload ${{ qlogicae-logis-output-build-release-relative-path }}/dist/* --config-file .pypirc
 """
-workflow-deploy-check = """
-    hatch run build &&
-    hatch run typecheck &&
-    hatch run lint &&
-    hatch run format &&
-    hatch run deploy-check
+
+
+github-workflow-setup = """
+    mkdir -p ${{ qlogicae-logis-output-build-release-relative-path }} &&
+    mkdir -p ${{ qlogicae-logis-output-test-unit-relative-path }} &&
+    mkdir -p ${{ qlogicae-logis-output-test-benchmark-relative-path }}
 """
+github-workflow-lint = """
+    hatch run github-workflow-setup &&
+    hatch run lint
+"""
+github-workflow-test-unit = """
+    hatch run github-workflow-setup &&
+    hatch run test-unit
+"""
+github-workflow-test-benchmark-memory-usage-create = """
+    hatch run github-workflow-setup &&
+    hatch run test-benchmark-memory-usage-create
+"""
+github-workflow-test-benchmark-memory-usage-view = """
+    hatch run github-workflow-setup &&
+    hatch run test-benchmark-memory-usage-view
+"""
+
+
+
+
 workflow-deploy = """
     hatch run build &&
     hatch run typecheck &&
@@ -176,29 +230,3 @@ workflow-deploy = """
     hatch run format &&
     twine upload ./output/build/* --config-file .pypirc --verbose
 """
-workflow-test-unit = """
-OUTPUT_PATH="output/test/unit/$(date -u +%Y%m%dT%H%M%S-%NZ)" &&
-mkdir -p "$OUTPUT_PATH" &&
-pytest -vv \
-  --cov=qlogicae_logis \
-  --cov-branch \
-  --cov-report=term-missing \
-  --cov-report=html:"$OUTPUT_PATH/html" \
-  --cov-report=xml:"$OUTPUT_PATH/coverage.xml" \
-  --cov-report=json:"$OUTPUT_PATH/coverage.json" \
-  --junitxml="$OUTPUT_PATH/junit.xml"
-"""
-
-
-
-# [tool.mypy]
-# files = ["library"]
-# strict = true
-# python_version = "3.12"
-# namespace_packages = true
-# explicit_package_bases = true
-# show_error_codes = true
-# pretty = true
-# color_output = true
-# show_column_numbers = true
-# show_error_context = true

@@ -12,7 +12,7 @@
   <p style="font-style: italic;">The QLogicae workspace</p>
 <div style="margin: 32px 64px;">
 
-![Version](https://img.shields.io/badge/Version-1.0.4-blue)
+![Version](https://img.shields.io/badge/Version-1.1.0-blue)
 ![License: MIT](https://img.shields.io/badge/License-MIT-red)
 
   </div>
