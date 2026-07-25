@@ -232,7 +232,7 @@ data:
           value: The project orchestration tool for QLogicae projects
 
         qlogicae-logis-current-version-number:
-          value: 1.1.11
+          value: 1.1.14
 
         qlogicae-logis-current-version-label:
           value: v${{ qlogicae-logis-current-version-number }}

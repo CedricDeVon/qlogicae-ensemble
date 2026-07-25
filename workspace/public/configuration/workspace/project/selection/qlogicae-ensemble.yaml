@@ -28,6 +28,7 @@ data:
               target_paths:
                 - ${{ qlogicae-ensemble-selection-project-full-path }}/workspace
 
+
       qlogicae-ensemble-git-deployment:
         enter-full-path:
           value: ${{ qlogicae-ensemble-selection-project-full-path }}
@@ -37,10 +38,13 @@ data:
               value: git add .
 
           - run:
-              value: git commit -m "deployment attempt of '${{ qlogicae-ensemble-current-version-label }}'"
+              value: git commit -m "'workspace' content sync"
 
-          - run:
-              value: git tag -a ${{ qlogicae-ensemble-current-version-label }} -m "deployment attempt of '${{ qlogicae-ensemble-current-version-label }}'"
+          # - run:
+          #     value: git commit -m "deployment attempt of '${{ qlogicae-ensemble-current-version-label }}'"
+
+          # - run:
+          #     value: git tag -a ${{ qlogicae-ensemble-current-version-label }} -m "deployment attempt of '${{ qlogicae-ensemble-current-version-label }}'"
 
           - run:
               value: git push
@@ -48,6 +52,7 @@ data:
           - run:
               value: git push --tags
   
+
       qlogicae-ensemble:
         enter-full-path:
           value: ${{ qlogicae-ensemble-selection-project-full-path }}
