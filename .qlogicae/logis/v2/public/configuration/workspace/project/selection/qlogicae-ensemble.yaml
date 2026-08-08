@@ -1,0 +1,94 @@
+data:
+  selection:
+    project:
+      targets:
+        qlogicae-ensemble:
+          filesystem-path: ${{ qlogicae-ensemble-selection-project-filesystem-path }}
+
+  workflow:
+    is-enabled:
+      value: true
+
+    selection:      
+      qlogicae-ensemble-build:
+        enter-filesystem-path:
+          value: ${{ root-filesystem-path }}
+
+        commands:
+          - run:
+              value: command-template-apply        
+            argument:
+              targets:
+                - ${{ qlogicae-ensemble-base-brand-name }}
+
+          - run:
+              value: command-filesystem-copy          
+            argument:
+              source_path: ${{ root-filesystem-path }}/workspace
+              target_paths:
+                - ${{ qlogicae-ensemble-selection-project-filesystem-path }}/workspace
+
+
+      qlogicae-ensemble-git-deployment:
+        enter-filesystem-path:
+          value: ${{ qlogicae-ensemble-selection-project-filesystem-path }}
+
+        commands:
+          - run:
+              value: git add .
+
+          - run:
+              value: git commit -m "'workspace' content sync"
+
+          # - run:
+          #     value: git commit -m "deployment attempt of '${{ qlogicae-ensemble-current-version-label }}'"
+
+          # - run:
+          #     value: git tag -a ${{ qlogicae-ensemble-current-version-label }} -m "deployment attempt of '${{ qlogicae-ensemble-current-version-label }}'"
+
+          - run:
+              value: git push
+
+          - run:
+              value: git push --tags
+  
+
+      qlogicae-ensemble:
+        enter-filesystem-path:
+          value: ${{ qlogicae-ensemble-selection-project-filesystem-path }}
+
+        commands:
+          - run:
+              value: qlogicae-ensemble-build
+
+          - run:
+              value: qlogicae-ensemble-git-deployment
+
+  macros:  
+    file:
+      targets:
+        qlogicae-ensemble-display-brand-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-ensemble-display-project-name }}
+
+        qlogicae-ensemble-base-brand-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-ensemble-base-project-name }}
+
+        qlogicae-ensemble-display-project-name:
+          value: Ensemble
+
+        qlogicae-ensemble-base-project-name:
+          value: ensemble
+
+        qlogicae-ensemble-base-description:
+          value: The QLogicae workspace
+
+        qlogicae-ensemble-current-version-number:
+          value: 1.1.0
+
+        qlogicae-ensemble-current-version-label:
+          value: v${{ qlogicae-ensemble-current-version-number }}
+
+        qlogicae-ensemble-selection-project-filesystem-path:
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-ensemble-base-brand-name }}
+
+metadata:

@@ -1,0 +1,27 @@
+data:
+  selection:
+    project:
+      targets:
+        qlogicae-cor-typescript:
+          filesystem-path: ${{ selection-filesystem-path }}/qlogicae-cor/typescript
+
+  # script:
+  #   targets:      
+  #     qlogicae-cor-typescript-deploy:
+  #       enter-filesystem-path:
+  #         value: ${{ selection-filesystem-path }}/qlogicae-cor/typescript
+          
+  #       commands:
+  #         - run: bun run workflow:deploy
+  #         # - run: qlogicae-cor-deploy
+
+  macros:  
+    file:
+      targets:
+        qlogicae-cor-typescript-current-version-number:
+          value: 1.2.18
+
+        qlogicae-cor-typescript-current-version-label:
+          value: typescript-v${{ qlogicae-cor-typescript-current-version-number }}
+
+metadata:
