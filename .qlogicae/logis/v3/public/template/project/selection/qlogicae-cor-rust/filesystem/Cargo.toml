@@ -1,0 +1,26 @@
+[package]
+name = "${{ qlogicae-cor-base-brand-name }}"
+version = "${{ qlogicae-cor-rust-current-version-number }}"
+edition = "2024"
+authors = ["${{ main-author-full-name }}"]
+description = "${{ qlogicae-cor-base-description }}"
+license = "MIT"
+repository = "${{ qlogicae-cor-base-repository-link }}"
+homepage = "${{ qlogicae-cor-base-repository-link }}"
+documentation = "${{ qlogicae-cor-base-repository-link }}"
+readme = "README.md"
+keywords = ["${{ main-company-base-name }}", "${{ qlogicae-cor-base-project-name }}"]
+categories = ["development-tools"]
+include = [
+    "project/**",
+    "src/**",
+    "Cargo.toml",
+    "Cargo.lock",
+    "README.md",
+    "LICENSE",
+]
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]

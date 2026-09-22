@@ -1,8 +1,13 @@
 data:
-  selection:
+  workspace:
     group:
-      targets:
+      selection:
         qlogicae-cor:
+          alias:
+            targets:
+              - name:
+                  value: ql-log.c
+
           targets:
             qlogicae-cor-root:
             qlogicae-cor-typescript:

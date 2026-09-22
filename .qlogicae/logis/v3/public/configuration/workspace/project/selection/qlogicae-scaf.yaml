@@ -1,0 +1,31 @@
+workspace:
+  project:
+    selection:
+      qlogicae-scaf:
+        filesystem-path:
+          value: ${{ selection-filesystem-path }}/qlogicae-scaf
+
+macros:  
+  static:
+    file:
+      targets:
+        qlogicae-scaf-display-brand-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-scaf-display-project-name }}
+
+        qlogicae-scaf-base-brand-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-scaf-base-project-name }}
+
+        qlogicae-scaf-display-project-name:
+          value: Scaf
+
+        qlogicae-scaf-base-project-name:
+          value: scaf
+
+        qlogicae-scaf-base-description:
+          value: The github project template for QLogicae projects
+
+        qlogicae-scaf-current-version-number:
+          value: 1.1.4
+
+        qlogicae-scaf-current-version-label:
+          value: v${{ qlogicae-scaf-current-version-number }}

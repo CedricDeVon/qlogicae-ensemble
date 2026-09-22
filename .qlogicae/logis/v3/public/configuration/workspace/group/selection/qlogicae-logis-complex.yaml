@@ -1,0 +1,10 @@
+workspace:
+  group:
+    selection:
+      qlogicae-logis-complex:
+        alias:
+          ql-log-c:
+
+        targets:
+          root:
+          qlogicae-logis:

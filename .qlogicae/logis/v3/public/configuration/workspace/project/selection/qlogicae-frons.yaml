@@ -1,0 +1,8 @@
+workspace:
+  project:
+    selection:
+      qlogicae-frons:
+        filesystem-path:
+          value: ${{ selection-filesystem-path }}/qlogicae-frons
+
+

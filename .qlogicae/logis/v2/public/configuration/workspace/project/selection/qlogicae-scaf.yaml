@@ -1,9 +1,10 @@
 data:
-  selection:
+  workspace:
     project:
-      targets:
+      selection:
         qlogicae-scaf:
-          filesystem-path: ${{ selection-filesystem-path }}/qlogicae-scaf
+          # filesystem-path:
+          #   value: ${{ selection-filesystem-path }}/qlogicae-scaf
 
   # script:
   #   targets:      

@@ -1,9 +1,10 @@
 data:
-  selection:
+  workspace:
     project:
-      targets:
+      selection:
         qlogicae-ensemble:
-          filesystem-path: ${{ qlogicae-ensemble-selection-project-filesystem-path }}
+          # filesystem-path:
+          #   value: ${{ qlogicae-ensemble-selection-project-filesystem-path }}
 
   workflow:
     is-enabled:
@@ -14,7 +15,7 @@ data:
         enter-filesystem-path:
           value: ${{ root-filesystem-path }}
 
-        commands:
+        scripts:
           - run:
               value: run_command_template_apply
             argument:
@@ -33,7 +34,7 @@ data:
         enter-filesystem-path:
           value: ${{ qlogicae-ensemble-selection-project-filesystem-path }}
 
-        commands:
+        scripts:
           - run:
               value: git add .
 
@@ -57,7 +58,7 @@ data:
         enter-filesystem-path:
           value: ${{ qlogicae-ensemble-selection-project-filesystem-path }}
 
-        commands:
+        scripts:
           - run:
               value: qlogicae-ensemble-build
 

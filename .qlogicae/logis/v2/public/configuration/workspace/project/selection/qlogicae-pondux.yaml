@@ -1,9 +1,10 @@
 data:
-  selection:
+  workspace:
     project:
-      targets:
+      selection:
         qlogicae-pondux:
-          filesystem-path: ${{ selection-filesystem-path }}/qlogicae-pondux
+          # filesystem-path:
+          #   value: ${{ selection-filesystem-path }}/qlogicae-pondux
 
   # script:
   #   targets:      

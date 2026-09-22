@@ -1,0 +1,12 @@
+workspace:
+  group:
+    selection:
+      qlogicae-cor:
+        alias:
+          ql-cor:
+
+        targets:
+          qlogicae-cor-root:
+          qlogicae-cor-typescript:
+          qlogicae-cor-python:
+          qlogicae-cor-rust:

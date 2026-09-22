@@ -1,9 +1,26 @@
 data:
+  workspace:
+    is-enabled:
+      value: true
+
   workflow:
     is-enabled:
       value: true
 
   command:
+    cache:
+      value-cache:
+        hide:
+          key-path:
+            selection:
+              targets:
+                - key:
+                    value: a.b.c
+
+            pattern:
+              targets:
+                - value: api
+
     template:
       is-enabled:
         value: true
@@ -31,8 +48,13 @@ data:
             - filesystem-path:
                 value: ${{ root-filesystem-path }}/.venv
 
+              os:
+                selection:
+                  linux:
+
             - filesystem-path:
                 value: ${{ root-filesystem-path }}/.github
+                
               pattern:        
                 value: "**/*"
 
@@ -46,19 +68,33 @@ data:
                 value: ${{ root-filesystem-path }}/qlogicae_logis
 
         include:
-          targets:
+          selection:
             root:
-              - filesystem-path:
-                  value: ${{ root-filesystem-path }}/workspace/private/temporary
+              alias:
+                targets:
+                  - name:
+                      value: ql
 
-                pattern:
-                  value: "**"
+              os:
+                selection:
+                  linux:
+
+              targets:
+                - filesystem-path:
+                    value: ${{ root-filesystem-path }}/workspace/private/temporary
+
+                  pattern:
+                    value: "**"
 
     export:
       is-enabled:
         value: true
 
       cleanup:
+        is-enabled:
+          value: true
+
+      asynchronous:
         is-enabled:
           value: true          
 
@@ -90,6 +126,11 @@ data:
 
       selection:
         workspace-1:
+          alias:
+            targets:
+              - name:
+                  value: ql
+
           is-enabled:
             value: true
 
@@ -99,7 +140,7 @@ data:
 
             targets:
               - filesystem-path:
-                  value: project.code-workspace
+                  value: project.code-workspace            
 
           output:
             filesystem-path:
@@ -157,6 +198,34 @@ data:
       is-verbose: 
         value: true
 
+  plugin:
+    is-enabled:
+      value: true
+      override: false
+
+    command:
+      is-enabled:
+        value: true
+
+    macros:
+      static:
+        is-enabled:
+          value: true
+
+      dynamic:
+        is-enabled:
+          value: true
+
+    import:
+      targets:
+        - filesystem-path:
+            value: ...
+
+    default:
+      import:
+        is-enabled:
+          value: true
+
   macros:
     default:
       pre-parse:
@@ -179,6 +248,11 @@ data:
         main-author-full-name:
           value: Vaughn Cedric L. Araneta
 
+          alias:
+            targets:
+              - name:
+                  value: author
+
         main-author-base-email:
           value: vaughncedriclipardoaraneta@gmail.com
         
@@ -191,4 +265,9 @@ data:
         main-company-base-logo-filesystem-path:
           value: ./project/asset/${{ main-company-base-name }}1.png
 
+    dynamic:
+      targets:
+        data: 
+
 metadata:
+  

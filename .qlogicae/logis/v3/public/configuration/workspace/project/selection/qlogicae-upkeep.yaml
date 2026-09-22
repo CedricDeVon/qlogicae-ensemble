@@ -1,0 +1,48 @@
+workspace:
+  project:
+    selection:
+      qlogicae-upkeep:
+        filesystem-path:
+          value: ${{ selection-filesystem-path }}/qlogicae-upkeep
+
+        # installation:
+        #   is-enabled:
+        #     value: true
+
+        #   delay:
+        #     value: 0
+
+        #   filesystem-path:
+        #     value: ${{ root-filesystem-path }}/a
+
+        #   scripts:
+        #     - run:
+        #         value: git clone https://github.com/CedricDeVon/LaboratoryExercise1.git
+
+macros:
+  static:
+    file:
+      targets:
+        qlogicae-upkeep-display-brand-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-upkeep-display-project-name }}
+
+        qlogicae-upkeep-base-brand-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-upkeep-base-project-name }}
+
+        qlogicae-upkeep-display-project-name:
+          value: Upkeep
+
+        qlogicae-upkeep-base-project-name:
+          value: upkeep
+
+        qlogicae-upkeep-base-description:
+          value: The personal budget application for V.C.A., deployed via Google's Looker Studio
+
+        qlogicae-upkeep-current-version-number:
+          value: 1.5.8
+
+        qlogicae-upkeep-current-version-label:
+          value: v${{ qlogicae-upkeep-current-version-number }}
+
+        qlogicae-upkeep-looker-studio-link:
+          value: https://datastudio.google.com/s/irbNNcZBEjw

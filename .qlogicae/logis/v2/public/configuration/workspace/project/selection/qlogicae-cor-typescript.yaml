@@ -1,9 +1,10 @@
 data:
-  selection:
+  workspace:
     project:
-      targets:
+      selection:
         qlogicae-cor-typescript:
-          filesystem-path: ${{ selection-filesystem-path }}/qlogicae-cor/typescript
+          filesystem-path:
+            value: ${{ selection-filesystem-path }}/qlogicae-cor/typescript
 
   # script:
   #   targets:      

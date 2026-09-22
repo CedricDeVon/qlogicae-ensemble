@@ -1,9 +1,10 @@
 data:
-  selection:
+  workspace:
     project:
-      targets:
+      selection:
         qlogicae-upkeep:
-          filesystem-path: ${{ selection-filesystem-path }}/qlogicae-upkeep
+          # filesystem-path:
+          #   value: ${{ selection-filesystem-path }}/qlogicae-upkeep
 
   # script:
   #   targets:      

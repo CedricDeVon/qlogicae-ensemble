@@ -1,9 +1,10 @@
 data:
-  selection:
+  workspace:
     project:
-      targets:
+      selection:
         qlogicae-cor-root:
-          filesystem-path: ${{ selection-filesystem-path }}/qlogicae-cor
+          filesystem-path:
+            value: ${{ selection-filesystem-path }}/qlogicae-cor
 
   # script:
   #   targets:      

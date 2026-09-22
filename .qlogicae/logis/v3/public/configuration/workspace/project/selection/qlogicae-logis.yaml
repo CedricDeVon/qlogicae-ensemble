@@ -1,0 +1,377 @@
+workspace:
+  project:
+    selection:
+      qlogicae-logis:
+        filesystem-path:
+          value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+
+workflow:
+  selection:      
+    qlogicae-logis-quality-assurance:
+      filesystem-path:
+        value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+      
+      scripts:
+        - run:
+            value: qlogicae-logis-root-pre-workflow
+
+        - run:
+            value: qlogicae-logis-project-pre-workflow        
+
+        - run:
+            value: qlogicae-logis-build-source
+
+        - run:
+            value: qlogicae-logis-build-minified
+
+        - run:
+            value: qlogicae-logis-build-pip-package
+
+        - run:
+            value: qlogicae-logis-test-dead-code
+
+        - run:
+            value: qlogicae-logis-test-type-check
+
+        - run:
+            value: qlogicae-logis-test-lint
+        
+        - run: 
+            value: qlogicae-logis-test-package-dependency-security
+
+        - run:
+            value: qlogicae-logis-test-static-code-analysis-security
+
+        - run:
+            value: qlogicae-logis-test-hardcoded-secrets-security
+          
+        - run:
+            value: qlogicae-logis-test-pip-package
+
+        - run:
+            value: qlogicae-logis-archive
+
+    qlogicae-logis-deploy:
+      filesystem-path:
+        value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch run deploy-release
+
+        - run:
+            value: qlogicae-logis-git-deployment
+
+    qlogicae-logis-root-pre-workflow:
+      filesystem-path:
+        value: ${{ root-filesystem-path }}
+
+      scripts:
+        - run:
+            value: ruff check ${{ qlogicae-logis-source-brand-name }} --fix
+
+        - run:
+            value: command-template-apply        
+          argument:
+            targets:
+              - qlogicae-logis-complex
+
+        - run:
+            value: command-filesystem-clean-path
+          argument:
+            target_paths:
+              - ${{ qlogicae-logis-source-brand-name }}/__pycache__
+              - ${{ qlogicae-logis-source-brand-name }}/${{ qlogicae-logis-active-major-version-label }}/__pycache__
+              - ${{ qlogicae-logis-source-brand-name }}/${{ qlogicae-logis-active-major-version-label }}/_vendor/__pycache__
+              - ${{ qlogicae-logis-source-brand-name }}/${{ qlogicae-logis-active-major-version-label }}/_vendor/pyyaml/__pycache__
+              - ${{ qlogicae-logis-source-brand-name }}/${{ qlogicae-logis-active-major-version-label }}/_vendor/pyyaml/yaml/__pycache__
+              - ${{ qlogicae-logis-source-brand-name }}/${{ qlogicae-logis-active-major-version-label }}/_vendor/qlogicae_cor/__pycache__
+              - ${{ qlogicae-logis-source-brand-name }}/${{ qlogicae-logis-active-major-version-label }}/_vendor/qlogicae_cor/v2/__pycache__
+              - ${{ qlogicae-logis-source-brand-name }}/${{ qlogicae-logis-active-major-version-label }}/_vendor/qlogicae_cor/v2/library/__pycache__
+              - ${{ qlogicae-logis-source-brand-name }}/${{ qlogicae-logis-active-major-version-label }}/console/__pycache__
+              - ${{ qlogicae-logis-source-brand-name }}/${{ qlogicae-logis-active-major-version-label }}/library/__pycache__
+              - ${{ qlogicae-logis-source-brand-name }}/${{ qlogicae-logis-active-major-version-label }}/project/__pycache__
+              - ${{ qlogicae-logis-source-brand-name }}/${{ qlogicae-logis-active-major-version-label }}/project/configuration/__pycache__
+              - ${{ qlogicae-logis-selection-project-filesystem-path }}/.qlogicae
+              - ${{ qlogicae-logis-selection-project-filesystem-path }}/test              
+              - ${{ qlogicae-logis-selection-project-filesystem-path }}/${{ qlogicae-logis-source-brand-name }}              
+
+        - run:
+            value: pip freeze > requirements.txt
+
+        - run:
+            value: command-filesystem-copy          
+          argument:
+            source_paths:
+              - requirements.txt
+            target_paths:
+              - ${{ qlogicae-logis-selection-project-filesystem-path }}/requirements.txt
+
+        - run:
+            value: command-filesystem-copy          
+          argument:
+            source_paths:
+              - .qlogicae
+            target_paths:
+              - ${{ qlogicae-logis-selection-project-filesystem-path }}/.qlogicae
+              - ${{ qlogicae-ensemble-selection-project-filesystem-path }}/.qlogicae
+
+        - run:
+            value: command-filesystem-copy      
+          argument:
+            source_paths:
+              - ${{ qlogicae-logis-source-brand-name }}
+            target_paths:
+              - ${{ qlogicae-logis-selection-project-filesystem-path }}/${{ qlogicae-logis-source-brand-name }}
+
+        - run:
+            value: command-filesystem-copy          
+          argument:
+            source_paths:
+              - test
+            target_paths:
+              - ${{ qlogicae-logis-selection-project-filesystem-path }}/test
+
+    qlogicae-logis-project-pre-workflow:
+      filesystem-path:
+        value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+
+      scripts:
+        - run:
+            value: hatch run development-cleanup-filesystem
+
+        - run:
+            value: hatch run development-setup-filesystem
+
+        - run:
+            value: hatch run build-trim-source
+
+    qlogicae-logis-build-source:
+      filesystem-path:
+        value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch run build-source                  
+
+    qlogicae-logis-build-minified:
+      filesystem-path:
+        value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch run pre-build-minified
+
+        - run:
+            value: hatch run build-minified
+
+    qlogicae-logis-build-pip-package:
+      filesystem-path:
+        value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch run pre-build-pip-package-1
+
+        - run:
+            value: hatch run pre-build-pip-package-2
+
+        - run:
+            value: hatch run build-pip-package
+
+        - run:
+            value: hatch run post-build-pip-package-1
+
+        - run:
+            value: hatch run post-build-pip-package-2
+            
+    qlogicae-logis-test-pip-package:
+      filesystem-path:
+        value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch run test-pip-package
+
+    qlogicae-logis-test-dead-code:
+      filesystem-path:
+        value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch run test-dead-code
+
+    qlogicae-logis-test-lint:
+      filesystem-path:
+        value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch run test-lint
+            
+    qlogicae-logis-test-type-check:
+      filesystem-path:
+        value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch run test-type-check
+
+    # Possible skip due to dependency-free nature of the application
+    qlogicae-logis-test-package-dependency-security:
+      is-enabled:
+        value: false
+
+      filesystem-path:
+        value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch run test-package-dependency-security
+
+    qlogicae-logis-test-static-code-analysis-security:
+      filesystem-path:
+        value: ${{ qlogicae-logis-selection-project-filesystem-path }}    
+
+      scripts:
+        - run:
+            value: hatch run test-static-code-analysis-security
+
+          return-code:
+            success:
+              targets:
+                - 1
+
+    qlogicae-logis-test-hardcoded-secrets-security:
+      filesystem-path:
+        value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch run test-hardcoded-secrets-security
+
+    qlogicae-logis-archive:
+      filesystem-path:
+        value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+        
+      scripts:          
+        - run:
+            value: hatch run archive-outputs
+
+    qlogicae-logis-git-deployment:
+      filesystem-path:
+        value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: git add .
+
+        - run:
+            value: git commit -m "deployment attempt of '${{ qlogicae-logis-current-version-label }}'"
+        
+        - run:
+            value: git tag -a ${{ qlogicae-logis-current-version-label }} -m "deployment attempt of '${{ qlogicae-logis-current-version-label }}'"
+        
+        - run:
+            value: git push
+        
+        - run:
+            value: git push --tags
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-logis-display-brand-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-logis-display-project-name }}
+
+        qlogicae-logis-base-brand-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-logis-base-project-name }}
+
+        qlogicae-logis-source-brand-name:
+          value: ${{ main-company-base-name }}_${{ qlogicae-logis-base-project-name }}
+
+        qlogicae-logis-display-project-name:
+          value: Logis
+
+        qlogicae-logis-base-project-name:
+          value: logis
+
+        qlogicae-logis-base-description:
+          value: The project orchestration tool for QLogicae projects
+
+        qlogicae-logis-current-version-number:
+          value: 3.1.10
+
+        qlogicae-logis-active-major-version-number:
+          value: 3
+
+        qlogicae-logis-active-major-version-label:
+          value: v${{ qlogicae-logis-active-major-version-number }}
+
+        qlogicae-logis-current-version-label:
+          value: v${{ qlogicae-logis-current-version-number }}
+
+        qlogicae-logis-base-repository-link:
+          value: https://github.com/CedricDeVon/${{ qlogicae-logis-base-brand-name }}
+
+        qlogicae-logis-selection-project-filesystem-path:
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-logis-base-brand-name }}
+
+        qlogicae-logis-archive-filesystem-path:
+          value: archive/${{ qlogicae-logis-current-version-label }}/${{ filesystem-current-timestamp }}
+
+        qlogicae-logis-temporary-filesystem-path:
+          value: temporary
+
+        qlogicae-logis-temporary-build-release-filesystem-path:
+          value: ${{ qlogicae-logis-temporary-filesystem-path }}/build/release
+
+        qlogicae-logis-temporary-build-release-dist-filesystem-path:
+          value: ${{ qlogicae-logis-temporary-build-release-filesystem-path }}/dist
+
+        qlogicae-logis-temporary-build-release-minified-filesystem-path:
+          value: ${{ qlogicae-logis-temporary-build-release-filesystem-path }}/minified/${{ qlogicae-logis-source-brand-name }}
+
+        qlogicae-logis-temporary-build-release-source-filesystem-path:
+          value: ${{ qlogicae-logis-temporary-build-release-filesystem-path }}/source/${{ qlogicae-logis-source-brand-name }}
+
+        qlogicae-logis-temporary-result-filesystem-path:
+          value: ${{ qlogicae-logis-temporary-filesystem-path }}/result
+
+        qlogicae-logis-temporary-result-test-type-check-filesystem-path:
+          value: ${{ qlogicae-logis-temporary-result-filesystem-path }}/test-type-check.txt
+
+        qlogicae-logis-temporary-result-test-lint-filesystem-path:
+          value: ${{ qlogicae-logis-temporary-result-filesystem-path }}/test-lint.txt
+
+        qlogicae-logis-temporary-result-test-dead-code-filesystem-path:
+          value: ${{ qlogicae-logis-temporary-result-filesystem-path }}/test-dead-code.txt
+
+        qlogicae-logis-temporary-result-test-package-dependency-filesystem-path:
+          value: ${{ qlogicae-logis-temporary-result-filesystem-path }}/test-package-dependency.json
+
+        qlogicae-logis-temporary-result-test-static-code-analysis-filesystem-path:
+          value: ${{ qlogicae-logis-temporary-result-filesystem-path }}/test-static-code-analysis.json
+
+        qlogicae-logis-temporary-result-test-hardcoded-secrets-filesystem-path:
+          value: ${{ qlogicae-logis-temporary-result-filesystem-path }}/test-hardcoded-secrets.json
+
+        qlogicae-logis-temporary-result-test-pip-package-filesystem-path:
+          value: ${{ qlogicae-logis-temporary-result-filesystem-path }}/test-pip-package.txt
+
+        qlogicae-logis-copy-cli-script:
+          value: python3 -c "import shutil,sys; shutil.copytree(sys.argv[1], sys.argv[2], dirs_exist_ok=True)"
+
+        qlogicae-logis-delete-cli-script:
+          value: python3 -c "import shutil,sys; [shutil.rmtree(p, ignore_errors=True) for p in sys.argv[1:]]"
+
+        qlogicae-logis-move-cli-script:
+          value: python3 -c "import shutil,sys; shutil.move(sys.argv[1], sys.argv[2])"
+
+        qlogicae-logis-create-filesystem-cli-script:
+          value: python3 -c "import pathlib,sys; [pathlib.Path(p).mkdir(parents=True, exist_ok=True) for p in sys.argv[1:]]"
+
+        qlogicae-logis-output-cli-script:
+          value: python3 -c "import sys; data=sys.stdin.read(); sys.stdout.write(data); [open(p,'w').write(data) for p in sys.argv[1:]]"
+

@@ -1,0 +1,32 @@
+workspace:
+  project:
+    selection:
+      qlogicae-cor-rust:
+        filesystem-path:
+          value: ${{ selection-filesystem-path }}/qlogicae-cor/rust
+
+# script:
+#   targets:      
+#     qlogicae-cor-rust-deploy:
+#       enter-filesystem-path:
+#         value: ${{ selection-filesystem-path }}/qlogicae-cor/rust
+        
+#       commands:
+#         - run: cargo build-release
+#         - run: cargo workflow-deploy
+#         - run: git add .
+#         - run: git commit -m "deployment attempt"
+#         - run: git tag ${{ qlogicae-cor-rust-current-version-label }}
+#         - run: git push
+#         - run: git push --tags
+#         # - run: qlogicae-cor-deploy
+
+macros:  
+  static:
+    file:
+      targets:
+        qlogicae-cor-rust-current-version-number:
+          value: 1.0.4
+
+        qlogicae-cor-rust-current-version-label:
+          value: rust-v${{ qlogicae-cor-rust-current-version-number }}

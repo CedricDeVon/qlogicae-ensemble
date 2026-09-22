@@ -1,8 +1,13 @@
 data:
-  selection:
+  workspace:
     group:
-      targets:
+      selection:
         qlogicae-logis-complex:
+          alias:
+            targets:
+              - name:
+                  value: ql-log.c
+
           targets:
             root:
             qlogicae-logis:

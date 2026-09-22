@@ -1,0 +1,252 @@
+configuration:
+  workspace:
+    targets:
+      - target.yaml
+
+  dotenv:
+    targets:
+      - .env
+
+command:
+  template:
+    cleanup:
+      before:
+        is-enabled:
+          value: true
+
+      after:
+        is-enabled:
+          value: false
+
+  filesystem:
+    clean:
+      exclude:
+        targets:
+          - filesystem-path:
+              value: ${{ root-filesystem-path }}/.venv
+
+          - filesystem-path:
+              value: ${{ root-filesystem-path }}/others
+
+          - filesystem-path:
+              value: ${{ root-filesystem-path }}/project
+
+          - filesystem-path:
+              value: ${{ root-filesystem-path }}/qlogicae_logis
+
+      include:
+        selection:
+          root:
+            alias:
+              benchmarks:
+
+            operating-system:
+              exclude:
+                Windows-x86_64:
+
+              include:
+                Linux-x86_64:
+
+            targets:
+              - filesystem-path:
+                  value: ${{ root-filesystem-path }}/.benchmarks
+
+                pattern:
+                  value: ""
+
+  export:
+    cleanup:
+      before:
+        is-enabled:
+          value: false
+
+      after:
+        is-enabled:
+          value: false
+
+    group:
+      custom-group:
+        alias:
+          cg:
+
+        selection:
+          custom-selection:
+
+    selection:
+      custom-selection:
+        alias:
+          cs:
+
+        input:    
+          include:
+            targets:
+              - filesystem-path:
+                  value: .qlogicae/logis/v3/.gitignore
+
+              - filesystem-path:
+                  value: .qlogicae/logis/v3/private/configuration
+
+              - filesystem-path:
+                  value: .qlogicae/logis/v3/private/plugin
+
+              - filesystem-path:
+                  value: .qlogicae/logis/v3/private/template
+                  
+              - filesystem-path:
+                  value: .qlogicae/logis/v3/public
+
+                pattern:
+                  value: ""
+
+          exclude:
+            targets:
+              - pattern:
+                  value: private/temporary
+
+              - pattern:
+                  value: __pycache__
+
+        output:
+          targets:
+            - filesystem-path:
+                value: ${{ root-filesystem-path }}/abc
+
+        compression:
+          format:
+            value: zip
+
+          type:
+            value: deflated
+
+          level:
+            value: 6
+
+          is-zip-64-allowed:
+            value: true
+
+          is-timestamp-strict:
+            value: true
+
+
+cache:
+  cleanup:
+    before:
+      is-enabled:
+        value: false
+
+    after:
+      is-enabled:
+        value: false
+
+
+time:
+  zone:
+    value: local
+
+
+operating-system:
+  name:
+    value: Linux
+
+  architecture:
+    value: x86_64
+
+
+log:
+  is-enabled:
+    value: true
+    override: false
+    
+  is-verbose: 
+    value: true
+    override: false
+
+  default:
+    file:
+      output:
+        is-enabled:
+          value: true
+
+  file:      
+    is-enabled:
+      value: true
+
+    is-verbose: 
+      value: true
+
+    # targets:
+    #   - filesystem-path:
+    #       value: output.log
+
+  console:
+    is-enabled:
+      value: true
+
+    is-verbose: 
+      value: true
+
+
+plugin:
+  import:
+    is-enabled:
+      value: true
+
+
+display:
+  console:
+    is-enabled:
+      value: true
+
+    style:
+      reset:
+        value: reset
+
+      base-1:
+        value: none
+
+      base-2:
+        value: grey
+
+      highlight-1:
+        value: green
+
+      highlight-2:
+        value: green
+
+      maximum-depth:
+        value: 8
+
+      is-skipped:
+        value: True
+
+      indent-count:
+        value: 4
+
+      vertical-count:
+        value: 0
+
+macros:
+  static:
+    value-cache:
+      targets:
+
+    file:
+      targets:
+        main-author-full-name:
+          value: Vaughn Cedric L. Araneta
+
+          alias:
+            author:
+
+        main-author-base-email:
+          value: vaughncedriclipardoaraneta@gmail.com
+        
+        main-company-display-name:
+          value: QLogicae
+
+        main-company-base-name:
+          value: qlogicae
+        
+        main-company-base-logo-filesystem-path:
+          value: ./project/asset/${{ main-company-base-name }}1.png
+

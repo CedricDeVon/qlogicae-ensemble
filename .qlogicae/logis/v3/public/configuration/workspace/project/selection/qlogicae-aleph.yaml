@@ -1,0 +1,6 @@
+workspace:
+  project:
+    selection:
+      qlogicae-aleph:        
+        filesystem-path:
+          value: ${{ root-filesystem-path }}/selection/qlogicae-aleph
