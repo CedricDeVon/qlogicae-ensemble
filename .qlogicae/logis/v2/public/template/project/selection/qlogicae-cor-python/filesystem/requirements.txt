@@ -8,7 +8,7 @@ charset-normalizer==3.4.9
 click==8.4.2
 cloudpickle==3.1.2
 coverage==7.15.0
-cryptography==49.0.0
+cryptography==50.0.0
 distlib==0.4.3
 distro==1.9.0
 docutils==0.23
@@ -18,7 +18,7 @@ h11==0.16.0
 hatch==1.17.1
 hatchling==1.31.0
 httpcore2==2.5.0
-httpx2==2.5.0
+httpx2==2.12.0
 hyperlink==21.0.0
 id==1.6.1
 idna==3.18
