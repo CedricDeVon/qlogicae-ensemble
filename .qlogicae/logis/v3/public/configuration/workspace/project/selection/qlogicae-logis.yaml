@@ -7,6 +7,25 @@ workspace:
 
 workflow:
   selection:      
+    demo-sub:
+      filesystem-path:
+        value: ${{ root-filesystem-path }}
+      
+      scripts:
+        - run:
+            value: echo "${{ demo-sub-b }}"
+
+    demo-main:
+      filesystem-path:
+        value: ${{ root-filesystem-path }}
+      
+      scripts:
+        - run:
+            value: echo "${{ demo-main-a }}"
+
+        - run:
+            value: demo-sub
+
     qlogicae-logis-quality-assurance:
       filesystem-path:
         value: ${{ qlogicae-logis-selection-project-filesystem-path }}
