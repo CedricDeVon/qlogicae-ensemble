@@ -1,0 +1,29 @@
+workspace:
+  project:
+    selection:
+      qlogicae-aleph-root:
+        filesystem-path:
+          value: ${{ qlogicae-aleph-root-selection-project-filesystem-path }}
+
+workflow:
+  selection:      
+    qlogicae-aleph-root-pre-workflow:
+      filesystem-path:
+        value: ${{ qlogicae-aleph-root-selection-project-filesystem-path }}
+    
+      scripts:
+        - run:
+            value: command-template-apply        
+          argument:
+            targets:
+              - qlogicae-aleph
+
+        - run:
+            value: qlogicae-ensemble-synchronize
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-aleph-root-selection-project-filesystem-path:
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-aleph-base-brand-name }}

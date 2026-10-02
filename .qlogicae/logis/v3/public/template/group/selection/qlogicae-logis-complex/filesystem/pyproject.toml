@@ -54,6 +54,7 @@ dev = [
     "detect-secrets",
     "safety",
     "pip-audit",   
+    "python-minifier"
 ]
 
 [project.scripts]

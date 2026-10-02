@@ -10,6 +10,19 @@ workflow:
     value: true
 
   selection:      
+    qlogicae-ensemble-synchronize:
+      filesystem-path:
+        value: ${{ root-filesystem-path }}
+      
+      scripts:
+        - run:
+            value: command-filesystem-copy          
+          argument:
+            source_paths:
+              - .qlogicae
+            target_paths:
+              - ${{ qlogicae-ensemble-selection-project-filesystem-path }}/.qlogicae
+
     qlogicae-ensemble-build:
       enter-filesystem-path:
         value: ${{ root-filesystem-path }}

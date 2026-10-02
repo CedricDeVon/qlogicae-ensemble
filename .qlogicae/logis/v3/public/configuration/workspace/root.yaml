@@ -248,5 +248,5 @@ macros:
           value: qlogicae
         
         main-company-base-logo-filesystem-path:
-          value: ./project/asset/${{ main-company-base-name }}1.png
+          value: ./project/asset/${{ main-company-base-name }}.png
 

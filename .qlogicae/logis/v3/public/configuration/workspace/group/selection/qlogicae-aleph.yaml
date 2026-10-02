@@ -1,0 +1,44 @@
+workspace:
+  group:
+    selection:
+      qlogicae-aleph:
+        targets:
+          qlogicae-aleph-root:
+          qlogicae-aleph-desktop:
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-aleph-display-brand-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-aleph-display-project-name }}
+
+        qlogicae-aleph-base-brand-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-aleph-base-project-name }}
+
+        qlogicae-aleph-source-brand-name:
+          value: ${{ main-company-base-name }}_${{ qlogicae-aleph-base-project-name }}
+
+        qlogicae-aleph-display-project-name:
+          value: Aleph
+
+        qlogicae-aleph-base-project-name:
+          value: aleph
+
+        qlogicae-aleph-base-description:
+          value: The software monitoring tool for QLogicae projects
+
+        qlogicae-aleph-current-version-number:
+          value: 0.0.1
+
+        qlogicae-aleph-active-major-version-number:
+          value: 0
+
+        qlogicae-aleph-active-major-version-label:
+          value: v${{ qlogicae-aleph-active-major-version-number }}
+
+        qlogicae-aleph-current-version-label:
+          value: v${{ qlogicae-aleph-current-version-number }}
+
+        qlogicae-aleph-base-repository-link:
+          value: https://github.com/CedricDeVon/${{ qlogicae-aleph-base-brand-name }}

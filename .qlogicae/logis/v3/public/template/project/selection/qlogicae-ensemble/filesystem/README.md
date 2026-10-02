@@ -18,4 +18,8 @@
   </div>
 </div>
 
+<p>  
+  <strong>Figma</strong>: https://www.figma.com/design/YhcYppMpUaCkXMJa7hfHHy/qlogicae-uizee?node-id=0-1&t=LS2uVICtbExmT75y-1
+</p>
+
 </br>

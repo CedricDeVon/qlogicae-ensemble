@@ -11,18 +11,17 @@
 
 <h3>Overview</h3>
 
-<ul>
-    <li><p>Planned Initial Public Deployment</p></li>
-</ul>
+<p>
+    Initial Public Deployment 
+</p>
 
 
 <h3>Description</h3>
 
-<ul>
-    <li><p>...</p></li>
-</ul>
-
-</br>
+<p>
+    The designated initial public deployment.
+</p>
+<p>
 
 
 
@@ -30,14 +29,14 @@
 
 <h3>Overview</h3>
 
-<ul>
-    <li><p>Prototype Versions</p></li>
-</ul>
+<p>
+    Prototype Deployments - <strong>Experiments</strong>
+</p>
 
 <h3>Description</h3>
 
-<ul>
-    <li><p>All deployments under this category will be clasified as 'prototypes'.</p></li>
-</ul>
+<p>
+    All deployments under this category are merely experiments and not meant for public usage.
+</p>
 
 </br>

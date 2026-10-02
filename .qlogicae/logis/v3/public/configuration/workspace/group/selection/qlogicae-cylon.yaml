@@ -1,0 +1,45 @@
+workspace:
+  group:
+    selection:
+      qlogicae-cylon:
+        targets:
+          qlogicae-cylon-root:
+          qlogicae-cylon-cli:
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-cylon-display-brand-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-cylon-display-project-name }}
+
+        qlogicae-cylon-base-brand-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-cylon-base-project-name }}
+
+        qlogicae-cylon-source-brand-name:
+          value: ${{ main-company-base-name }}_${{ qlogicae-cylon-base-project-name }}
+
+        qlogicae-cylon-display-project-name:
+          value: Cylon
+
+        qlogicae-cylon-base-project-name:
+          value: cylon
+
+        qlogicae-cylon-base-description:
+          value: The cython integration tool for QLogicae projects
+
+        qlogicae-cylon-current-version-number:
+          value: 0.0.1
+
+        qlogicae-cylon-active-major-version-number:
+          value: 0
+
+        qlogicae-cylon-active-major-version-label:
+          value: v${{ qlogicae-cylon-active-major-version-number }}
+
+        qlogicae-cylon-current-version-label:
+          value: v${{ qlogicae-cylon-current-version-number }}
+
+        qlogicae-cylon-base-repository-link:
+          value: https://github.com/CedricDeVon/${{ qlogicae-cylon-base-brand-name }}
+  

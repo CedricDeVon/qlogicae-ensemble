@@ -1,0 +1,45 @@
+workspace:
+  group:
+    selection:
+      qlogicae-qarta:
+        targets:
+          qlogicae-qarta-root:
+          qlogicae-qarta-web:
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-qarta-display-brand-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-qarta-display-project-name }}
+
+        qlogicae-qarta-base-brand-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-qarta-base-project-name }}
+
+        qlogicae-qarta-source-brand-name:
+          value: ${{ main-company-base-name }}_${{ qlogicae-qarta-base-project-name }}
+
+        qlogicae-qarta-display-project-name:
+          value: Qarta
+
+        qlogicae-qarta-base-project-name:
+          value: qarta
+
+        qlogicae-qarta-base-description:
+          value: The documentation web application template for QLogicae projects
+
+        qlogicae-qarta-current-version-number:
+          value: 0.0.1
+
+        qlogicae-qarta-active-major-version-number:
+          value: 0
+
+        qlogicae-qarta-active-major-version-label:
+          value: v${{ qlogicae-qarta-active-major-version-number }}
+
+        qlogicae-qarta-current-version-label:
+          value: v${{ qlogicae-qarta-current-version-number }}
+
+        qlogicae-qarta-base-repository-link:
+          value: https://github.com/CedricDeVon/${{ qlogicae-qarta-base-brand-name }}
+  

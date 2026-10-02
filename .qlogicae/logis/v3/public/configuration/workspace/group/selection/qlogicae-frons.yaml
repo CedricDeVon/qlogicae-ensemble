@@ -1,0 +1,45 @@
+workspace:
+  group:
+    selection:
+      qlogicae-frons:
+        targets:
+          qlogicae-frons-root:
+          qlogicae-frons-web:
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-frons-display-brand-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-frons-display-project-name }}
+
+        qlogicae-frons-base-brand-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-frons-base-project-name }}
+
+        qlogicae-frons-source-brand-name:
+          value: ${{ main-company-base-name }}_${{ qlogicae-frons-base-project-name }}
+
+        qlogicae-frons-display-project-name:
+          value: Frons
+
+        qlogicae-frons-base-project-name:
+          value: frons
+
+        qlogicae-frons-base-description:
+          value: The official portfolio website of Vaughn Cedric L. Araneta
+
+        qlogicae-frons-current-version-number:
+          value: 0.0.1
+
+        qlogicae-frons-active-major-version-number:
+          value: 0
+
+        qlogicae-frons-active-major-version-label:
+          value: v${{ qlogicae-frons-active-major-version-number }}
+
+        qlogicae-frons-current-version-label:
+          value: v${{ qlogicae-frons-current-version-number }}
+
+        qlogicae-frons-base-repository-link:
+          value: https://github.com/CedricDeVon/${{ qlogicae-frons-base-brand-name }}
+  

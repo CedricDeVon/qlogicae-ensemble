@@ -1,0 +1,26 @@
+workspace:
+  project:
+    selection:
+      qlogicae-cylon-root:
+        filesystem-path:
+          value: ${{ qlogicae-cylon-root-selection-project-filesystem-path }}
+
+workflow:
+  selection:      
+    qlogicae-cylon-root-pre-workflow:
+      filesystem-path:
+        value: ${{ qlogicae-cylon-root-selection-project-filesystem-path }}
+    
+      scripts:
+        - run:
+            value: command-template-apply        
+          argument:
+            targets:
+              - qlogicae-cylon
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-cylon-root-selection-project-filesystem-path:
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-cylon-base-brand-name }}

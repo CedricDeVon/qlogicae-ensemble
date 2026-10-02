@@ -5,27 +5,12 @@ workspace:
         filesystem-path:
           value: ${{ qlogicae-logis-selection-project-filesystem-path }}
 
+      qlogicae-cylon-cli:
+        filesystem-path:
+          value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+
 workflow:
   selection:      
-    demo-sub:
-      filesystem-path:
-        value: ${{ root-filesystem-path }}
-      
-      scripts:
-        - run:
-            value: echo "${{ demo-sub-b }}"
-
-    demo-main:
-      filesystem-path:
-        value: ${{ root-filesystem-path }}
-      
-      scripts:
-        - run:
-            value: echo "${{ demo-main-a }}"
-
-        - run:
-            value: demo-sub
-
     qlogicae-logis-quality-assurance:
       filesystem-path:
         value: ${{ qlogicae-logis-selection-project-filesystem-path }}
@@ -87,9 +72,6 @@ workflow:
 
       scripts:
         - run:
-            value: ruff check ${{ qlogicae-logis-source-brand-name }} --fix
-
-        - run:
             value: command-template-apply        
           argument:
             targets:
@@ -150,6 +132,10 @@ workflow:
               - test
             target_paths:
               - ${{ qlogicae-logis-selection-project-filesystem-path }}/test
+
+        - run:
+            value: ruff check ${{ qlogicae-logis-source-brand-name }} --fix
+
 
     qlogicae-logis-project-pre-workflow:
       filesystem-path:
