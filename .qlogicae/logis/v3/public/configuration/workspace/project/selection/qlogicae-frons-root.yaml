@@ -17,6 +17,9 @@ workflow:
           argument:
             targets:
               - qlogicae-frons
+                
+        - run:
+            value: qlogicae-ensemble-synchronize
 
 macros:
   static:  

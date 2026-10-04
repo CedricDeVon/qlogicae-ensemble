@@ -1,3 +1,4 @@
+
 workspace:
   project:
     selection:
@@ -6,11 +7,11 @@ workspace:
           value: ${{ qlogicae-aleph-desktop-selection-project-filesystem-path }}
 
 workflow:
-  selection:      
+  selection:
     qlogicae-aleph-desktop-quality-assurance:
       filesystem-path:
         value: ${{ qlogicae-aleph-desktop-selection-project-filesystem-path }}
-      
+
       scripts:
         - run:
             value: qlogicae-aleph-root-pre-workflow

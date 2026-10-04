@@ -29,10 +29,10 @@ macros:
           value: The cython integration tool for QLogicae projects
 
         qlogicae-cylon-current-version-number:
-          value: 0.0.1
+          value: 1.0.1
 
         qlogicae-cylon-active-major-version-number:
-          value: 0
+          value: 1
 
         qlogicae-cylon-active-major-version-label:
           value: v${{ qlogicae-cylon-active-major-version-number }}

@@ -17,6 +17,9 @@ workflow:
           argument:
             targets:
               - qlogicae-qarta
+                
+        - run:
+            value: qlogicae-ensemble-synchronize
 
 macros:
   static:  

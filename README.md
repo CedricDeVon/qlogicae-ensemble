@@ -1,7 +1,7 @@
 </br>
 
 <div style="width: 100%; display: flex; justify-content: center;">
-    <image alt="the qlogicae logo" src="./project/asset/qlogicae1.png" width="256px">
+    <image alt="the qlogicae logo" src="./project/asset/qlogicae.png" width="256px">
 </div>
 
 </br>
@@ -17,5 +17,9 @@
 
   </div>
 </div>
+
+<p>  
+  <strong>Figma</strong>: https://www.figma.com/design/YhcYppMpUaCkXMJa7hfHHy/qlogicae-uizee?node-id=0-1&t=LS2uVICtbExmT75y-1
+</p>
 
 </br>
