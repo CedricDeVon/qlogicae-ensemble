@@ -370,9 +370,9 @@
 
 
 
-<h3 id="contribution">
+<h2 id="contribution">
   🤝 Contribution
-</h3>
+</h2>
 
 <p>
   Meaningful contributions always welcome! Having said that, please be guided with the following documentation based on what aspects of the project you want to be improved upon.

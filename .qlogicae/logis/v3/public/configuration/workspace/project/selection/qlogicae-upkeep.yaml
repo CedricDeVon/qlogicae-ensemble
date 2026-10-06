@@ -3,21 +3,23 @@ workspace:
     selection:
       qlogicae-upkeep:
         filesystem-path:
-          value: ${{ selection-filesystem-path }}/qlogicae-upkeep
+          value: ${{ qlogicae-upkeep-selection-project-filesystem-path }}
 
-        # installation:
-        #   is-enabled:
-        #     value: true
-
-        #   delay:
-        #     value: 0
-
-        #   filesystem-path:
-        #     value: ${{ root-filesystem-path }}/a
-
-        #   scripts:
-        #     - run:
-        #         value: git clone https://github.com/CedricDeVon/LaboratoryExercise1.git
+workflow:
+  selection:      
+    qlogicae-upkeep-quality-assurance:
+      filesystem-path:
+        value: ${{ qlogicae-upkeep-selection-project-filesystem-path }}
+      
+      scripts:
+        - run:
+            value: command-template-apply        
+          argument:
+            targets:
+              - qlogicae-upkeep
+                
+        - run:
+            value: qlogicae-ensemble-synchronize
 
 macros:
   static:
@@ -28,6 +30,9 @@ macros:
 
         qlogicae-upkeep-base-brand-name:
           value: ${{ main-company-base-name }}-${{ qlogicae-upkeep-base-project-name }}
+
+        qlogicae-upkeep-selection-project-filesystem-path:
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-upkeep-base-brand-name }}
 
         qlogicae-upkeep-display-project-name:
           value: Upkeep
