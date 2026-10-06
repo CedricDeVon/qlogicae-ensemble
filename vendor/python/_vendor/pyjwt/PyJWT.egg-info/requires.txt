@@ -1,0 +1,6 @@
+
+[:python_version < "3.11"]
+typing_extensions>=4.0
+
+[crypto]
+cryptography>=3.4.0
