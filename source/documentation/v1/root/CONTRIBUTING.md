@@ -49,11 +49,6 @@
             </a>
         </li>
         <li>
-            <a href="#git-local-configurations">
-                Local Configurations
-            </a>
-        </li>
-        <li>
             <a href="#git-verified-commits">
                 Verified Commits
             </a>
@@ -76,8 +71,8 @@
             </a>
         </li>
         <li>
-            <a href="#ai-disallowed">
-                Disallowed
+            <a href="#ai-unallowed">
+                Unallowed
             </a>
         </li> 
     </ul>
@@ -187,19 +182,43 @@ cd [repository-directory]</code></pre>
     If two or more branch names might cause confusion, you are free to specify, within reason, to specify. For example: <code>feature/dashboard-user</code>. 
 </p>
 </br>
-<h3 id="git-local-configurations">
-    🏷️ Local Configurations
-</h3>
-<p>
-    To be continued
-</p>
-</br>
 <h3 id="git-verified-commits">
     ✅ Verified Commits
 </h3>
 <p>
-    To be continued
+    Follow each instructions, in-order, and individually supply each macros with the format <code>${{ ... }}</code>:
 </p>
+<h4>
+    Cleaning
+</h4>
+
+```cmd
+git config --global --unset gpg.format
+git config --global --unset user.signingkey
+git config --global --unset commit.gpgsign
+git config --local --unset gpg.format
+git config --local --unset user.signingkey
+git config --local --unset commit.gpgsign
+```
+
+<h4>
+    Setup
+</h4>
+
+```cmd
+ls ~/.ssh
+git config --local --list
+ssh-keygen -t ed25519 -C "${{ github-user-email }}" -f ~/.ssh/${{ key }}
+cat ~/.ssh/${{ key }}
+git config gpg.format ssh
+git config user.signingkey ~/.ssh/${{ key }}.pub
+git config commit.gpgsign true
+```
+
+<p>
+    Keep in mind to add your public key as an SSH signing key within your GitHub account.
+</p>
+
 </br>
 
 
@@ -225,24 +244,34 @@ cd [repository-directory]</code></pre>
 <ol>
     <li>
         <p>
-            <strong>DO</strong> ...
+            <strong>DO</strong> use or experiment on any LLMs, AI tools, AI agents of your choosing. As long as developers can give reasonable results, you have the freedom to work in your own way. Concerning AI-generated output, please consult the <a href="ai-unallowed">AI Unallowed</a> section.
         </p>
     </li>
 </ol>
-<h3 id="ai-disallowed">
-  🚫 Disallowed
+<h3 id="ai-unallowed">
+  🚫 Unallowed
 </h3>
 <p>
-    Keep in mind ...
+    Under any circumstance ...
 </p>
 <ol>
     <li>
         <p>
-            <strong>DO</strong> ...
+            <strong>DO NOT</strong> utilize AI for artistic content (images, icons, videos, etc.). AI-generated content is relatively fast and cheap to create but is frowned upon when used to express one's own work, as a human being. If you can reasonably defend yourself into using AI-generated content for a specific use-case, please raise your concerns within the GitHub discussions page.
+        </p>
+    </li>
+    <li>
+        <p>
+            <strong>DO NOT</strong> generate documentation with AI. The entire point of documentation is to defend yourself as to give reasons as to why an implementation has been developed, and why the results are the way they are. It should be written with context to the writer's own perspective - their experience, effort, blood, sweat, and tears.
+        </p>
+    </li>
+    <li>
+        <p>
+            <strong>DO NOT</strong> use AI-generated code implementations while being unprepared to explain how they work and why they exist. If you do not understand how and why they work, you do not own that implementation. It is also considerate to think how a team should maintain their reputation and integrity. 
         </p>
     </li>
 </ol>
-</br>
+</br> 
 
 
 
