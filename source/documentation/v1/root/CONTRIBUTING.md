@@ -12,7 +12,7 @@
     👋 Introduction
 </h2>
 <p>
-    Welcome! Any reasonable contribution to this project is greatly appreciated by the team. Having said that, please perform your own reading into the project's documentation before making your own contributions.
+    Welcome! Any reasonable contribution to this project is greatly appreciated by the team. Having said that, please do your own reading of the project's documentation before making your own contributions.
 </p>
 </br>
 
@@ -110,7 +110,7 @@
     </li>
     <li>
         <p>
-            Select a filesystem path to clone your forked repository, beforehand.
+            Select a filesystem path to clone your forked repository beforehand.
         </p>
     </li>
     <li>
@@ -176,7 +176,7 @@ cd [repository-directory]</code></pre>
     Sub Names
 </h4>
 <p>
-    There is no standard naming convention for this part. However, it mmay be best take in the context as to what requirement are you exactly aiming to complete. For example, if you are designated to implement a dashboard feature, a reasonable branch name would be <code>feature/dashboard</code>. 
+    There is no standard naming convention for this part. However, it may be best to take it in the context of the requirement you are aiming to complete. For example, if you are designated to implement a dashboard feature, a reasonable branch name would be <code>feature/dashboard</code>. 
 </p>
 <p>
     If two or more branch names might cause confusion, you are free to specify, within reason, to specify. For example: <code>feature/dashboard-user</code>. 
@@ -230,10 +230,10 @@ git config commit.gpgsign true
   👋 Introduction
 </h3>
 <p>
-    This section explains further regarding AI-related policies.
+    This section explains further about AI-related policies.
 </p>
 <p>
-    The team is open for integrating Artificial Intelligence within project implementations and developer workflows. Having said that, there are areas where AI does reasonably shine and provide decent results; however, there are other aspects where AI can be a bottleneck. Not precisely in terms of efficiency, but of human artistic expression.
+    The team is open to integrating Artificial Intelligence within project implementations and developer workflows. Having said that, there are areas where AI does reasonably well and provides decent results; however, there are other aspects where AI can be a bottleneck. Not precisely in terms of efficiency, but of human artistic expression.
 </p>
 <h3 id="ai-allowed">
   ✅ Allowed
@@ -244,7 +244,7 @@ git config commit.gpgsign true
 <ol>
     <li>
         <p>
-            <strong>DO</strong> use or experiment on any LLMs, AI tools, AI agents of your choosing. As long as developers can give reasonable results, you have the freedom to work in your own way. Concerning AI-generated output, please consult the <a href="ai-unallowed">AI Unallowed</a> section.
+            <strong>DO</strong> use or experiment with any LLMs, AI tools, or AI agents of your choosing. As long as developers can give reasonable results, you have the freedom to work in your own way. Concerning AI-generated output, please consult the <a href="ai-unallowed">AI Unallowed</a> section.
         </p>
     </li>
 </ol>
@@ -257,17 +257,17 @@ git config commit.gpgsign true
 <ol>
     <li>
         <p>
-            <strong>DO NOT</strong> utilize AI for artistic content (images, icons, videos, etc.). AI-generated content is relatively fast and cheap to create but is frowned upon when used to express one's own work, as a human being. If you can reasonably defend yourself into using AI-generated content for a specific use-case, please raise your concerns within the GitHub discussions page.
+            <strong>DO NOT</strong> utilize AI for artistic content (images, icons, videos, etc.). AI-generated content is relatively fast and cheap to create but is frowned upon when used to express one's own work as a human being. If you can reasonably defend yourself for using AI-generated content for a specific use case, please raise your concerns within the GitHub discussions page.
         </p>
     </li>
     <li>
         <p>
-            <strong>DO NOT</strong> generate documentation with AI. The entire point of documentation is to defend yourself as to give reasons as to why an implementation has been developed, and why the results are the way they are. It should be written with context to the writer's own perspective - their experience, effort, blood, sweat, and tears.
+            <strong>DO NOT</strong> generate documentation with AI. The entire point of documentation is to defend yourself by giving reasons as to why an implementation has been developed, and why the results are the way they are. It should be written with context to the writer's own perspective - their experience, effort, blood, sweat, and tears.
         </p>
     </li>
     <li>
         <p>
-            <strong>DO NOT</strong> use AI-generated code implementations while being unprepared to explain how they work and why they exist. If you do not understand how and why they work, you do not own that implementation. It is also considerate to think how a team should maintain their reputation and integrity. 
+            <strong>DO NOT</strong> use AI-generated code implementations while being unprepared to explain how they work and why they exist. If you do not understand how and why they work, you do not own that implementation. It is also considerate to think about how a team should maintain its reputation and integrity. 
         </p>
     </li>
 </ol>

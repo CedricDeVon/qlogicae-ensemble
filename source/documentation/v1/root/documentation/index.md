@@ -53,7 +53,7 @@
   🏷️ Versions
 </h3>
 <p>
-    The figure below contains a table of release version names and their respective statuses. Additional information for each release version can be found within the <a href="./release-notes.md">Release Notes</a>.
+    The figure below contains a table of release version names and their respective statuses. Additional information for each release version can be found in the <a href="./release-notes.md">Release Notes</a>.
 </p>
 <table>
     <thead>

@@ -128,7 +128,7 @@
   	📋 Prerequisites
 </h3>
 <p>
-  	For maximum convenience, please re-evaluate your system if these requirements are met:
+  	For maximum convenience, please re-evaluate your system if these requirements is met:
 </p>
 <h4>
   	🔻 Minimum

@@ -11,6 +11,6 @@
 
 
 <p>
-    Work in progress. Relevant contribution from your part is much appretiated!
+    Work in progress. Relevant contributions from your part are much appreciated!
 </p>
 </br>

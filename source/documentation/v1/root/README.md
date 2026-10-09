@@ -101,7 +101,7 @@
   	⚙️ Core Features
 </h3>
 <p>
-  	More can be added, eventually. What this project offers now are as follows:
+  	More can be added, eventually. What this project offers now is as follows:
 </p>
 <ul>
 	<li>

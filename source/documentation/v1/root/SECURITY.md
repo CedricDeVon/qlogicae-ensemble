@@ -12,7 +12,7 @@
     👋 Introduction
 </h2>
 <p>
-    Regulations are written in blood. No pressure, these are only reminders.
+    Regulations are written in blood. No pressure; these are only reminders.
 </p>
 </br>
 
@@ -54,22 +54,22 @@
     ✅ Do's
 </h3>
 <p>
-    Keep in mind ...
+    Keep the following guidelines in mind.
 </p>
 <ol>
     <li>
         <p>
-            <strong>DO</strong> request all necessary private files (.env files, private configuration data, etc.) from any trusted developer, via trusted online and offline file transfer mediums. At best, hard drives are highly encouraged to minimize online data footprint. If you wish to utililze a different method of data transfer, please raise your concerns via submitting GitHub Issues.
+            <strong>DO</strong> request necessary private files (.env files, private configuration data, etc.) from authorized developers, via trusted online and offline mediums of file transfer. When appropriate, consider using physical storage devices to minimize online data exposure. If you need an alternative method of data transfer, please raise your concerns via the project's GitHub discussions page.
         </p>
     </li>
     <li>
         <p>
-            <strong>DO</strong> alert the team regarding security concerns via GitHub Issues. Following the GitHub Security Report Template is recommended.
+            <strong>DO</strong> report the team regarding security concerns via GitHub Issues. Use the GitHub Security Report Template when applicable.
         </p>
     </li>
     <li>
         <p>
-            <strong>DO</strong> be technical and specific as possible, in a reasonable manner, when writing security reports, or reports of any kind. Make things easy for everyone by saying what you mean, and mean what you are trying to say. 
+            <strong>DO</strong> be as technical and specific as reasonably possible when writing security reports or other technical reports. Communicate clearly - say what you mean, and mean what you are trying to say. 
         </p>
     </li>
 </ol>
@@ -77,23 +77,23 @@
     🚫 Don'ts
 </h3>
 <p>
-    Under any circumstance ...
+    Under no circumstances should you:
 </p>
 <ol>
     <li>
         <p>
-            <strong>DO NOT</strong> deliberately implement malicious content. Once suspiciously concluded, with reasonable doubt, will result in receiving a blacklisted status from this project as well as several of its associations.
+            <strong>DO NOT</strong> deliberately introduce malicious content into the project. Confirmed malicious activity may result in removal from the project and its associated communities, in accordance with applicable project policies.
         </p>
     </li>
     <li>
         <p>
-            <strong>DO NOT</strong> type-in private information (security keys, private personal information, etc.) anywhere within the project.
+            <strong>DO NOT</strong> enter or commit sensitive information, such as security keys, credentials, personal information, or private configuration data, into the project repository.
         </p>
     </li>
 </ol>
 </br>
 <p>
-    Please be considerate - security breaches cost money and time for everyone - even you.
+    Please be considerate: security breaches cost money and time for everyone, even you.
 </p>
 </br>
 
