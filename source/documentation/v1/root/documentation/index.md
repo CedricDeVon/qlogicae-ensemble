@@ -78,7 +78,7 @@
                 Initial Release
             </td>
             <td>
-                <a href="./main-v1.0.0/index.md">
+                <a href="./main-1.0.0/index.md">
                     Link
                 </a>
             </td>           

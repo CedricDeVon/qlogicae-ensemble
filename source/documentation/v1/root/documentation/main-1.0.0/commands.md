@@ -1,5 +1,5 @@
 <h1>
-    🏗️ Development
+    Commands
 </h1>
 <p>
     <a href="../../../../README.md">Home</a> >
