@@ -19,11 +19,11 @@ workflow:
             value: command-filesystem-copy          
           argument:
             source_paths:
-              - .qlogicae
+              - ${{ root-filesystem-path }}/.qlogicae
             target_paths:
               - ${{ qlogicae-ensemble-selection-project-filesystem-path }}/.qlogicae
 
-    qlogicae-ensemble-build:
+    qlogicae-ensemble-source:
       enter-filesystem-path:
         value: ${{ root-filesystem-path }}
 
@@ -32,75 +32,44 @@ workflow:
             value: command-template-apply
           argument:
             targets:
-              - ${{ qlogicae-ensemble-base-brand-name }}
+              - ${{ qlogicae-ensemble-brand-base-name }}
 
         - run:
-            value: command-filesystem-copy          
-          argument:
-            source_path: ${{ root-filesystem-path }}/.qlogicae
-            target_paths:
-              - ${{ qlogicae-ensemble-selection-project-filesystem-path }}/.qlogicae
-
-
-    qlogicae-ensemble-git-deployment:
-      enter-filesystem-path:
-        value: ${{ qlogicae-ensemble-selection-project-filesystem-path }}
-
-      scripts:
-        - run:
-            value: git add .
-
-        - run:
-            value: git commit -m "'workspace' content sync"
-
-        # - run:
-        #     value: git commit -m "deployment attempt of '${{ qlogicae-ensemble-current-version-label }}'"
-
-        # - run:
-        #     value: git tag -a ${{ qlogicae-ensemble-current-version-label }} -m "deployment attempt of '${{ qlogicae-ensemble-current-version-label }}'"
-
-        - run:
-            value: git push
-
-        - run:
-            value: git push --tags
-
-
-    qlogicae-ensemble:
-      enter-filesystem-path:
-        value: ${{ qlogicae-ensemble-selection-project-filesystem-path }}
-
-      scripts:
-        - run:
-            value: qlogicae-ensemble-build
-
-        - run:
-            value: qlogicae-ensemble-git-deployment
+            value: qlogicae-ensemble-synchronize
 
 macros:  
   static:
     file:
       targets:
-        qlogicae-ensemble-display-brand-name:
-          value: ${{ main-company-display-name }} ${{ qlogicae-ensemble-display-project-name }}
+        qlogicae-ensemble-brand-display-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-ensemble-project-display-name }}
 
-        qlogicae-ensemble-base-brand-name:
-          value: ${{ main-company-base-name }}-${{ qlogicae-ensemble-base-project-name }}
+        qlogicae-ensemble-brand-base-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-ensemble-project-base-name }}
 
-        qlogicae-ensemble-display-project-name:
+        qlogicae-ensemble-project-display-name:
           value: Ensemble
 
-        qlogicae-ensemble-base-project-name:
+        qlogicae-ensemble-project-base-name:
           value: ensemble
 
-        qlogicae-ensemble-base-description:
-          value: The QLogicae workspace
+        qlogicae-ensemble-project-base-description:
+          value: The filesystem repository for QLogicae projects.
 
-        qlogicae-ensemble-current-version-number:
-          value: 1.1.2
+        qlogicae-ensemble-license-display-name:
+          value: MIT
 
-        qlogicae-ensemble-current-version-label:
-          value: v${{ qlogicae-ensemble-current-version-number }}
+        qlogicae-ensemble-version-current-number:
+          value: 1.2.0
+
+        qlogicae-ensemble-version-current-label:
+          value: v${{ qlogicae-ensemble-version-current-number }}
 
         qlogicae-ensemble-selection-project-filesystem-path:
-          value: ${{ selection-filesystem-path }}/${{ qlogicae-ensemble-base-brand-name }}
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-ensemble-brand-base-name }}
+
+        qlogicae-ensemble-design-system-link:
+          value: https://www.figma.com/design/YhcYppMpUaCkXMJa7hfHHy/qlogicae-uizee?node-id=0-1&t=LS2uVICtbExmT75y-1
+
+        qlogicae-ensemble-repository-link:
+          value: .

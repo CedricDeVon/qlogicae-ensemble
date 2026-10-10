@@ -62,8 +62,8 @@
         </a>
       </li>
       <li>
-        <a href="#usage-links">
-          Links
+        <a href="#usage-release">
+          Release
         </a>
       </li>
     </ul>
@@ -99,13 +99,13 @@
   "With a lack of hardware, why not optimize your workflow?"
 </p>
 <p>
-  Strong logistics often win wars, at the very least. This project exists to help me win mine: budgeting. I wanted a tool to help me manage my finances, track them as well as I can, and visualize them beautifully.
+  This project aims to help me fix one of my problems: budgeting. I needed a tool to help me manage my personal finances, and track them well.
 </p>
 <p>
-  While more sophisticated data tools like Microsoft's Power BI exist, using the most advanced options is not my focus right now. I simply want to start budgeting soon rather than later.
+  True, while more sophisticated tools, like Microsoft's Power BI do exist, utilizing the most advanced tools was never my primary issue. I simply want to get started with the habit of budgeting. Either way, better late than never.
 </p>
 <p>
-  Better solutions will come when the time is right. For now, at least, I have made a start.
+  Better solutions will arrive when needed. For now, at least, I have made a start.
 </p>
 
 <h3 id="about-core-features">
@@ -117,7 +117,17 @@
 <ul>
   <li>
     <p>
-      Dashboards
+      Fixed Budget
+    </p>
+  </li>
+  <li>
+    <p>
+      Dynamic Budget
+    </p>
+  </li>
+  <li>
+    <p>
+      Data Dashboards
     </p>
   </li>
   <li>
@@ -125,21 +135,15 @@
       Database Backups
     </p>
   </li>
-  <li>
-    <p>
-      Data Worksheets
-    </p>
-  </li>  
 </ul>
 
 </br>
 
 <p>
-  To know more, check out the <a href="./documentation/index.md">extended documentation</a>.
+  To know more, visit the <a href="./documentation/index.md">extended documentation</a>.
 </p>
 
 </br>
-
 
 
 
@@ -152,20 +156,44 @@
 </h3>
 
 <p>
-  For maximum convenience, please make sure these minimum system requirement(s) are met and have installed the following software:
+  For maximum convenience, please re-evaluate your system if these requirement(s) are met:
 </p>
+
+<h4 id="usage-pre-requisites-minimum">
+  🔻 Minimum
+</h4>
 
 <ul>
   <li>
     <p>
-      <strong>Browser</strong> - Chrome, Brave, Opera, OperaGX, Safari, etc.      
-    </p>
-  </li>
-  <li>
-    <p>
-      <strong>Internet</strong> - Decent enough to be comfortable
+      <strong>Internet</strong> - Relatively decent enough to be comfortable
     </p>
   </li>  
+  <li>
+    <p>
+      <strong>Browser</strong>
+      <ul>
+        <li>
+          <p>Chrome</p>
+        </li>
+        <li>
+          <p>Brave</p>
+        </li>
+        <li>
+          <p>Safari</p>
+        </li>
+        <li>
+          <p>Opera</p>
+        </li>
+        <li>
+          <p>OperaGX</p>
+        </li>
+        <li>
+          <p>And More</p>
+        </li>
+      </ul>   
+    </p>
+  </li>
   <li>
     <p>
       <strong>Operating System(s)</strong>    
@@ -184,13 +212,16 @@
   </li>
 </ul>
 
-<h3 id="usage-links">
-  🔗 Links
+<h3 id="usage-release">
+  🚀 Release
 </h3>
 
-<p>Click to use the application - straight to the point.</p>
-
-${{ qlogicae-upkeep-looker-studio-link }}
+<p>
+  Click here to use the application - straight to the point.
+</p>
+<p>
+  ${{ qlogicae-upkeep-looker-studio-link }}
+</p>
 
 </br>
 
@@ -201,19 +232,16 @@ ${{ qlogicae-upkeep-looker-studio-link }}
 </h2>
 
 <p>
-  Meaningful contributions are always welcome! Having said that, please be guided with the following documentation based on what aspects of the project you want to be improved upon.
+  Meaningful contributions are always welcome! Having said that, please consult the following documentation regarding what aspects of the project you want to see improved.
 </p>
 
 <h3 id="contribution-sections">
-  📖 Sections
+  📖 Resources
 </h3>
 
 <ul>
   <li>
-    <p><a href="./CONTRIBUTING.md">Contribution Guidelines</a></p>
-  </li>
-  <li>
-    <p><a href="./SECURITY.md">Security Guidelines</a></p>
+    <p><a href="./.github/PULL_REQUEST_TEMPLATE.md">Pull Requests</a></p>
   </li>
   <li>
     <p><a href="./.github/ISSUE_TEMPLATE/bug_report.md">Bug Reports</a></p>
@@ -222,7 +250,10 @@ ${{ qlogicae-upkeep-looker-studio-link }}
     <p><a href="./.github/ISSUE_TEMPLATE/feature_request.md">Feature Requests</a></p>
   </li>
   <li>
-    <p><a href="./.github/PULL_REQUEST_TEMPLATE.md">Pull Requests</a></p>
+    <p><a href="./CONTRIBUTING.md">Contribution Guidelines</a></p>
+  </li>
+  <li>
+    <p><a href="./SECURITY.md">Security Guidelines</a></p>
   </li>
 </ul>
 

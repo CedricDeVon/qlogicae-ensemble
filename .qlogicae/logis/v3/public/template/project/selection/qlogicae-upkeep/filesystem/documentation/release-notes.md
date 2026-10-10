@@ -29,49 +29,7 @@
 
 
 
-
-<h2>📦 1.5.2</h2>
-
-<h3>Overview</h3>
-
-<p>
-    Designated Initial Release
-</p>
-
-
-<h3>Description</h3>
-
-<p>
-    Fixed text alignment
-</p>
-<p>
-
-</br>
-
-
-
-<h2>📦 1.5.0</h2>
-
-<h3>Overview</h3>
-
-<p>
-    Pre-release
-</p>
-
-
-<h3>Description</h3>
-
-<p>
-    First pre-release
-</p>
-<p>
-
-</br>
-
-
-
-
-<h2>📦 < 1.5.0</h2>
+<h2>📦 < 1.5.3</h2>
 
 <h3>Overview</h3>
 

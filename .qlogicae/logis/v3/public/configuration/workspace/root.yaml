@@ -238,9 +238,12 @@ macros:
           alias:
             author:
 
+        main-author-base-username:
+          value: CedricDeVon
+
         main-author-base-email:
           value: vaughncedriclipardoaraneta@gmail.com
-        
+    
         main-company-display-name:
           value: QLogicae
 
