@@ -44,8 +44,8 @@
             </a>
         </li>
         <li>
-            <a href=".">
-                Project Repository
+            <a href="./documentation/index.md">
+                Extended Documentation
             </a>
         </li>
     </ul>
@@ -115,7 +115,7 @@
 </br>
 
 <p>
-  	For more information, please visit the <a href=".">Project Repository</a>.
+  	For more information, please visit the <a href=".">Extended Documentation</a>.
 </p>
 
 </br>
