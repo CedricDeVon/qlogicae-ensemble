@@ -3,13 +3,13 @@ workspace:
     selection:
       qlogicae-qarta-root:
         filesystem-path:
-          value: ${{ qlogicae-qarta-root-selection-project-filesystem-path }}
+          value: ${{ qlogicae-qarta-root-filesystem-path }}
 
 workflow:
   selection:      
     qlogicae-qarta-root-pre-workflow:
       filesystem-path:
-        value: ${{ qlogicae-qarta-root-selection-project-filesystem-path }}
+        value: ${{ qlogicae-qarta-root-filesystem-path }}
     
       scripts:
         - run:
@@ -17,7 +17,7 @@ workflow:
           argument:
             targets:
               - qlogicae-qarta
-                
+
         - run:
             value: qlogicae-ensemble-synchronize
 
@@ -25,5 +25,5 @@ macros:
   static:  
     file:
       targets:
-        qlogicae-qarta-root-selection-project-filesystem-path:
-          value: ${{ selection-filesystem-path }}/${{ qlogicae-qarta-base-brand-name }}
+        qlogicae-qarta-root-filesystem-path:
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-qarta-brand-base-name }}

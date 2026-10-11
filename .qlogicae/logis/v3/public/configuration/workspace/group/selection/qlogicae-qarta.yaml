@@ -10,25 +10,43 @@ macros:
   static:  
     file:
       targets:
-        qlogicae-qarta-display-brand-name:
-          value: ${{ main-company-display-name }} ${{ qlogicae-qarta-display-project-name }}
+        qlogicae-qarta-author-full-name:
+          value: ${{ main-author-full-name }}
 
-        qlogicae-qarta-base-brand-name:
-          value: ${{ main-company-base-name }}-${{ qlogicae-qarta-base-project-name }}
+        qlogicae-qarta-author-base-username:
+          value: ${{ main-author-base-username }}
 
-        qlogicae-qarta-source-brand-name:
-          value: ${{ main-company-base-name }}_${{ qlogicae-qarta-base-project-name }}
+        qlogicae-qarta-author-base-email:
+          value: ${{ main-author-base-email }}
+    
+        qlogicae-qarta-company-display-name:
+          value: ${{ main-company-display-name }}
 
-        qlogicae-qarta-display-project-name:
+        qlogicae-qarta-company-base-name:
+          value: ${{ main-company-base-name }}
+        
+        qlogicae-qarta-company-base-logo-filesystem-path:
+          value: ${{ main-company-base-logo-filesystem-path }}
+
+        qlogicae-qarta-brand-display-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-qarta-project-display-name }}
+
+        qlogicae-qarta-brand-base-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-qarta-project-base-name }}
+
+        qlogicae-qarta-project-display-name:
           value: Qarta
 
-        qlogicae-qarta-base-project-name:
+        qlogicae-qarta-project-base-name:
           value: qarta
 
-        qlogicae-qarta-base-description:
+        qlogicae-qarta-project-base-description:
           value: The documentation web application template for QLogicae projects
 
-        qlogicae-qarta-current-version-number:
+        qlogicae-qarta-license-display-name:
+          value: MIT
+
+        qlogicae-qarta-version-current-number:
           value: 0.0.1
 
         qlogicae-qarta-active-major-version-number:
@@ -38,8 +56,7 @@ macros:
           value: v${{ qlogicae-qarta-active-major-version-number }}
 
         qlogicae-qarta-current-version-label:
-          value: v${{ qlogicae-qarta-current-version-number }}
+          value: v${{ qlogicae-qarta-version-current-number }}
 
-        qlogicae-qarta-base-repository-link:
-          value: https://github.com/CedricDeVon/${{ qlogicae-qarta-base-brand-name }}
-  
+        qlogicae-qarta-repository-base-link:
+          value: https://github.com/${{ qlogicae-qarta-author-base-username }}/${{ qlogicae-qarta-brand-base-name }}

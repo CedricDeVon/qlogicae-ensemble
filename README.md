@@ -111,13 +111,9 @@
     </p>
 	</li>
 </ul>
-
-</br>
-
 <p>
-  	For more information, please visit the <a href=".">Extended Documentation</a>.
+  	For more information, please visit the <a href="./documentation/index.md">Extended Documentation</a>.
 </p>
-
 </br>
 
 
@@ -125,7 +121,6 @@
 <h2 id="legalities">
   	🏛️ Legalities
 </h2>
-
 <h3 id="legalities-license">
   	📋 License
 </h3>
@@ -133,5 +128,4 @@
 <p>
   	The project is currently under the <a href="./LICENSE">MIT License</a>.
 </p>
-
 </br>

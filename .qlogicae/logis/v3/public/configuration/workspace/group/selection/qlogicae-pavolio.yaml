@@ -1,0 +1,65 @@
+workspace:
+  group:
+    selection:      
+      qlogicae-pavolio:
+        targets:
+          qlogicae-pavolio-root:
+
+macros:
+  static:
+    file:
+      targets:
+        qlogicae-pavolio-author-full-name:
+          value: ${{ main-author-full-name }}
+
+        qlogicae-pavolio-author-base-username:
+          value: ${{ main-author-base-username }}
+
+        qlogicae-pavolio-author-base-email:
+          value: ${{ main-author-base-email }}
+    
+        qlogicae-pavolio-company-display-name:
+          value: ${{ main-company-display-name }}
+
+        qlogicae-pavolio-company-base-name:
+          value: ${{ main-company-base-name }}
+        
+        qlogicae-pavolio-company-base-logo-filesystem-path:
+          value: ${{ main-company-base-logo-filesystem-path }}
+
+        qlogicae-pavolio-brand-display-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-pavolio-project-display-name }}
+
+        qlogicae-pavolio-brand-base-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-pavolio-project-base-name }}
+
+        qlogicae-pavolio-project-display-name:
+          value: Pavolio
+
+        qlogicae-pavolio-project-base-name:
+          value: pavolio
+
+        qlogicae-pavolio-project-base-description:
+          value: LaTex UI Design System Documentation Generator Project
+
+
+        qlogicae-pavolio-license-display-name:
+          value: MIT
+
+        qlogicae-pavolio-version-current-number:
+          value: 0.0.1
+
+        qlogicae-pavolio-active-major-version-number:
+          value: 0
+
+        qlogicae-pavolio-active-major-version-label:
+          value: v${{ qlogicae-pavolio-active-major-version-number }}
+
+        qlogicae-pavolio-current-version-label:
+          value: v${{ qlogicae-pavolio-version-current-number }}
+
+        qlogicae-pavolio-repository-base-link:
+          value: https://github.com/${{ qlogicae-pavolio-author-base-username }}/${{ qlogicae-pavolio-brand-base-name }}
+
+        qlogicae-pavolio-looker-studio-base-link:
+          value: https://datastudio.google.com/s/irbNNcZBEjw        

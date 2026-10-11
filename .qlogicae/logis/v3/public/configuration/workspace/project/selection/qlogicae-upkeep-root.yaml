@@ -1,0 +1,29 @@
+workspace:
+  project:
+    selection:
+      qlogicae-upkeep-root:
+        filesystem-path:
+          value: ${{ qlogicae-upkeep-root-filesystem-path }}
+
+workflow:
+  selection:      
+    qlogicae-upkeep-root-source:
+      filesystem-path:
+        value: ${{ qlogicae-upkeep-root-filesystem-path }}
+      
+      scripts:
+        - run:
+            value: command-template-apply        
+          argument:
+            targets:
+              - qlogicae-upkeep-root
+                
+        - run:
+            value: qlogicae-ensemble-root-synchronize-backup-qlogicae
+
+macros:
+  static:
+    file:
+      targets:
+        qlogicae-upkeep-root-filesystem-path:
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-upkeep-brand-base-name }}

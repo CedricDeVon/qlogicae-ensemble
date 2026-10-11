@@ -46,8 +46,8 @@
             </a>
         </li>
         <li>
-            <a href="${{ temp-base-project-repository-link }}">
-                Project Repository
+            <a href=./documentation/index.md">
+                Extended Documentation
             </a>
         </li>
     </ul>
@@ -84,7 +84,7 @@
 			</a>
 			</li>
 		</ul>
-    </li>  
+    </li> 
 </ul>
 </br>
 
@@ -119,7 +119,7 @@
 </br>
 
 <p>
-  	For more information, please visit the <a href="${{ temp-base-project-repository-link }}">Project Repository</a>.
+  	For more information, please visit the <a href="./documentation/index.md">Extended Documentation</a>.
 </p>
 
 </br>

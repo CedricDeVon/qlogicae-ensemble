@@ -1,0 +1,42 @@
+workspace:
+  project:
+    selection:
+      qlogicae-ensemble-root:
+        filesystem-path:
+          value: ${{ qlogicae-ensemble-root-filesystem-path }}
+
+workflow:
+  selection:      
+    qlogicae-ensemble-root-source:
+      filesystem-path:
+        value: ${{ qlogicae-ensemble-root-filesystem-path }}
+      
+      scripts:
+        - run:
+            value: command-template-apply        
+          argument:
+            targets:
+              - qlogicae-ensemble-root
+                
+        - run:
+            value: qlogicae-ensemble-root-synchronize-backup-qlogicae
+
+    qlogicae-ensemble-root-synchronize-backup-qlogicae:
+      filesystem-path:
+        value: ${{ root-filesystem-path }}
+      
+      scripts:
+        - run:
+            value: command-filesystem-copy          
+          argument:
+            source_paths:
+              - ${{ root-filesystem-path }}/.qlogicae
+            target_paths:
+              - ${{ qlogicae-ensemble-root-filesystem-path }}/.qlogicae
+
+macros:
+  static:
+    file:
+      targets:
+        qlogicae-ensemble-root-filesystem-path:
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-ensemble-brand-base-name }}

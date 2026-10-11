@@ -10,25 +10,43 @@ macros:
   static:  
     file:
       targets:
-        qlogicae-aleph-display-brand-name:
-          value: ${{ main-company-display-name }} ${{ qlogicae-aleph-display-project-name }}
+        qlogicae-aleph-author-full-name:
+          value: ${{ main-author-full-name }}
 
-        qlogicae-aleph-base-brand-name:
-          value: ${{ main-company-base-name }}-${{ qlogicae-aleph-base-project-name }}
+        qlogicae-aleph-author-base-username:
+          value: ${{ main-author-base-username }}
 
-        qlogicae-aleph-source-brand-name:
-          value: ${{ main-company-base-name }}_${{ qlogicae-aleph-base-project-name }}
+        qlogicae-aleph-author-base-email:
+          value: ${{ main-author-base-email }}
+    
+        qlogicae-aleph-company-display-name:
+          value: ${{ main-company-display-name }}
 
-        qlogicae-aleph-display-project-name:
+        qlogicae-aleph-company-base-name:
+          value: ${{ main-company-base-name }}
+        
+        qlogicae-aleph-company-base-logo-filesystem-path:
+          value: ${{ main-company-base-logo-filesystem-path }}
+
+        qlogicae-aleph-brand-display-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-aleph-project-display-name }}
+
+        qlogicae-aleph-brand-base-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-aleph-project-base-name }}
+
+        qlogicae-aleph-project-display-name:
           value: Aleph
 
-        qlogicae-aleph-base-project-name:
+        qlogicae-aleph-project-base-name:
           value: aleph
 
-        qlogicae-aleph-base-description:
-          value: The software monitoring tool for QLogicae projects
+        qlogicae-aleph-project-base-description:
+          value: The software monitoring tool for QLogicae projects.
 
-        qlogicae-aleph-current-version-number:
+        qlogicae-aleph-license-display-name:
+          value: MIT
+
+        qlogicae-aleph-version-current-number:
           value: 0.0.1
 
         qlogicae-aleph-active-major-version-number:
@@ -38,7 +56,7 @@ macros:
           value: v${{ qlogicae-aleph-active-major-version-number }}
 
         qlogicae-aleph-current-version-label:
-          value: v${{ qlogicae-aleph-current-version-number }}
+          value: v${{ qlogicae-aleph-version-current-number }}
 
-        qlogicae-aleph-base-repository-link:
-          value: https://github.com/CedricDeVon/${{ qlogicae-aleph-base-brand-name }}
+        qlogicae-aleph-repository-base-link:
+          value: https://github.com/${{ qlogicae-aleph-author-base-username }}/${{ qlogicae-aleph-brand-base-name }}

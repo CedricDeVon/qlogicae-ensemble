@@ -1,6 +1,6 @@
 </br>
 <div style="width: 100%; display: flex; justify-content: center;">
-    <image alt="${{ main-company-display-name }} logo" src="${{ main-company-base-logo-filesystem-path }}" width="256px">
+    <image alt="${{ qlogicae-ensemble-company-display-name }} logo" src="${{ qlogicae-ensemble-company-base-logo-filesystem-path }}" width="256px">
 </div>
 </br>
 
@@ -16,8 +16,8 @@
 ![License - Name](https://img.shields.io/badge/License-${{ qlogicae-ensemble-license-display-name }}-red)
 
 <!-- Dynamic Markdown Badges -->
-![GitHub - Stars](https://img.shields.io/github/stars/${{ main-author-base-username }}/${{ qlogicae-ensemble-brand-base-name }})
-[![GitHub - Actions](https://github.com/${{ main-author-base-username }}/${{ qlogicae-ensemble-brand-base-name }}/actions/workflows/codeql.yml/badge.svg)](https://img.shields.io/github/actions/workflow/status/${{ main-author-base-username }}/${{ qlogicae-ensemble-brand-base-name }}/codeql.yml)
+![GitHub - Stars](https://img.shields.io/github/stars/${{ qlogicae-ensemble-author-base-username }}/${{ qlogicae-ensemble-brand-base-name }})
+[![GitHub - Actions](https://github.com/${{ qlogicae-ensemble-author-base-username }}/${{ qlogicae-ensemble-brand-base-name }}/actions/workflows/codeql.yml/badge.svg)](https://img.shields.io/github/actions/workflow/status/${{ qlogicae-ensemble-author-base-username }}/${{ qlogicae-ensemble-brand-base-name }}/codeql.yml)
 
   </div>
 </div>
@@ -115,11 +115,13 @@
 </br>
 
 <p>
-  	For more information, please visit the <a href="${{ qlogicae-ensemble-repository-link }}">Extended Documentation</a>.
+  	For more information, please visit the <a href="${{ qlogicae-ensemble-repository-base-link }}">Extended Documentation</a>.
 </p>
 
 </br>
 
+        # qlogicae-aleph-desktop-selection-project-filesystem-path:
+        #   value: ${{ qlogicae-aleph-root-selection-project-filesystem-path }}/desktop
 
 
 <h2 id="legalities">

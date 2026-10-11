@@ -1,0 +1,64 @@
+workspace:
+  group:
+    selection:      
+      qlogicae-ensemble:
+        targets:
+          qlogicae-ensemble-root:
+
+macros:  
+  static:
+    file:
+      targets:
+        qlogicae-ensemble-author-full-name:
+          value: ${{ main-author-full-name }}
+
+        qlogicae-ensemble-author-base-username:
+          value: ${{ main-author-base-username }}
+
+        qlogicae-ensemble-author-base-email:
+          value: ${{ main-author-base-email }}
+    
+        qlogicae-ensemble-company-display-name:
+          value: ${{ main-company-display-name }}
+
+        qlogicae-ensemble-company-base-name:
+          value: ${{ main-company-base-name }}
+        
+        qlogicae-ensemble-company-base-logo-filesystem-path:
+          value: ${{ main-company-base-logo-filesystem-path }}
+
+        qlogicae-ensemble-brand-display-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-ensemble-project-display-name }}
+
+        qlogicae-ensemble-brand-base-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-ensemble-project-base-name }}
+
+        qlogicae-ensemble-project-display-name:
+          value: Ensemble
+
+        qlogicae-ensemble-project-base-name:
+          value: ensemble
+
+        qlogicae-ensemble-project-base-description:
+          value: The filesystem repository for QLogicae projects.
+
+        qlogicae-ensemble-license-display-name:
+          value: MIT
+
+        qlogicae-ensemble-version-current-number:
+          value: 1.2.0
+
+        qlogicae-ensemble-active-major-version-current-number:
+          value: 1
+
+        qlogicae-ensemble-version-current-label:
+          value: v${{ qlogicae-ensemble-version-current-number }}
+
+        qlogicae-ensemble-root-filesystem-path:
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-ensemble-brand-base-name }}
+
+        qlogicae-ensemble-design-system-link:
+          value: https://www.figma.com/design/YhcYppMpUaCkXMJa7hfHHy/qlogicae-uizee?node-id=0-1&t=LS2uVICtbExmT75y-1
+
+        qlogicae-ensemble-repository-base-link:
+          value: https://github.com/${{ qlogicae-ensemble-author-base-username }}/${{ qlogicae-ensemble-brand-base-name }}

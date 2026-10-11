@@ -10,25 +10,43 @@ macros:
   static:  
     file:
       targets:
-        qlogicae-frons-display-brand-name:
-          value: ${{ main-company-display-name }} ${{ qlogicae-frons-display-project-name }}
+        qlogicae-frons-author-full-name:
+          value: ${{ main-author-full-name }}
 
-        qlogicae-frons-base-brand-name:
-          value: ${{ main-company-base-name }}-${{ qlogicae-frons-base-project-name }}
+        qlogicae-frons-author-base-username:
+          value: ${{ main-author-base-username }}
 
-        qlogicae-frons-source-brand-name:
-          value: ${{ main-company-base-name }}_${{ qlogicae-frons-base-project-name }}
+        qlogicae-frons-author-base-email:
+          value: ${{ main-author-base-email }}
+    
+        qlogicae-frons-company-display-name:
+          value: ${{ main-company-display-name }}
 
-        qlogicae-frons-display-project-name:
+        qlogicae-frons-company-base-name:
+          value: ${{ main-company-base-name }}
+        
+        qlogicae-frons-company-base-logo-filesystem-path:
+          value: ${{ main-company-base-logo-filesystem-path }}
+
+        qlogicae-frons-brand-display-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-frons-project-display-name }}
+
+        qlogicae-frons-brand-base-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-frons-project-base-name }}
+
+        qlogicae-frons-project-display-name:
           value: Frons
 
-        qlogicae-frons-base-project-name:
+        qlogicae-frons-project-base-name:
           value: frons
 
-        qlogicae-frons-base-description:
+        qlogicae-frons-project-base-description:
           value: The official portfolio website of Vaughn Cedric L. Araneta
 
-        qlogicae-frons-current-version-number:
+        qlogicae-frons-license-display-name:
+          value: MIT
+
+        qlogicae-frons-version-current-number:
           value: 0.0.1
 
         qlogicae-frons-active-major-version-number:
@@ -38,8 +56,7 @@ macros:
           value: v${{ qlogicae-frons-active-major-version-number }}
 
         qlogicae-frons-current-version-label:
-          value: v${{ qlogicae-frons-current-version-number }}
+          value: v${{ qlogicae-frons-version-current-number }}
 
-        qlogicae-frons-base-repository-link:
-          value: https://github.com/CedricDeVon/${{ qlogicae-frons-base-brand-name }}
-  
+        qlogicae-frons-repository-base-link:
+          value: https://github.com/${{ qlogicae-frons-author-base-username }}/${{ qlogicae-frons-brand-base-name }}

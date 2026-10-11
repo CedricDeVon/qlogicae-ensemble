@@ -3,21 +3,11 @@ workspace:
     selection:
       qlogicae-cylon-cli:
         filesystem-path:
-          value: ${{ qlogicae-cylon-cli-selection-project-filesystem-path }}
-
-workflow:
-  selection:      
-    qlogicae-cylon-cli-quality-assurance:
-      filesystem-path:
-        value: ${{ qlogicae-cylon-cli-selection-project-filesystem-path }}
-      
-      scripts:
-        - run:
-            value: qlogicae-cylon-root-pre-workflow
+          value: ${{ qlogicae-cylon-cli-filesystem-path }}
 
 macros:
   static:  
     file:
       targets:
-        qlogicae-cylon-cli-selection-project-filesystem-path:
-          value: ${{ qlogicae-cylon-root-selection-project-filesystem-path }}/cli
+        qlogicae-cylon-cli-filesystem-path:
+          value: ${{ qlogicae-cylon-root-filesystem-path }}/cli

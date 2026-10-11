@@ -3,21 +3,11 @@ workspace:
     selection:
       qlogicae-qarta-web:
         filesystem-path:
-          value: ${{ qlogicae-qarta-web-selection-project-filesystem-path }}
-
-workflow:
-  selection:      
-    qlogicae-qarta-web-quality-assurance:
-      filesystem-path:
-        value: ${{ qlogicae-qarta-web-selection-project-filesystem-path }}
-      
-      scripts:
-        - run:
-            value: qlogicae-qarta-root-pre-workflow
+          value: ${{ qlogicae-qarta-web-filesystem-path }}
 
 macros:
   static:  
     file:
       targets:
-        qlogicae-qarta-web-selection-project-filesystem-path:
-          value: ${{ qlogicae-qarta-root-selection-project-filesystem-path }}/web
+        qlogicae-qarta-web-filesystem-path:
+          value: ${{ qlogicae-qarta-root-filesystem-path }}/web

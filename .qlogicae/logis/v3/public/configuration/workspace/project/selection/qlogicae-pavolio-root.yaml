@@ -1,0 +1,29 @@
+workspace:
+  project:
+    selection:
+      qlogicae-pavolio-root:
+        filesystem-path:
+          value: ${{ qlogicae-pavolio-root-filesystem-path }}
+
+workflow:
+  selection:      
+    qlogicae-pavolio-root-pre-workflow:
+      filesystem-path:
+        value: ${{ qlogicae-pavolio-root-filesystem-path }}
+    
+      scripts:
+        - run:
+            value: command-template-apply        
+          argument:
+            targets:
+              - qlogicae-pavolio
+
+        - run:
+            value: qlogicae-ensemble-synchronize
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-pavolio-root-filesystem-path:
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-pavolio-brand-base-name }}

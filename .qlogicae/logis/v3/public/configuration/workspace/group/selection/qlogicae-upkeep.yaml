@@ -1,0 +1,64 @@
+workspace:
+  group:
+    selection:      
+      qlogicae-upkeep:
+        targets:
+          qlogicae-upkeep-root:
+
+macros:
+  static:
+    file:
+      targets:
+        qlogicae-upkeep-author-full-name:
+          value: ${{ main-author-full-name }}
+
+        qlogicae-upkeep-author-base-username:
+          value: ${{ main-author-base-username }}
+
+        qlogicae-upkeep-author-base-email:
+          value: ${{ main-author-base-email }}
+    
+        qlogicae-upkeep-company-display-name:
+          value: ${{ main-company-display-name }}
+
+        qlogicae-upkeep-company-base-name:
+          value: ${{ main-company-base-name }}
+        
+        qlogicae-upkeep-company-base-logo-filesystem-path:
+          value: ${{ main-company-base-logo-filesystem-path }}
+
+        qlogicae-upkeep-brand-display-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-upkeep-project-display-name }}
+
+        qlogicae-upkeep-brand-base-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-upkeep-project-base-name }}
+
+        qlogicae-upkeep-project-display-name:
+          value: Upkeep
+
+        qlogicae-upkeep-project-base-name:
+          value: upkeep
+
+        qlogicae-upkeep-project-base-description:
+          value: The personal budget application for V.C.A., deployed via Google's Looker Studio.
+
+        qlogicae-upkeep-license-display-name:
+          value: MIT
+
+        qlogicae-upkeep-version-current-number:
+          value: 1.5.8
+
+        qlogicae-upkeep-active-major-version-number:
+          value: 1
+
+        qlogicae-upkeep-active-major-version-label:
+          value: v${{ qlogicae-upkeep-active-major-version-number }}
+
+        qlogicae-upkeep-current-version-label:
+          value: v${{ qlogicae-upkeep-version-current-number }}
+
+        qlogicae-upkeep-repository-base-link:
+          value: https://github.com/${{ qlogicae-upkeep-author-base-username }}/${{ qlogicae-upkeep-brand-base-name }}
+
+        qlogicae-upkeep-looker-studio-base-link:
+          value: https://datastudio.google.com/s/irbNNcZBEjw        

@@ -10,25 +10,46 @@ macros:
   static:  
     file:
       targets:
-        qlogicae-cylon-display-brand-name:
-          value: ${{ main-company-display-name }} ${{ qlogicae-cylon-display-project-name }}
+        qlogicae-cylon-author-full-name:
+          value: ${{ main-author-full-name }}
 
-        qlogicae-cylon-base-brand-name:
-          value: ${{ main-company-base-name }}-${{ qlogicae-cylon-base-project-name }}
+        qlogicae-cylon-author-base-username:
+          value: ${{ main-author-base-username }}
 
-        qlogicae-cylon-source-brand-name:
-          value: ${{ main-company-base-name }}_${{ qlogicae-cylon-base-project-name }}
+        qlogicae-cylon-author-base-email:
+          value: ${{ main-author-base-email }}
+    
+        qlogicae-cylon-company-display-name:
+          value: ${{ main-company-display-name }}
 
-        qlogicae-cylon-display-project-name:
+        qlogicae-cylon-company-base-name:
+          value: ${{ main-company-base-name }}
+        
+        qlogicae-cylon-company-base-logo-filesystem-path:
+          value: ${{ main-company-base-logo-filesystem-path }}
+
+        qlogicae-cylon-brand-display-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-cylon-project-display-name }}
+
+        qlogicae-cylon-brand-base-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-cylon-project-base-name }}
+
+        qlogicae-cylon-brand-source-name:
+          value: ${{ main-company-base-name }}_${{ qlogicae-cylon-project-base-name }}
+
+        qlogicae-cylon-project-display-name:
           value: Cylon
 
-        qlogicae-cylon-base-project-name:
+        qlogicae-cylon-project-base-name:
           value: cylon
 
-        qlogicae-cylon-base-description:
-          value: The cython integration tool for QLogicae projects
+        qlogicae-cylon-project-base-description:
+          value: The Cython integration tool for QLogicae projects
 
-        qlogicae-cylon-current-version-number:
+        qlogicae-cylon-license-display-name:
+          value: MIT
+
+        qlogicae-cylon-version-current-number:
           value: 1.0.1
 
         qlogicae-cylon-active-major-version-number:
@@ -38,8 +59,7 @@ macros:
           value: v${{ qlogicae-cylon-active-major-version-number }}
 
         qlogicae-cylon-current-version-label:
-          value: v${{ qlogicae-cylon-current-version-number }}
+          value: v${{ qlogicae-cylon-version-current-number }}
 
-        qlogicae-cylon-base-repository-link:
-          value: https://github.com/CedricDeVon/${{ qlogicae-cylon-base-brand-name }}
-  
+        qlogicae-cylon-repository-base-link:
+          value: https://github.com/${{ qlogicae-cylon-author-base-username }}/${{ qlogicae-cylon-brand-base-name }}
