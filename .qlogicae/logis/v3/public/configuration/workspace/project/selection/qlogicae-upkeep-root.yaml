@@ -7,7 +7,7 @@ workspace:
 
 workflow:
   selection:      
-    qlogicae-upkeep-root-source:
+    qlogicae-upkeep-source:
       filesystem-path:
         value: ${{ qlogicae-upkeep-root-filesystem-path }}
       
@@ -16,10 +16,10 @@ workflow:
             value: command-template-apply        
           argument:
             targets:
-              - qlogicae-upkeep-root
+              - qlogicae-upkeep
                 
         - run:
-            value: qlogicae-ensemble-root-synchronize-backup-qlogicae
+            value: qlogicae-ensemble-synchronize-backups
 
 macros:
   static:

@@ -7,7 +7,7 @@ workspace:
 
 workflow:
   selection:      
-    qlogicae-aleph-root-pre-workflow:
+    qlogicae-aleph-source:
       filesystem-path:
         value: ${{ qlogicae-aleph-root-filesystem-path }}
     
@@ -19,7 +19,7 @@ workflow:
               - qlogicae-aleph
 
         - run:
-            value: qlogicae-ensemble-synchronize
+            value: qlogicae-ensemble-synchronize-backups
 
 macros:
   static:  

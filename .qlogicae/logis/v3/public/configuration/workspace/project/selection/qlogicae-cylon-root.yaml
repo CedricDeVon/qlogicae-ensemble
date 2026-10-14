@@ -7,7 +7,7 @@ workspace:
 
 workflow:
   selection:      
-    qlogicae-cylon-root-pre-workflow:
+    qlogicae-cylon-source:
       filesystem-path:
         value: ${{ qlogicae-cylon-root-filesystem-path }}
     
@@ -19,7 +19,7 @@ workflow:
               - qlogicae-cylon
 
         - run:
-            value: qlogicae-ensemble-synchronize
+            value: qlogicae-ensemble-synchronize-backups
 
 macros:
   static:  

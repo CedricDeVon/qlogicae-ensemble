@@ -1,19 +1,19 @@
 [project]
-name = "${{ qlogicae-cor-base-brand-name }}"
-version = "${{ qlogicae-cor-python-current-version-number }}"
+name = "${{ qlogicae-cor-brand-base-name }}"
+version = "${{ qlogicae-cor-python-version-current-number }}"
 description = "${{ qlogicae-cor-base-description }}"
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.12"
-license = "MIT"
-license-files = ["LICENSE"]
+license = "${{ qlogicae-cor-license-display-name }}"
+license-files = ["${{ qlogicae-cor-license-filesystem-path }}"]
 authors = [
-    { name = "${{ main-author-full-name }}", email = "${{ main-author-base-email }}" }
+    { name = "${{ qlogicae-cor-author-full-name }}", email = "${{ qlogicae-cor-author-base-email }}" }
 ]
 maintainers = [
-    { name = "${{ main-author-full-name }}", email = "${{ main-author-base-email }}" }
+    { name = "${{ qlogicae-cor-author-full-name }}", email = "${{ qlogicae-cor-author-base-email }}" }
 ]
 keywords = [
-    "${{ main-company-base-name }}", "${{ qlogicae-cor-base-project-name }}"
+    "${{ qlogicae-cor-company-base-name }}", "${{ qlogicae-cor-base-name }}"
 ]
 
 classifiers = [
@@ -30,17 +30,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-dependencies = [
-    "pydantic>=2.13,<3",
-    "pyfiglet>=1.0.4,<2",
-    "PyYAML>=6.0,<7",
-    "qlogicae-cor>=2.0.0,<3",
-    "rich>=15,<16",
-    "textual>=8,<9",
-    "typer>=0.26,<1",
-    "tomli_w>=1.2.0,<2",
-    "tomlkit>=0.15.0,<1"
-]
+dependencies = []
 
 [project.optional-dependencies]
 dev = [
@@ -57,14 +47,14 @@ dev = [
 ]
 
 [project.scripts]
-qlogicae-cor = "${{ qlogicae-cor-source-brand-name }}.v2.console.app:main"
+qlogicae-cor = "${{ qlogicae-cor-brand-source-name }}.v2.console.app:main"
 
 [project.urls]
-Homepage = "${{ qlogicae-cor-base-repository-link }}"
-Repository = "${{ qlogicae-cor-base-repository-link }}"
-Documentation = "${{ qlogicae-cor-base-repository-link }}"
-Issues = "${{ qlogicae-cor-base-repository-link }}/issues"
-Changelog = "${{ qlogicae-cor-base-repository-link }}/releases"
+Homepage = "${{ qlogicae-cor-repository-base-link }}"
+Repository = "${{ qlogicae-cor-repository-base-link }}"
+Documentation = "${{ qlogicae-cor-repository-base-link }}"
+Issues = "${{ qlogicae-cor-repository-base-link }}/issues"
+Changelog = "${{ qlogicae-cor-repository-base-link }}/releases"
 
 
 [build-system]
@@ -73,18 +63,18 @@ build-backend = "hatchling.build"
 
 
 [tool.setuptools]
-package-dir = {"" = "${{ qlogicae-cor-source-brand-name }}"}
+package-dir = {"" = "${{ qlogicae-cor-brand-source-name }}"}
 
 
 [tool.setuptools.packages.find]
-where = ["${{ qlogicae-cor-source-brand-name }}"]
+where = ["${{ qlogicae-cor-brand-source-name }}"]
 
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = [
-    "./test/${{ qlogicae-cor-source-brand-name }}/v1/unit",
-    "./test/${{ qlogicae-cor-source-brand-name }}/v2/unit"
+    "./test/${{ qlogicae-cor-brand-source-name }}/v1/unit",
+    "./test/${{ qlogicae-cor-brand-source-name }}/v2/unit"
 ]
 python_files = ["test_*.py"]
 addopts = "-ra"
@@ -92,17 +82,17 @@ addopts = "-ra"
 
 [tool.coverage.run]
 source = [
-    "${{ qlogicae-cor-source-brand-name }}.v1.library.value_cache_storage_manager",
-    "${{ qlogicae-cor-source-brand-name }}.v1.library.macros_manager",
-    "${{ qlogicae-cor-source-brand-name }}.v1.library.object_merge_manager",
-    "${{ qlogicae-cor-source-brand-name }}.v1.library.abstract_manager",
-    "${{ qlogicae-cor-source-brand-name }}.v1.library.singleton_manager",
-    "${{ qlogicae-cor-source-brand-name }}.v1.library.error_manager",
+    "${{ qlogicae-cor-brand-source-name }}.v1.library.value_cache_storage_manager",
+    "${{ qlogicae-cor-brand-source-name }}.v1.library.macros_manager",
+    "${{ qlogicae-cor-brand-source-name }}.v1.library.object_merge_manager",
+    "${{ qlogicae-cor-brand-source-name }}.v1.library.abstract_manager",
+    "${{ qlogicae-cor-brand-source-name }}.v1.library.singleton_manager",
+    "${{ qlogicae-cor-brand-source-name }}.v1.library.error_manager",
 
-    "${{ qlogicae-cor-source-brand-name }}.v2.library.value_cache_storage_manager",
-    "${{ qlogicae-cor-source-brand-name }}.v2.library.macros_manager",
-    "${{ qlogicae-cor-source-brand-name }}.v2.library.object_merge_manager",
-    "${{ qlogicae-cor-source-brand-name }}.v2.library.singleton_manager",
+    "${{ qlogicae-cor-brand-source-name }}.v2.library.value_cache_storage_manager",
+    "${{ qlogicae-cor-brand-source-name }}.v2.library.macros_manager",
+    "${{ qlogicae-cor-brand-source-name }}.v2.library.object_merge_manager",
+    "${{ qlogicae-cor-brand-source-name }}.v2.library.singleton_manager",
 ]
 branch = true
 
@@ -113,7 +103,7 @@ skip_covered = false
 
 
 [tool.mypy]
-files = ["${{ qlogicae-cor-source-brand-name }}"]
+files = ["${{ qlogicae-cor-brand-source-name }}/v2"]
 strict = true
 python_version = "3.12"
 namespace_packages = true
@@ -182,8 +172,8 @@ unfixable = []
 
 [tool.hatch.build]
 include = [
-    "${{ qlogicae-cor-source-brand-name }}/**/*.py",
-    "${{ qlogicae-cor-source-brand-name }}/py.typed",
+    "${{ qlogicae-cor-brand-source-name }}/**/*.py",
+    "${{ qlogicae-cor-brand-source-name }}/py.typed",
 ]
 exclude = [
     "**/__pycache__/**",
@@ -195,20 +185,22 @@ exclude = [
 ]
 
 [tool.hatch.build.targets.wheel.force-include]
-"${{ qlogicae-cor-source-brand-name }}/py.typed" = "${{ qlogicae-cor-source-brand-name }}/py.typed"
+"${{ qlogicae-cor-brand-source-name }}/py.typed" = "${{ qlogicae-cor-brand-source-name }}/py.typed"
 
 
 [tool.hatch.build.targets.wheel]
-packages = ["${{ qlogicae-cor-source-brand-name }}"]
+packages = ["${{ qlogicae-cor-brand-source-name }}"]
 
 
 [tool.hatch.envs.default.scripts]
 test-lint = """
-    ruff check ${{ qlogicae-cor-source-brand-name }} --fix
+    ruff check ${{ qlogicae-cor-brand-source-name }}/v2 --fix
 """
+
 test-type-check = """
     mypy
 """
+
 test-unit = """
     pytest -vv \
         --cov \
@@ -219,21 +211,23 @@ test-unit = """
         --cov-report=json:\"${{ qlogicae-cor-python-output-test-unit-filesystem-path }}/coverage.json\" \
         --junitxml=\"${{ qlogicae-cor-python-output-test-unit-filesystem-path }}/junit.xml\" \
 """
-test-benchmark-memory-usage-create = """
-    memray run -o ${{ qlogicae-cor-python-output-test-benchmark-filesystem-path }}/memray-1.bin -m test.${{ qlogicae-cor-source-brand-name }}.v1.benchmark.memory_usage.test_imports ;
-"""
-test-benchmark-memory-usage-view = """
-    memray tree ${{ qlogicae-cor-python-output-test-benchmark-filesystem-path }}/memray-1.bin
-"""
+
 test-pip-deployment = """
     twine check ${{ qlogicae-cor-python-output-build-release-filesystem-path }}/dist/*
 """
+
 deploy = """
     twine upload ${{ qlogicae-cor-python-output-build-release-filesystem-path }}/dist/* --config-file .pypirc
 """
 
 
 
+test-benchmark-memory-usage-create = """
+    memray run -o ${{ qlogicae-cor-python-output-test-benchmark-filesystem-path }}/memray-1.bin -m test.${{ qlogicae-cor-brand-source-name }}.v1.benchmark.memory_usage.test_imports ;
+"""
+test-benchmark-memory-usage-view = """
+    memray tree ${{ qlogicae-cor-python-output-test-benchmark-filesystem-path }}/memray-1.bin
+"""
 github-workflow-setup = """
     mkdir -p ${{ qlogicae-cor-python-output-build-release-filesystem-path }} &&
     mkdir -p ${{ qlogicae-cor-python-output-test-unit-filesystem-path }} &&

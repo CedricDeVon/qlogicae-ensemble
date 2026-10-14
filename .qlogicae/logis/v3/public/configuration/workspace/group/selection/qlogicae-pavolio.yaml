@@ -42,7 +42,6 @@ macros:
         qlogicae-pavolio-project-base-description:
           value: LaTex UI Design System Documentation Generator Project
 
-
         qlogicae-pavolio-license-display-name:
           value: MIT
 

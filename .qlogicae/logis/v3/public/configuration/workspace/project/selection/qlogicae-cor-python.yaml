@@ -3,96 +3,58 @@ workspace:
     selection:
       qlogicae-cor-python:
         filesystem-path:
-          value: ${{ qlogicae-cor-python-selection-project-filesystem-path }}
+          value: ${{ qlogicae-cor-python-filesystem-path }}
 
 workflow:
   selection:      
-    qlogicae-cor-python-quality-assurance:
+    qlogicae-cor-python-stage:
       filesystem-path:
-        value: ${{ qlogicae-cor-python-selection-project-filesystem-path }}
-      
+        value: ${{ qlogicae-cor-python-filesystem-path }}
+
       scripts:
         - run:
-            value: qlogicae-cor-python-pre-workflow
+            value: qlogicae-cor-python-source
 
         - run:
-            value: qlogicae-cor-python-test-type-check
+            value: qlogicae-cor-python-test
 
         - run:
-            value: qlogicae-cor-python-test-lint
+            value: qlogicae-cor-python-archive
 
-        - run:
-            value: qlogicae-cor-python-test-unit
-
-        # - run:
-        #     value: qlogicae-cor-python-test-benchmark-memory-usage-create
-
-        # - run:
-        #     value: qlogicae-cor-python-test-benchmark-memory-usage-view
-
-        - run:
-            value: qlogicae-cor-python-test-pip-deployment
-
-        - run:
-            value: qlogicae-cor-python-post-workflow
-
-
-    qlogicae-cor-python-deploy:
+    qlogicae-cor-python-source:
       filesystem-path:
-        value: ${{ qlogicae-cor-python-selection-project-filesystem-path }}
-        
+        value: ${{ root-filesystem-path }}
+
       scripts:
         - run:
-            value: qlogicae-cor-python-pip-deployment          
+            value: command-template-apply        
+          argument:
+            targets:
+              - qlogicae-cor
 
-    qlogicae-cor-python-test-lint:
-      filesystem-path:
-        value: ${{ qlogicae-cor-python-selection-project-filesystem-path }}
-        
-      scripts:
         - run:
-            value: hatch run test-lint
-            
+            value: command-filesystem-clean-path
+          argument:
+            target_paths:
+              - ${{ qlogicae-cor-python-filesystem-path }}/dist
+              - ${{ qlogicae-cor-python-filesystem-path }}/output
 
-    qlogicae-cor-python-test-unit:
-      filesystem-path:
-        value: ${{ qlogicae-cor-python-selection-project-filesystem-path }}
-        
-      scripts:
         - run:
-            value: hatch run test-unit        
-
-
-    qlogicae-cor-python-test-type-check:
-      filesystem-path:
-        value: ${{ qlogicae-cor-python-selection-project-filesystem-path }}
-        
-      scripts:
+            value: command-filesystem-tree-setup          
+          argument:
+            target_paths:
+              - ${{ qlogicae-cor-python-filesystem-path }}/archive
+              - ${{ qlogicae-cor-python-filesystem-path }}/${{ qlogicae-cor-python-output-build-release-filesystem-path }}
+              - ${{ qlogicae-cor-python-filesystem-path }}/${{ qlogicae-cor-python-output-test-unit-filesystem-path }}
+              - ${{ qlogicae-cor-python-filesystem-path }}/${{ qlogicae-cor-python-output-test-benchmark-filesystem-path }}
+                    
         - run:
-            value: hatch run test-type-check
+            value: qlogicae-cor-python-build
 
-
-    qlogicae-cor-python-test-benchmark-memory-usage-create:
-      filesystem-path:
-        value: ${{ qlogicae-cor-python-selection-project-filesystem-path }}
-        
-      scripts:
-        - run:
-            value: hatch run test-benchmark-memory-usage-create
-
-
-    qlogicae-cor-python-test-benchmark-memory-usage-view:
-      filesystem-path:
-        value: ${{ qlogicae-cor-python-selection-project-filesystem-path }}
-        
-      scripts:
-        - run:
-            value: hatch run test-benchmark-memory-usage-view      
-          
 
     qlogicae-cor-python-build:
       filesystem-path:
-        value: ${{ qlogicae-cor-python-selection-project-filesystem-path }}
+        value: ${{ qlogicae-cor-python-filesystem-path }}
         
       scripts:
         - run:
@@ -104,92 +66,26 @@ workflow:
             source_path: dist
             target_path: ${{ qlogicae-cor-python-output-build-release-filesystem-path }}
 
-
-    qlogicae-cor-python-test-pip-deployment:
+    qlogicae-cor-python-test:
       filesystem-path:
-        value: ${{ qlogicae-cor-python-selection-project-filesystem-path }}
+        value: ${{ qlogicae-cor-python-filesystem-path }}
         
       scripts:
+        - run:
+            value: hatch run test-type-check
+
+        - run:
+            value: hatch run test-lint
+
+        - run:
+            value: hatch run test-unit        
+
         - run:
             value: hatch run test-pip-deployment
 
-
-    qlogicae-cor-python-pip-deployment:
-      filesystem-path:
-        value: ${{ qlogicae-cor-python-selection-project-filesystem-path }}
-        
-      scripts:
-        - run:
-            value: hatch run deploy
-
-        - run:
-            value: qlogicae-cor-python-git-deployment
-
-
-    qlogicae-cor-python-git-deployment:
-      filesystem-path:
-        value: ${{ qlogicae-cor-selection-project-filesystem-path }}
-        
-      scripts:
-        - run:
-            value: git add .
-
-        - run:
-            value: git commit -m "deployment attempt of '${{ qlogicae-cor-python-current-version-label }}'"
-        
-        - run:
-            value: git tag -a ${{ qlogicae-cor-python-current-version-label }} -m "deployment attempt of '${{ qlogicae-cor-python-current-version-label }}'"
-        
-        - run:
-            value: git push
-        
-        - run:
-            value: git push --tags
-
-
-    qlogicae-cor-python-pre-workflow:
-      filesystem-path:
-        value: ${{ root-filesystem-path }}
-
-      scripts:
-        - run:
-            value: command-filesystem-clean-path
-          argument:
-            target_paths:
-              - ${{ qlogicae-cor-python-selection-project-filesystem-path }}/dist
-              - ${{ qlogicae-cor-python-selection-project-filesystem-path }}/output
-
-        - run:
-            value: command-template-apply        
-          argument:
-            targets:
-              - qlogicae-cor-root
-              - qlogicae-cor-python
-
-        - run:
-            value: command-filesystem-tree-setup          
-          argument:
-            target_paths:
-              - ${{ qlogicae-cor-python-selection-project-filesystem-path }}/archive
-              - ${{ qlogicae-cor-python-selection-project-filesystem-path }}/${{ qlogicae-cor-python-output-build-release-filesystem-path }}
-              - ${{ qlogicae-cor-python-selection-project-filesystem-path }}/${{ qlogicae-cor-python-output-test-unit-filesystem-path }}
-              - ${{ qlogicae-cor-python-selection-project-filesystem-path }}/${{ qlogicae-cor-python-output-test-benchmark-filesystem-path }}
-                    
-        - run:
-            value: qlogicae-cor-python-build
-
-
-    qlogicae-cor-python-post-workflow:
-      filesystem-path:
-        value: ${{ qlogicae-cor-python-selection-project-filesystem-path }}
-        
-      scripts:
-        - run:
-            value: qlogicae-cor-python-archive
-
     qlogicae-cor-python-archive:
       filesystem-path:
-        value: ${{ qlogicae-cor-python-selection-project-filesystem-path }}
+        value: ${{ qlogicae-cor-python-filesystem-path }}
 
       scripts:          
         - run:
@@ -200,24 +96,32 @@ workflow:
             target_paths:
               - ${{ qlogicae-cor-python-archive-filesystem-path }}
 
+    qlogicae-cor-python-deploy:
+      filesystem-path:
+        value: ${{ qlogicae-cor-python-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch run deploy
+
 macros:  
   static:
     file:
       targets:
-        qlogicae-cor-python-current-version-number:
+        qlogicae-cor-python-filesystem-path:
+          value: ${{ qlogicae-cor-root-filesystem-path }}/python
+
+        qlogicae-cor-python-version-current-number:
           value: 2.2.1
 
-        qlogicae-cor-python-current-version-label:
-          value: python-v${{ qlogicae-cor-python-current-version-number }}
+        qlogicae-cor-python-active-major-version-number:
+          value: 2
 
-        qlogicae-cor-python-selection-project-filesystem-path:
-          value: ${{ qlogicae-cor-selection-project-filesystem-path }}/python
-
-        qlogicae-cor-source-brand-name:
-          value: ${{ main-company-base-name }}_${{ qlogicae-cor-base-project-name }}
+        qlogicae-cor-python-version-current-label:
+          value: python-v${{ qlogicae-cor-python-version-current-number }}
 
         qlogicae-cor-python-archive-filesystem-path:
-          value: archive/${{ qlogicae-cor-python-current-version-label }}/${{ current-timestamp }}
+          value: archive/${{ qlogicae-cor-python-version-current-label }}/${{ current-timestamp }}
 
         qlogicae-cor-python-output-filesystem-path:
           value: output

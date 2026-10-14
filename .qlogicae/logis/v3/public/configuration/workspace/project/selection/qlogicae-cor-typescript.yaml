@@ -3,24 +3,18 @@ workspace:
     selection:
       qlogicae-cor-typescript:
         filesystem-path:
-          value: ${{ selection-filesystem-path }}/qlogicae-cor/typescript
-
-# script:
-#   targets:      
-#     qlogicae-cor-typescript-deploy:
-#       enter-filesystem-path:
-#         value: ${{ selection-filesystem-path }}/qlogicae-cor/typescript
-        
-#       commands:
-#         - run: bun run workflow:deploy
-#         # - run: qlogicae-cor-deploy
+          value: ${{ qlogicae-cor-typescript-filesystem-path }}
 
 macros:  
   static:
     file:
       targets:
-        qlogicae-cor-typescript-current-version-number:
-          value: 1.2.18
+        qlogicae-cor-typescript-filesystem-path:
+          value: ${{ qlogicae-cor-root-filesystem-path }}/typescript
+        
+        # qlogicae-cor-typescript-current-version-number:
+        #   value: 1.2.18
 
-        qlogicae-cor-typescript-current-version-label:
-          value: typescript-v${{ qlogicae-cor-typescript-current-version-number }}
+        # qlogicae-cor-typescript-current-version-label:
+        #   value: typescript-v${{ qlogicae-cor-typescript-current-version-number }}
+      

@@ -7,7 +7,7 @@ workspace:
 
 workflow:
   selection:      
-    qlogicae-pavolio-root-pre-workflow:
+    qlogicae-pavolio-source:
       filesystem-path:
         value: ${{ qlogicae-pavolio-root-filesystem-path }}
     
@@ -19,7 +19,7 @@ workflow:
               - qlogicae-pavolio
 
         - run:
-            value: qlogicae-ensemble-synchronize
+            value: qlogicae-ensemble-synchronize-backups
 
 macros:
   static:  

@@ -109,13 +109,7 @@ workflow:
               - ${{ qlogicae-logis-selection-project-filesystem-path }}/requirements.txt
 
         - run:
-            value: command-filesystem-copy          
-          argument:
-            source_paths:
-              - .qlogicae
-            target_paths:
-              - ${{ qlogicae-logis-selection-project-filesystem-path }}/.qlogicae
-              - ${{ qlogicae-ensemble-selection-project-filesystem-path }}/.qlogicae
+            value: qlogicae-ensemble-synchronize-backups
 
         - run:
             value: command-filesystem-copy      

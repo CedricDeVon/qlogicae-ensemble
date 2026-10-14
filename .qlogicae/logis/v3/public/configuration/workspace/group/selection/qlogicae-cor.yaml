@@ -2,11 +2,57 @@ workspace:
   group:
     selection:
       qlogicae-cor:
-        alias:
-          ql-cor:
-
         targets:
           qlogicae-cor-root:
           qlogicae-cor-typescript:
           qlogicae-cor-python:
           qlogicae-cor-rust:
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-cor-author-full-name:
+          value: ${{ main-author-full-name }}
+
+        qlogicae-cor-author-base-username:
+          value: ${{ main-author-base-username }}
+
+        qlogicae-cor-author-base-email:
+          value: ${{ main-author-base-email }}
+    
+        qlogicae-cor-company-display-name:
+          value: ${{ main-company-display-name }}
+
+        qlogicae-cor-company-base-name:
+          value: ${{ main-company-base-name }}
+        
+        qlogicae-cor-company-base-logo-filesystem-path:
+          value: ${{ main-company-base-logo-filesystem-path }}
+
+        qlogicae-cor-brand-display-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-cor-display-name }}
+
+        qlogicae-cor-brand-base-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-cor-base-name }}
+
+        qlogicae-cor-brand-source-name:
+          value: ${{ main-company-base-name }}_${{ qlogicae-cor-base-name }}
+
+        qlogicae-cor-display-name:
+          value: Cor
+
+        qlogicae-cor-base-name:
+          value: cor
+
+        qlogicae-cor-base-description:
+          value: The core library for QLogicae projects
+
+        qlogicae-cor-license-display-name:
+          value: MIT
+
+        qlogicae-cor-license-filesystem-path:
+          value: LICENSE
+
+        qlogicae-cor-repository-base-link:
+          value: https://github.com/${{ qlogicae-cor-author-base-username }}/${{ qlogicae-cor-brand-base-name }}
