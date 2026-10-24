@@ -16,7 +16,7 @@
 ![Project - Version](https://img.shields.io/badge/Version-${{ qlogicae-cylon-current-version-label }}-blue)
 [![Python - Versions](https://img.shields.io/badge/Python-3.12|%933.13|%933.14-blue?logo=python&logoColor=gold)](https://www.python.org/)
 ![License - MIT](https://img.shields.io/badge/License-MIT-red)
-![License - Name](https://img.shields.io/badge/License-${{ qlogicae-cylon-display-license-name }}-red)
+![License - Name](https://img.shields.io/badge/License-${{ qlogicae-cylon-license-display-name }}-red)
 
 <!-- Dynamic Markdown Badges -->
 ![GitHub - Stars](https://img.shields.io/github/stars/${{ qlogicae-cylon-author-base-username }}/${{ qlogicae-cylon-brand-base-name }})
@@ -48,7 +48,7 @@
             </a>
         </li>
         <li>
-            <a href="${{ qlogicae-cylon-project-repository-base-link }}">
+            <a href="${{ qlogicae-cylon-repository-base-link }}">
                 Project Repository
             </a>
         </li>
@@ -121,7 +121,7 @@
 </br>
 
 <p>
-  	For more information, please visit the <a href="${{ qlogicae-cylon-project-repository-base-link }}">Project Repository</a>.
+  	For more information, please visit the <a href="${{ qlogicae-cylon-repository-base-link }}">Project Repository</a>.
 </p>
 
 </br>

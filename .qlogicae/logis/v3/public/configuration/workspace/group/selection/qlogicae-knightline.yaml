@@ -1,0 +1,62 @@
+workspace:
+  group:
+    selection:
+      qlogicae-knightline:
+        targets:
+          qlogicae-knightline-root:
+          qlogicae-knightline-cli:
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-knightline-author-full-name:
+          value: Vaughn Cedric L. Araneta
+
+        qlogicae-knightline-author-base-username:
+          value: ${{ main-author-base-username }}
+
+        qlogicae-knightline-author-base-email:
+          value: ${{ main-author-base-email }}
+    
+        qlogicae-knightline-company-display-name:
+          value: ${{ main-company-display-name }}
+
+        qlogicae-knightline-company-base-name:
+          value: ${{ main-company-base-name }}
+        
+        qlogicae-knightline-company-base-logo-filesystem-path:
+          value: ${{ main-company-base-logo-filesystem-path }}
+
+        qlogicae-knightline-brand-display-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-knightline-project-display-name }}
+
+        qlogicae-knightline-brand-base-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-knightline-project-base-name }}
+
+        qlogicae-knightline-project-display-name:
+          value: KnightLine
+
+        qlogicae-knightline-project-base-name:
+          value: knightline
+
+        qlogicae-knightline-project-base-description:
+          value: A Chess Console Application
+
+        qlogicae-knightline-license-display-name:
+          value: MIT
+
+        qlogicae-knightline-version-current-number:
+          value: 0.0.1
+
+        qlogicae-knightline-active-major-version-number:
+          value: 0
+
+        qlogicae-knightline-active-major-version-label:
+          value: v${{ qlogicae-knightline-active-major-version-number }}
+
+        qlogicae-knightline-current-version-label:
+          value: v${{ qlogicae-knightline-version-current-number }}
+
+        qlogicae-knightline-repository-base-link:
+          value: https://github.com/${{ qlogicae-knightline-author-base-username }}/${{ qlogicae-knightline-brand-base-name }}

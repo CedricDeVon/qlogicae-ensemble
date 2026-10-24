@@ -130,7 +130,6 @@ workflow:
         - run:
             value: ruff check ${{ qlogicae-logis-source-brand-name }} --fix
 
-
     qlogicae-logis-project-pre-workflow:
       filesystem-path:
         value: ${{ qlogicae-logis-selection-project-filesystem-path }}
@@ -267,7 +266,7 @@ workflow:
 
         - run:
             value: git commit -m "deployment attempt of '${{ qlogicae-logis-current-version-label }}'"
-        
+
         - run:
             value: git tag -a ${{ qlogicae-logis-current-version-label }} -m "deployment attempt of '${{ qlogicae-logis-current-version-label }}'"
         
@@ -278,7 +277,7 @@ workflow:
             value: git push --tags
 
 macros:
-  static:  
+  static:
     file:
       targets:
         qlogicae-logis-display-brand-name:

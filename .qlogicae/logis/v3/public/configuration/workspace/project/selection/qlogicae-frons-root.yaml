@@ -7,7 +7,7 @@ workspace:
 
 workflow:
   selection:      
-    qlogicae-frons-source:
+    qlogicae-frons-stage-release:
       filesystem-path:
         value: ${{ qlogicae-frons-root-filesystem-path }}
     

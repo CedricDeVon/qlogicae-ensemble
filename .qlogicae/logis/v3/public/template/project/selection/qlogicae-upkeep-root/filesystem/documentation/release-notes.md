@@ -38,13 +38,18 @@
   </li>
   <ul>
     <li>
-      <a href="#main-1.5.8">
-        1.5.8
+      <a href="#main-1.6.0">
+        1.6.0
       </a>
     </li>
     <li>
-      <a href="#main-<1.5.8">
-        < 1.5.8
+      <a href="#main-1.5.3">
+        1.5.3
+      </a>
+    </li>
+    <li>
+      <a href="#main-<1.5.3">
+        < 1.5.3
       </a>
     </li>
   </ul>
@@ -56,21 +61,34 @@
 <h2 id="versions">
   📦 Versions
 </h2>
-<h3 id="main-1.5.8">
-  🏷️ 1.5.8
+<h3 id="main-1.6.0">
+  🏷️ 1.6.0
 </h3>
 <h4>
     Description
 </h4>
 <p>
-    Latest Release
+    Modified Google Sheets 'Transaction' database table
 </p>
 </br>
 
 
 
-<h3 id="main-<1.5.8">
-  🏷️ < 1.5.8
+<h3 id="main-1.5.3">
+  🏷️ 1.5.3
+</h3>
+<h4>
+    Description
+</h4>
+<p>
+    Initial operational release
+</p>
+</br>
+
+
+
+<h3 id="main-<1.5.3">
+  🏷️ < 1.5.3
 </h3>
 <h4>
     Description

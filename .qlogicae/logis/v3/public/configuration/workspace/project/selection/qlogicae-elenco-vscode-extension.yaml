@@ -1,0 +1,13 @@
+workspace:
+  project:
+    selection:
+      qlogicae-elenco-vscode-extension:
+        filesystem-path:
+          value: ${{ qlogicae-elenco-vscode-extension-filesystem-path }}
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-elenco-vscode-extension-filesystem-path:
+          value: ${{ qlogicae-elenco-root-filesystem-path }}/vscode-extension

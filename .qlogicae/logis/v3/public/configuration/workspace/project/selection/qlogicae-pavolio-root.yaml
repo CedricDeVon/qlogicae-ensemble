@@ -7,7 +7,7 @@ workspace:
 
 workflow:
   selection:      
-    qlogicae-pavolio-source:
+    qlogicae-pavolio-stage-release:
       filesystem-path:
         value: ${{ qlogicae-pavolio-root-filesystem-path }}
     

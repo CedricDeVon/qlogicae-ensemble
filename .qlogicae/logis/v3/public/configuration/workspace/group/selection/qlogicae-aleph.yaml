@@ -11,7 +11,7 @@ macros:
     file:
       targets:
         qlogicae-aleph-author-full-name:
-          value: ${{ main-author-full-name }}
+          value: Vaughn Cedric L. Araneta
 
         qlogicae-aleph-author-base-username:
           value: ${{ main-author-base-username }}

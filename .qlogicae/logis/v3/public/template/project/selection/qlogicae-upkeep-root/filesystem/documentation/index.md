@@ -62,6 +62,9 @@
                 Name
             </th>
             <th>
+                Date
+            </th>
+            <th>
                 Summary
             </th>
             <th>
@@ -72,10 +75,13 @@
     <tbody>
         <tr>
             <td>
-                🔥 1.5.8
+                🔥 1.6.0
             </td>
             <td>
-                Latest Release
+                2026-10-21
+            </td>
+            <td>
+                Modified Google Sheets 'Transaction' database table
             </td>
             <td>
                 None
@@ -83,7 +89,24 @@
         </tr>
         <tr>
             <td>
-                < 1.5.8
+                1.5.3
+            </td>
+            <td>
+                2026-06
+            </td>
+            <td>
+                Initial operational release
+            </td>
+            <td>
+                None
+            </td>           
+        </tr>
+        <tr>
+            <td>
+                < 1.5.3
+            </td>
+            <td>
+                < 2026-06
             </td>
             <td>
                 Pre-releases

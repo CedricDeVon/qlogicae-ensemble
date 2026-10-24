@@ -7,7 +7,7 @@ workspace:
 
 workflow:
   selection:      
-    qlogicae-upkeep-source:
+    qlogicae-upkeep-stage-release:
       filesystem-path:
         value: ${{ qlogicae-upkeep-root-filesystem-path }}
       

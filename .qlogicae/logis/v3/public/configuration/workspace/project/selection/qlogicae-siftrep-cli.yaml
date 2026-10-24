@@ -1,0 +1,13 @@
+workspace:
+  project:
+    selection:
+      qlogicae-siftrep-cli:
+        filesystem-path:
+          value: ${{ qlogicae-siftrep-cli-filesystem-path }}
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-siftrep-cli-filesystem-path:
+          value: ${{ qlogicae-siftrep-root-filesystem-path }}/cli

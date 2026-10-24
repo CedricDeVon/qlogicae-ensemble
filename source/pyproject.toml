@@ -1,0 +1,16 @@
+[tool.pytest.ini_options]
+markers = [
+    "slow: marks tests that take longer to execute",
+    "thread_unsafe: marks tests that are unsafe to execute concurrently",
+]
+filterwarnings = [
+    "ignore::pytest.PytestUnknownMarkWarning",
+    "ignore::PendingDeprecationWarning",
+    "ignore::DeprecationWarning",
+]
+
+[tool.vendoring]
+destination = "vendor/python/._vendor"
+requirements = "vendor/python/._vendor/vendor.txt"
+namespace = "source.vendor.python._vendor"
+protected-files = ["vendor.txt", "__init__.py"]

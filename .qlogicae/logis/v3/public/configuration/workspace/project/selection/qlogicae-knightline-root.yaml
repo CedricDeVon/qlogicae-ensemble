@@ -1,0 +1,29 @@
+workspace:
+  project:
+    selection:
+      qlogicae-knightline-root:
+        filesystem-path:
+          value: ${{ qlogicae-knightline-root-filesystem-path }}
+
+workflow:
+  selection:      
+    qlogicae-knightline-stage-release:
+      filesystem-path:
+        value: ${{ qlogicae-knightline-root-filesystem-path }}
+    
+      scripts:
+        - run:
+            value: command-template-apply        
+          argument:
+            targets:
+              - qlogicae-knightline
+
+        - run:
+            value: qlogicae-ensemble-synchronize-backups
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-knightline-root-filesystem-path:
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-knightline-brand-base-name }}

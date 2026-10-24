@@ -209,7 +209,7 @@
 <p>
   <a href="${{ qlogicae-upkeep-looker-studio-base-link }}">
     Click Here
-  </a> to use the application - straight to the point.
+  </a> to use the application.
 </p>
 </br>
 

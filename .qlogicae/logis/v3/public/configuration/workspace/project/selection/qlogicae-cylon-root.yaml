@@ -7,7 +7,7 @@ workspace:
 
 workflow:
   selection:      
-    qlogicae-cylon-source:
+    qlogicae-cylon-stage-release:
       filesystem-path:
         value: ${{ qlogicae-cylon-root-filesystem-path }}
     

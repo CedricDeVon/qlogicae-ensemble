@@ -1,0 +1,13 @@
+workspace:
+  project:
+    selection:
+      qlogicae-knightline-cli:
+        filesystem-path:
+          value: ${{ qlogicae-knightline-cli-filesystem-path }}
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-knightline-cli-filesystem-path:
+          value: ${{ qlogicae-knightline-root-filesystem-path }}/cli

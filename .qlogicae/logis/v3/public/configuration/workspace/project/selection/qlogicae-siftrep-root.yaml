@@ -1,0 +1,29 @@
+workspace:
+  project:
+    selection:
+      qlogicae-siftrep-root:
+        filesystem-path:
+          value: ${{ qlogicae-siftrep-root-filesystem-path }}
+
+workflow:
+  selection:      
+    qlogicae-siftrep-stage-release:
+      filesystem-path:
+        value: ${{ qlogicae-siftrep-root-filesystem-path }}
+    
+      scripts:
+        - run:
+            value: command-template-apply        
+          argument:
+            targets:
+              - qlogicae-siftrep
+
+        - run:
+            value: qlogicae-ensemble-synchronize-backups
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-siftrep-root-filesystem-path:
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-siftrep-brand-base-name }}

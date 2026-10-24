@@ -7,7 +7,7 @@ workspace:
 
 workflow:
   selection:      
-    qlogicae-aleph-source:
+    qlogicae-aleph-stage-release:
       filesystem-path:
         value: ${{ qlogicae-aleph-root-filesystem-path }}
     

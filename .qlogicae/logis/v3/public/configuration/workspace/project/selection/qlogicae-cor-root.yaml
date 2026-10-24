@@ -7,7 +7,7 @@ workspace:
 
 workflow:
   selection:      
-    qlogicae-cor-stage:
+    qlogicae-cor-stage-release:
       filesystem-path:
         value: ${{ qlogicae-cor-root-filesystem-path }}
     

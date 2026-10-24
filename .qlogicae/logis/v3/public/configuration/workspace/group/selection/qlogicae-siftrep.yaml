@@ -1,0 +1,62 @@
+workspace:
+  group:
+    selection:
+      qlogicae-siftrep:
+        targets:
+          qlogicae-siftrep-root:
+          qlogicae-siftrep-cli:
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-siftrep-author-full-name:
+          value: Vaughn Cedric L. Araneta
+
+        qlogicae-siftrep-author-base-username:
+          value: ${{ main-author-base-username }}
+
+        qlogicae-siftrep-author-base-email:
+          value: ${{ main-author-base-email }}
+    
+        qlogicae-siftrep-company-display-name:
+          value: ${{ main-company-display-name }}
+
+        qlogicae-siftrep-company-base-name:
+          value: ${{ main-company-base-name }}
+        
+        qlogicae-siftrep-company-base-logo-filesystem-path:
+          value: ${{ main-company-base-logo-filesystem-path }}
+
+        qlogicae-siftrep-brand-display-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-siftrep-project-display-name }}
+
+        qlogicae-siftrep-brand-base-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-siftrep-project-base-name }}
+
+        qlogicae-siftrep-project-display-name:
+          value: SiftRep
+
+        qlogicae-siftrep-project-base-name:
+          value: siftrep
+
+        qlogicae-siftrep-project-base-description:
+          value: An AI Agent For Git Commit Segregation
+
+        qlogicae-siftrep-license-display-name:
+          value: MIT
+
+        qlogicae-siftrep-version-current-number:
+          value: 0.0.1
+
+        qlogicae-siftrep-active-major-version-number:
+          value: 0
+
+        qlogicae-siftrep-active-major-version-label:
+          value: v${{ qlogicae-siftrep-active-major-version-number }}
+
+        qlogicae-siftrep-current-version-label:
+          value: v${{ qlogicae-siftrep-version-current-number }}
+
+        qlogicae-siftrep-repository-base-link:
+          value: https://github.com/${{ qlogicae-siftrep-author-base-username }}/${{ qlogicae-siftrep-brand-base-name }}

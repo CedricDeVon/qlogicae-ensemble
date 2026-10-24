@@ -46,7 +46,7 @@ macros:
           value: MIT
 
         qlogicae-upkeep-version-current-number:
-          value: 1.5.8
+          value: 1.6.0
 
         qlogicae-upkeep-active-major-version-number:
           value: 1
@@ -62,3 +62,4 @@ macros:
 
         qlogicae-upkeep-looker-studio-base-link:
           value: https://datastudio.google.com/s/irbNNcZBEjw        
+    

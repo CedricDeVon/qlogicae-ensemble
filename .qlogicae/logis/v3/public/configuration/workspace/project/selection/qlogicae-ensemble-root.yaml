@@ -7,7 +7,7 @@ workspace:
 
 workflow:
   selection:      
-    qlogicae-ensemble-source:
+    qlogicae-ensemble-stage-release:
       filesystem-path:
         value: ${{ qlogicae-ensemble-root-filesystem-path }}
       

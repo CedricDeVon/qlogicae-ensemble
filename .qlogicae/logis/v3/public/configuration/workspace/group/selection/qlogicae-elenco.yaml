@@ -1,0 +1,62 @@
+workspace:
+  group:
+    selection:
+      qlogicae-elenco:
+        targets:
+          qlogicae-elenco-root:
+          qlogicae-elenco-vscode-extension:
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-elenco-author-full-name:
+          value: Vaughn Cedric L. Araneta
+
+        qlogicae-elenco-author-base-username:
+          value: ${{ main-author-base-username }}
+
+        qlogicae-elenco-author-base-email:
+          value: ${{ main-author-base-email }}
+    
+        qlogicae-elenco-company-display-name:
+          value: ${{ main-company-display-name }}
+
+        qlogicae-elenco-company-base-name:
+          value: ${{ main-company-base-name }}
+        
+        qlogicae-elenco-company-base-logo-filesystem-path:
+          value: ${{ main-company-base-logo-filesystem-path }}
+
+        qlogicae-elenco-brand-display-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-elenco-project-display-name }}
+
+        qlogicae-elenco-brand-base-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-elenco-project-base-name }}
+
+        qlogicae-elenco-project-display-name:
+          value: Elenco
+
+        qlogicae-elenco-project-base-name:
+          value: elenco
+
+        qlogicae-elenco-project-base-description:
+          value: A VSCode Extension
+
+        qlogicae-elenco-license-display-name:
+          value: MIT
+
+        qlogicae-elenco-version-current-number:
+          value: 0.0.1
+
+        qlogicae-elenco-active-major-version-number:
+          value: 0
+
+        qlogicae-elenco-active-major-version-label:
+          value: v${{ qlogicae-elenco-active-major-version-number }}
+
+        qlogicae-elenco-current-version-label:
+          value: v${{ qlogicae-elenco-version-current-number }}
+
+        qlogicae-elenco-repository-base-link:
+          value: https://github.com/${{ qlogicae-elenco-author-base-username }}/${{ qlogicae-elenco-brand-base-name }}

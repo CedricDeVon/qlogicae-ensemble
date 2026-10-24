@@ -1,0 +1,29 @@
+workspace:
+  project:
+    selection:
+      qlogicae-elenco-root:
+        filesystem-path:
+          value: ${{ qlogicae-elenco-root-filesystem-path }}
+
+workflow:
+  selection:      
+    qlogicae-elenco-stage-release:
+      filesystem-path:
+        value: ${{ qlogicae-elenco-root-filesystem-path }}
+    
+      scripts:
+        - run:
+            value: command-template-apply        
+          argument:
+            targets:
+              - qlogicae-elenco
+
+        - run:
+            value: qlogicae-ensemble-synchronize-backups
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-elenco-root-filesystem-path:
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-elenco-brand-base-name }}

@@ -1,0 +1,26 @@
+[package]
+name = "${{ qlogicae-siftrep-project-base-name }}"
+version = "${{ qlogicae-siftrep-version-current-number }}"
+edition = "2024"
+authors = ["${{ qlogicae-siftrep-author-full-name }}"]
+description = "${{ qlogicae-siftrep-project-base-description }}"
+license = "MIT"
+repository = "${{ qlogicae-siftrep-repository-base-link }}"
+homepage = "${{ qlogicae-siftrep-repository-base-link }}"
+documentation = "${{ qlogicae-siftrep-repository-base-link }}"
+readme = "README.md"
+keywords = ["${{ qlogicae-siftrep-company-base-name }}", "${{ qlogicae-siftrep-project-base-name }}"]
+categories = ["development-tools"]
+include = [
+    "project/**",
+    "src/**",
+    "Cargo.toml",
+    "Cargo.lock",
+    "README.md",
+    "LICENSE",
+]
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
