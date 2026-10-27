@@ -1,0 +1,62 @@
+workspace:
+  group:
+    selection:
+      qlogicae-solutils:
+        targets:
+          qlogicae-solutils-root:
+          qlogicae-solutils-package:
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-solutils-author-full-name:
+          value: Vaughn Cedric L. Araneta
+
+        qlogicae-solutils-author-base-username:
+          value: ${{ main-author-base-username }}
+
+        qlogicae-solutils-author-base-email:
+          value: ${{ main-author-base-email }}
+    
+        qlogicae-solutils-company-display-name:
+          value: ${{ main-company-display-name }}
+
+        qlogicae-solutils-company-base-name:
+          value: ${{ main-company-base-name }}
+        
+        qlogicae-solutils-company-base-logo-filesystem-path:
+          value: ${{ main-company-base-logo-filesystem-path }}
+
+        qlogicae-solutils-brand-display-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-solutils-project-display-name }}
+
+        qlogicae-solutils-brand-base-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-solutils-project-base-name }}
+
+        qlogicae-solutils-project-display-name:
+          value: SolUtils
+
+        qlogicae-solutils-project-base-name:
+          value: solutils
+
+        qlogicae-solutils-project-base-description:
+          value: A redundant collection of OS-independent scripts for QLogicae projects
+
+        qlogicae-solutils-license-display-name:
+          value: MIT
+
+        qlogicae-solutils-version-current-number:
+          value: 0.0.1
+
+        qlogicae-solutils-active-major-version-number:
+          value: 0
+
+        qlogicae-solutils-active-major-version-label:
+          value: v${{ qlogicae-solutils-active-major-version-number }}
+
+        qlogicae-solutils-current-version-label:
+          value: v${{ qlogicae-solutils-version-current-number }}
+
+        qlogicae-solutils-repository-base-link:
+          value: https://github.com/${{ qlogicae-solutils-author-base-username }}/${{ qlogicae-solutils-brand-base-name }}

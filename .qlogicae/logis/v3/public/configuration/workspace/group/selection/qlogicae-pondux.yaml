@@ -1,0 +1,62 @@
+workspace:
+  group:
+    selection:
+      qlogicae-pondux:
+        targets:
+          qlogicae-pondux-root:
+          qlogicae-pondux-console:
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-pondux-author-full-name:
+          value: Vaughn Cedric L. Araneta
+
+        qlogicae-pondux-author-base-username:
+          value: ${{ main-author-base-username }}
+
+        qlogicae-pondux-author-base-email:
+          value: ${{ main-author-base-email }}
+    
+        qlogicae-pondux-company-display-name:
+          value: ${{ main-company-display-name }}
+
+        qlogicae-pondux-company-base-name:
+          value: ${{ main-company-base-name }}
+        
+        qlogicae-pondux-company-base-logo-filesystem-path:
+          value: ${{ main-company-base-logo-filesystem-path }}
+
+        qlogicae-pondux-brand-display-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-pondux-project-display-name }}
+
+        qlogicae-pondux-brand-base-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-pondux-project-base-name }}
+
+        qlogicae-pondux-project-display-name:
+          value: Pondux
+
+        qlogicae-pondux-project-base-name:
+          value: pondux
+
+        qlogicae-pondux-project-base-description:
+          value: A package manager for QLogicae projects
+
+        qlogicae-pondux-license-display-name:
+          value: MIT
+
+        qlogicae-pondux-version-current-number:
+          value: 0.0.1
+
+        qlogicae-pondux-active-major-version-number:
+          value: 0
+
+        qlogicae-pondux-active-major-version-label:
+          value: v${{ qlogicae-pondux-active-major-version-number }}
+
+        qlogicae-pondux-current-version-label:
+          value: v${{ qlogicae-pondux-version-current-number }}
+
+        qlogicae-pondux-repository-base-link:
+          value: https://github.com/${{ qlogicae-pondux-author-base-username }}/${{ qlogicae-pondux-brand-base-name }}

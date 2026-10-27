@@ -1,7 +1,7 @@
 [project]
-name = "${{ qlogicae-cylon-base-brand-name }}"
-version = "${{ qlogicae-cylon-current-version-number }}"
-description = "${{ qlogicae-cylon-base-description }}"
+name = "${{ qlogicae-cylon-brand-base-name }}"
+version = "${{ qlogicae-cylon-version-current-number }}"
+description = "${{ qlogicae-cylon-project-base-description }}"
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.12"
 license = "MIT"
@@ -10,8 +10,8 @@ license-files = [
 ]
 dependencies = []
 keywords = [
-    "${{ main-company-base-name }}",
-    "${{ qlogicae-cylon-base-project-name }}"
+    "${{ qlogicae-cylon-company-base-name }}",
+    "${{ qlogicae-cylon-project-base-name }}"
 ]
 classifiers = [
     "Typing :: Typed",
@@ -31,10 +31,10 @@ classifiers = [
     "Programming Language :: Python :: 3.14",
 ]
 authors = [
-    { name = "${{ main-author-full-name }}", email = "${{ main-author-base-email }}" }
+    { name = "${{ qlogicae-cylon-author-full-name }}", email = "${{ qlogicae-cylon-author-base-email }}" }
 ]
 maintainers = [
-    { name = "${{ main-author-full-name }}", email = "${{ main-author-base-email }}" }
+    { name = "${{ qlogicae-cylon-author-full-name }}", email = "${{ qlogicae-cylon-author-base-email }}" }
 ]
 
 
@@ -59,15 +59,15 @@ dev = [
 ]
 
 [project.scripts]
-qlogicae-cylon = "${{ qlogicae-cylon-source-brand-name }}.${{ qlogicae-cylon-active-major-version-label }}.console.app:main"
+qlogicae-cylon = "${{ qlogicae-cylon-brand-source-name }}.${{ qlogicae-cylon-active-major-version-label }}.main:main"
 
 
 [project.urls]
-Homepage = "${{ qlogicae-cylon-base-repository-link }}"
-Repository = "${{ qlogicae-cylon-base-repository-link }}"
-Documentation = "${{ qlogicae-cylon-base-repository-link }}"
-Issues = "${{ qlogicae-cylon-base-repository-link }}/issues"
-Changelog = "${{ qlogicae-cylon-base-repository-link }}/releases"
+Homepage = "${{ qlogicae-cylon-repository-base-link }}"
+Repository = "${{ qlogicae-cylon-repository-base-link }}"
+Documentation = "${{ qlogicae-cylon-repository-base-link }}"
+Issues = "${{ qlogicae-cylon-repository-base-link }}/issues"
+Changelog = "${{ qlogicae-cylon-repository-base-link }}/releases"
 
 
 [build-system]
@@ -94,8 +94,8 @@ branch = true
 
 [tool.hatch.build]
 include = [
-    "${{ qlogicae-cylon-source-brand-name }}/**/*",
-    "${{ qlogicae-cylon-source-brand-name }}/py.typed",
+    "${{ qlogicae-cylon-brand-source-name }}/**/*",
+    "${{ qlogicae-cylon-brand-source-name }}/py.typed",
 ]
 exclude = [
     "**/__pycache__",
@@ -137,8 +137,7 @@ exclude = [
     ".tox",
     ".nox",
     ".idea",
-    ".vscode",
-    "${{ qlogicae-cylon-source-brand-name }}/${{ qlogicae-cylon-active-major-version-label }}/_vendor",
+    ".vscode"
 ]
 
 
@@ -177,7 +176,7 @@ skip-magic-trailing-comma = false
 
 [tool.mypy]
 files = [
-    "${{ qlogicae-cylon-source-brand-name }}/${{ qlogicae-cylon-active-major-version-label }}",
+    "${{ qlogicae-cylon-brand-source-name }}/${{ qlogicae-cylon-active-major-version-label }}",
 ]
 exclude = [
     '(^|/)_vendor(/|$)',
@@ -195,7 +194,7 @@ explicit_package_bases = true
 
 [[tool.mypy.overrides]]
 module = [
-    "${{ qlogicae-cylon-source-brand-name }}.${{ qlogicae-cylon-active-major-version-label }}._vendor.*",
+    "${{ qlogicae-cylon-brand-source-name }}.${{ qlogicae-cylon-active-major-version-label }}._vendor.*",
 ]
 ignore_errors = true
 
@@ -205,18 +204,10 @@ exclude = [
     
 ]
 
-# "${{ qlogicae-cylon-source-brand-name }}/${{ qlogicae-cylon-active-major-version-label }}/_vendor/qlogicae_cor/v2/library/log_format.py",
-# "${{ qlogicae-cylon-source-brand-name }}/${{ qlogicae-cylon-active-major-version-label }}/_vendor/qlogicae_cor/v2/library/timestamp_manager.py",
-
-
 [tool.hatch.build.targets.wheel]
 packages = [
-    "${{ qlogicae-cylon-source-brand-name }}"
+    "${{ qlogicae-cylon-brand-source-name }}"
 ]
 
-
 [tool.hatch.build.targets.wheel.force-include]
-"${{ qlogicae-cylon-source-brand-name }}/py.typed" = "${{ qlogicae-cylon-source-brand-name }}/py.typed"
-
-
-[tool.hatch.envs.default.scripts]
+"${{ qlogicae-cylon-brand-source-name }}/py.typed" = "${{ qlogicae-cylon-brand-source-name }}/py.typed"

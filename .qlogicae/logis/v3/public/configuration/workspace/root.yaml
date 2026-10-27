@@ -8,6 +8,20 @@ configuration:
       - .env
 
 command:
+  lint:
+    is-enabled:
+      value: true
+
+    include:
+      targets:
+        - filesystem-path:
+            value: ${{ root-filesystem-path }}/.qlogicae
+
+    exclude:
+      targets:
+        - filesystem-path:
+            value: ${{ root-filesystem-path }}/.github
+        
   template:
     cleanup:
       before:

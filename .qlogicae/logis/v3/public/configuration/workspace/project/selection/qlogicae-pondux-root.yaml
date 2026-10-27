@@ -1,0 +1,29 @@
+workspace:
+  project:
+    selection:
+      qlogicae-pondux-root:
+        filesystem-path:
+          value: ${{ qlogicae-pondux-root-filesystem-path }}
+
+workflow:
+  selection:      
+    qlogicae-pondux-stage-release:
+      filesystem-path:
+        value: ${{ qlogicae-pondux-root-filesystem-path }}
+    
+      scripts:
+        - run:
+            value: command-template-apply        
+          argument:
+            targets:
+              - qlogicae-pondux
+
+        - run:
+            value: qlogicae-ensemble-synchronize-backups
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-pondux-root-filesystem-path:
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-pondux-brand-base-name }}

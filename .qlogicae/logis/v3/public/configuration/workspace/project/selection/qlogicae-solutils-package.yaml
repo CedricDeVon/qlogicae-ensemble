@@ -1,0 +1,13 @@
+workspace:
+  project:
+    selection:
+      qlogicae-solutils-package:
+        filesystem-path:
+          value: ${{ qlogicae-solutils-package-filesystem-path }}
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-solutils-package-filesystem-path:
+          value: ${{ qlogicae-solutils-root-filesystem-path }}/package

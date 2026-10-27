@@ -55,66 +55,35 @@
 <p>
     The figure below contains a table of release version names and their respective statuses. Additional information for each release version can be found in the <a href="./release-notes.md">Release Notes</a>.
 </p>
-<table>
+</br>
+
+<table style="width: 100%;">
     <thead>
         <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Date
-            </th>
-            <th>
-                Summary
-            </th>
-            <th>
-                Documentation
-            </th>
+            <th style="text-align: left">Name</th>
+            <th style="text-align: left">Date</th>
+            <th style="text-align: left">Summary</th>
+            <th style="text-align: left">Documentation</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>
-                🔥 1.6.0
-            </td>
-            <td>
-                2026-10-21
-            </td>
-            <td>
-                Modified Google Sheets 'Transaction' database table
-            </td>
-            <td>
-                None
-            </td>           
+            <td style="text-align: right">🔥 1.6.0</td>
+            <td style="text-align: right">2026-10-21</td>
+            <td style="text-align: left">Modified Google Sheets 'Transaction' database table</td>
+            <td style="text-align: left">None</td>
         </tr>
         <tr>
-            <td>
-                1.5.3
-            </td>
-            <td>
-                2026-06
-            </td>
-            <td>
-                Initial operational release
-            </td>
-            <td>
-                None
-            </td>           
+            <td style="text-align: right">1.5.3</td>
+            <td style="text-align: right">2026-06-01</td>
+            <td style="text-align: left">Initial operational release</td>
+            <td style="text-align: left">None</td>
         </tr>
         <tr>
-            <td>
-                < 1.5.3
-            </td>
-            <td>
-                < 2026-06
-            </td>
-            <td>
-                Pre-releases
-            </td>
-            <td>
-                None                
-            </td>           
+            <td style="text-align: right">&lt; 1.5.3</td>
+            <td style="text-align: right">2026-05-01</td>
+            <td style="text-align: left">Pre-releases</td>
+            <td style="text-align: left">None</td>
         </tr>
     </tbody>
 </table>
-

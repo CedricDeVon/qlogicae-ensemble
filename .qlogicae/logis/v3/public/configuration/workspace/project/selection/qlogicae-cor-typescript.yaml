@@ -12,9 +12,9 @@ macros:
         qlogicae-cor-typescript-filesystem-path:
           value: ${{ qlogicae-cor-root-filesystem-path }}/typescript
         
-        # qlogicae-cor-typescript-current-version-number:
-        #   value: 1.2.18
+        qlogicae-cor-typescript-current-version-number:
+          value: 1.2.18
 
-        # qlogicae-cor-typescript-current-version-label:
-        #   value: typescript-v${{ qlogicae-cor-typescript-current-version-number }}
+        qlogicae-cor-typescript-current-version-label:
+          value: typescript-v${{ qlogicae-cor-typescript-current-version-number }}
       

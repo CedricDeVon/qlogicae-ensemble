@@ -5,13 +5,20 @@ workspace:
         filesystem-path:
           value: ${{ qlogicae-logis-selection-project-filesystem-path }}
 
-      qlogicae-cylon-cli:
-        filesystem-path:
-          value: ${{ qlogicae-logis-selection-project-filesystem-path }}
+backup:
+  selection:
+    qlogicae-logis:
+      included:
+        - filesystem-path:
+            value: ${{ qlogicae-logis-selection-project-filesystem-path }}/.github
+
+      excluded:
+        - filesystem-path:
+            value: ${{ qlogicae-logis-selection-project-filesystem-path }}/.temp
 
 workflow:
   selection:      
-    qlogicae-logis-quality-assurance:
+    qlogicae-logis-stage-release:
       filesystem-path:
         value: ${{ qlogicae-logis-selection-project-filesystem-path }}
       

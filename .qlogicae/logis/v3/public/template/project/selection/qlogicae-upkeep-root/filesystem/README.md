@@ -1,6 +1,6 @@
 </br>
 <div style="width: 100%; display: flex; justify-content: center;">
-    <image alt="${{ qlogicae-upkeep-company-display-name }} logo" src="${{ qlogicae-upkeep-company-base-logo-filesystem-path }}" width="256px">
+    <image alt="${{ qlogicae-upkeep-company-display-name }} logo" src="${{ qlogicae-upkeep-company-base-logo-filesystem-path }}" style="width: 100%; height: auto;">
 </div>
 </br>
 
@@ -24,6 +24,12 @@
   </div>
 </div>
 </br>
+
+
+
+<!-- <h2>✨ Showcase</h2>
+<p style="text-align: center">Coming Soon ...</p>
+</br> -->
 
 
 
@@ -158,7 +164,7 @@
 <ul>
   <li>
     <p>
-      <strong>Internet</strong> - Relatively decent enough to be comfortable
+      <strong>Internet Connection</strong>
     </p>
   </li>  
   <li>
@@ -173,12 +179,6 @@
         </li>
         <li>
           <p>Safari</p>
-        </li>
-        <li>
-          <p>Opera</p>
-        </li>
-        <li>
-          <p>OperaGX</p>
         </li>
         <li>
           <p>And More</p>

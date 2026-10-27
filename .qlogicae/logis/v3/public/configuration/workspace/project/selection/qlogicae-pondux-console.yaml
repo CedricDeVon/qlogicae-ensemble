@@ -1,0 +1,13 @@
+workspace:
+  project:
+    selection:
+      qlogicae-pondux-console:
+        filesystem-path:
+          value: ${{ qlogicae-pondux-console-filesystem-path }}
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-pondux-console-filesystem-path:
+          value: ${{ qlogicae-pondux-root-filesystem-path }}/console

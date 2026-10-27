@@ -55,43 +55,21 @@
 <p>
     The figure below contains a table of release version names and their respective statuses. Additional information for each release version can be found in the <a href="./release-notes.md">Release Notes</a>.
 </p>
-<table>
+</br>
+
+
+
+<table style="width: 100%;">
     <thead>
         <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Summary
-            </th>
-            <th>
-                Documentation
-            </th>
+            <th style="text-align: left">Name</th>
+            <th style="text-align: left">Date</th>
+            <th style="text-align: left">Summary</th>
+            <th style="text-align: left">Documentation</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>
-                🔥 1.2.0
-            </td>
-            <td>
-                Initial Public Release
-            </td>
-            <td>
-                None
-            </td>           
-        </tr>
-        <tr>
-            <td>
-                < 1.2.0
-            </td>
-            <td>
-                Pre-releases
-            </td>
-            <td>
-                None                
-            </td>           
         </tr>
     </tbody>
 </table>
-

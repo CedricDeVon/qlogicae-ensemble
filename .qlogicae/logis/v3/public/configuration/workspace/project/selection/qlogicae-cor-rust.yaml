@@ -12,12 +12,8 @@ macros:
         qlogicae-cor-rust-filesystem-path:
           value: ${{ qlogicae-cor-root-filesystem-path }}/rust
 
+        qlogicae-cor-rust-current-version-number:
+          value: 1.0.4
 
-
-
-
-        # qlogicae-cor-rust-current-version-number:
-        #   value: 1.0.4
-
-        # qlogicae-cor-rust-current-version-label:
-        #   value: rust-v${{ qlogicae-cor-rust-current-version-number }}
+        qlogicae-cor-rust-current-version-label:
+          value: rust-v${{ qlogicae-cor-rust-current-version-number }}

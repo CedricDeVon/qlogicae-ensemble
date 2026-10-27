@@ -1,7 +1,7 @@
 </br>
 
 <div style="width: 100%; display: flex; justify-content: center;">
-    <image alt="${{ qlogicae-elenco-company-base-name }} logo" src="${{ qlogicae-elenco-company-base-logo-filesystem-path }}" width="256px">
+    <image alt="${{ qlogicae-elenco-company-base-name }} logo" src="${{ qlogicae-elenco-company-base-logo-filesystem-path }}" style="width: 100%; height: auto;">
 </div>
 
 </br>
@@ -22,8 +22,13 @@
 
   </div>
 </div>
-
 </br>
+
+
+
+<!-- <h2>✨ Showcase</h2>
+<p style="text-align: center">Coming Soon ...</p>
+</br> -->
 
 
 

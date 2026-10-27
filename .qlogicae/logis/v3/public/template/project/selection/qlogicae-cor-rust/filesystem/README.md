@@ -1,20 +1,20 @@
 </br>
 
 <div style="width: 100%; display: flex; justify-content: center;">
-    <image alt="${{ qlogicae-cor-company-base-name }} logo" src="${{ qlogicae-cor-company-base-logo-filesystem-path }}" width="256px">
+    <image alt="${{ qlogicae-cor-company-base-name }} logo" src="${{ qlogicae-cor-company-base-logo-filesystem-path }}" style="width: 100%; height: auto;">
 </div>
 
 </br>
 
 
 <div style="text-align: center;">
-  <h1>${{ qlogicae-cor-project-display-name }}</h1>
-  <p style="font-style: italic;">${{ qlogicae-cor-project-base-description }}</p>
+  <h1>${{ qlogicae-cor-display-name }}</h1>
+  <p style="font-style: italic;">${{ qlogicae-cor-base-description }}</p>
   <div style="margin: 32px 64px;">
 
 <!-- Static Markdown Badges -->
-![Project - Version](https://img.shields.io/badge/Version-${{ qlogicae-cor-current-version-label }}-blue)
-![License - Name](https://img.shields.io/badge/License-${{ qlogicae-cor-display-license-name }}-red)
+![Project - Version](https://img.shields.io/badge/Version-${{ qlogicae-cor-rust-current-version-label }}-blue)
+![License - Name](https://img.shields.io/badge/License-${{ qlogicae-cor-license-display-name }}-red)
 
 <!-- Dynamic Markdown Badges -->
 ![GitHub - Stars](https://img.shields.io/github/stars/${{ qlogicae-cor-author-base-username }}/${{ qlogicae-cor-brand-base-name }})
@@ -22,8 +22,13 @@
 
   </div>
 </div>
-
 </br>
+
+
+
+<!-- <h2>✨ Showcase</h2>
+<p style="text-align: center">Coming Soon ...</p>
+</br> -->
 
 
 
@@ -46,7 +51,7 @@
             </a>
         </li>
         <li>
-            <a href="${{ qlogicae-cor-base-project-repository-link }}">
+            <a href="${{ qlogicae-cor-repository-base-link }}">
                 Project Repository
             </a>
         </li>
@@ -119,7 +124,7 @@
 </br>
 
 <p>
-  	For more information, please visit the <a href="${{ qlogicae-cor-base-project-repository-link }}">Project Repository</a>.
+  	For more information, please visit the <a href="${{ qlogicae-cor-repository-base-link }}">Project Repository</a>.
 </p>
 
 </br>
@@ -180,7 +185,7 @@
 </h3>
 
 <p>
-  	The project is currently under the <a href="./LICENSE">${{ qlogicae-cor-base-project-license-name }} License</a>.
+  	The project is currently under the <a href="./LICENSE">${{ qlogicae-cor-license-display-name }} License</a>.
 </p>
 
 </br>

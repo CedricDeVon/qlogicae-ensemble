@@ -1,0 +1,29 @@
+workspace:
+  project:
+    selection:
+      qlogicae-solutils-root:
+        filesystem-path:
+          value: ${{ qlogicae-solutils-root-filesystem-path }}
+
+workflow:
+  selection:      
+    qlogicae-solutils-stage-release:
+      filesystem-path:
+        value: ${{ qlogicae-solutils-root-filesystem-path }}
+    
+      scripts:
+        - run:
+            value: command-template-apply        
+          argument:
+            targets:
+              - qlogicae-solutils
+
+        - run:
+            value: qlogicae-ensemble-synchronize-backups
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-solutils-root-filesystem-path:
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-solutils-brand-base-name }}
