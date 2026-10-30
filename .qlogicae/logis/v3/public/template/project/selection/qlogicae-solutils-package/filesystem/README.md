@@ -1,7 +1,7 @@
 </br>
 
 <div style="width: 100%; display: flex; justify-content: center;">
-    <image alt="${{ qlogicae-solutils-company-base-name }} logo" src="${{ qlogicae-solutils-company-base-logo-filesystem-path }}" style="width: 100%; height: auto;">
+    <image alt="${{ qlogicae-solutils-company-base-name }} logo" src="${{ qlogicae-solutils-company-base-preview-filesystem-path }}" style="width: 100%; height: auto;">
 </div>
 
 </br>

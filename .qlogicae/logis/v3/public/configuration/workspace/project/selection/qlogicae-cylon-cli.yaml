@@ -10,4 +10,4 @@ macros:
     file:
       targets:
         qlogicae-cylon-cli-filesystem-path:
-          value: ${{ qlogicae-cylon-root-filesystem-path }}/cli
+          value: ${{ qlogicae-cylon-root-filesystem-path }}/console

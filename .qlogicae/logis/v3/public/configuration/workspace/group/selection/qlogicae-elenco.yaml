@@ -28,6 +28,9 @@ macros:
         qlogicae-elenco-company-base-logo-filesystem-path:
           value: ${{ main-company-base-logo-filesystem-path }}
 
+        qlogicae-elenco-company-base-preview-filesystem-path:
+          value: ${{ main-company-base-preview-filesystem-path }}
+
         qlogicae-elenco-brand-display-name:
           value: ${{ main-company-display-name }} ${{ qlogicae-elenco-project-display-name }}
 
@@ -41,7 +44,7 @@ macros:
           value: elenco
 
         qlogicae-elenco-project-base-description:
-          value: A VSCode Extension
+          value: A VSCode extension project
 
         qlogicae-elenco-license-display-name:
           value: MIT

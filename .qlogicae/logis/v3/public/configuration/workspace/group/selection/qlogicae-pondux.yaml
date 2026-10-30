@@ -28,6 +28,9 @@ macros:
         qlogicae-pondux-company-base-logo-filesystem-path:
           value: ${{ main-company-base-logo-filesystem-path }}
 
+        qlogicae-pondux-company-base-preview-filesystem-path:
+          value: ${{ main-company-base-preview-filesystem-path }}
+
         qlogicae-pondux-brand-display-name:
           value: ${{ main-company-display-name }} ${{ qlogicae-pondux-project-display-name }}
 

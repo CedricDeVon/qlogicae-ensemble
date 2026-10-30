@@ -1,0 +1,246 @@
+[project]
+name = "${{ qlogicae-solutils-brand-base-name }}"
+version = "${{ qlogicae-solutils-version-current-number }}"
+description = "${{ qlogicae-solutils-project-base-description }}"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.12"
+license = "MIT"
+license-files = [
+    "LICENSE"
+]
+dependencies = []
+keywords = [
+    "${{ qlogicae-solutils-company-base-name }}",
+    "${{ qlogicae-solutils-project-base-name }}"
+]
+classifiers = [
+    "Typing :: Typed",
+    "Topic :: Utilities",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: System :: Installation/Setup",
+    "Topic :: System :: Software Distribution",
+    "Topic :: System :: Systems Administration",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+authors = [
+    { name = "${{ qlogicae-solutils-author-full-name }}", email = "${{ qlogicae-solutils-author-base-email }}" }
+]
+maintainers = [
+    { name = "${{ qlogicae-solutils-author-full-name }}", email = "${{ qlogicae-solutils-author-base-email }}" }
+]
+
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "pytest-benchmark",
+    "ruff",
+    "mypy",
+    "hatch",
+    "twine",
+    "memray",
+    "scalene",
+    "pympler",
+    "vulture",
+    "bandit",
+    "detect-secrets",
+    "pip-audit",   
+    "python-minifier"
+]
+
+[project.scripts]
+qlogicae-solutils = "${{ qlogicae-solutils-brand-source-name }}.${{ qlogicae-solutils-active-major-version-label }}.main:main"
+
+
+[project.urls]
+Homepage = "${{ qlogicae-solutils-repository-base-link }}"
+Repository = "${{ qlogicae-solutils-repository-base-link }}"
+Documentation = "${{ qlogicae-solutils-repository-base-link }}"
+Issues = "${{ qlogicae-solutils-repository-base-link }}/issues"
+Changelog = "${{ qlogicae-solutils-repository-base-link }}/releases"
+
+
+[build-system]
+requires = [
+    "hatchling"
+]
+build-backend = "hatchling.build"
+
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "."
+]
+python_files = [
+    "test_*.py"
+]
+addopts = "-ra"
+
+
+[tool.coverage.run]
+source = []
+branch = true
+
+
+[tool.hatch.build]
+include = [
+    "${{ qlogicae-solutils-brand-source-name }}/**/*",
+    "${{ qlogicae-solutils-brand-source-name }}/py.typed",
+]
+exclude = [
+    "**/__pycache__",
+    "**/*.pyc",
+    "test",
+    ".github",
+    ".gitignore",
+    ".vscode",
+    "requirements.txt",
+    "output",
+    "docs/**",
+    "project/**",
+]
+
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+
+
+[tool.ruff]
+target-version = "py314"
+line-length = 88
+exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    ".output",
+    "output",
+    ".outputs",
+    "outputs",
+    ".dist",
+    "dist",
+    ".build",
+    "build",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".mypy_cache",
+    ".tox",
+    ".nox",
+    ".idea",
+    ".vscode"
+]
+
+
+[tool.ruff.lint]
+select = [    
+    "E",
+    "W", # pycodestyle    
+    "F", # Pyflakes    
+    "I", # isort    
+    "UP", # pyupgrade    
+    "B", # flake8-bugbear
+    "PTH", # pathlib
+]
+ignore = [        
+    "E731",
+    "B008",
+    "S607",    
+    "S101", # allow assert statements    
+    "S603", # allow subprocess usage
+    "PLR2004", # allow magic values
+]
+fixable = [
+    "ALL"
+]
+unfixable = []
+
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+skip-magic-trailing-comma = false
+
+
+[tool.mypy]
+files = [
+    "${{ qlogicae-solutils-brand-source-name }}/${{ qlogicae-solutils-active-major-version-label }}",
+]
+exclude = [
+    '(^|/)_vendor(/|$)',
+    '__init__.py',
+]
+mypy_path = "${{ qlogicae-solutils-brand-source-name }}/${{ qlogicae-solutils-active-major-version-label }}"
+strict = true
+pretty = true
+color_output = true
+python_version = "3.12"
+show_error_codes = true
+show_error_context = true
+namespace_packages = true
+show_column_numbers = true
+explicit_package_bases = true
+
+
+[[tool.mypy.overrides]]
+module = [
+    "${{ qlogicae-solutils-brand-source-name }}.${{ qlogicae-solutils-active-major-version-label }}._vendor.*",
+]
+ignore_errors = true
+
+
+[tool.vulture]
+exclude = [
+    
+]
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "${{ qlogicae-solutils-brand-source-name }}"
+]
+
+[tool.hatch.build.targets.wheel.force-include]
+"${{ qlogicae-solutils-brand-source-name }}/py.typed" = "${{ qlogicae-solutils-brand-source-name }}/py.typed"
+
+
+[tool.hatch.envs.default.scripts]
+test-check-staleness = """
+    vulture \
+        qlogicae_solutils \
+"""
+
+test-check-format = """
+    ruff \
+        check qlogicae_solutils --fix \
+"""
+
+test-check-lint = """
+    mypy \
+"""
+
+test-check-dependencies = """
+    pip-audit \
+        -r requirements.txt \
+"""
+
+test-hardcoded-secrets = """
+    detect-secrets scan \
+"""
+
+test-security = """
+    bandit \
+        -r qlogicae_solutils \
+"""
+
+

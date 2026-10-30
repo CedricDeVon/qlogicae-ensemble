@@ -28,6 +28,9 @@ macros:
         qlogicae-cylon-company-base-logo-filesystem-path:
           value: ${{ main-company-base-logo-filesystem-path }}
 
+        qlogicae-cylon-company-base-preview-filesystem-path:
+          value: ${{ main-company-base-preview-filesystem-path }}
+
         qlogicae-cylon-brand-display-name:
           value: ${{ main-company-display-name }} ${{ qlogicae-cylon-project-display-name }}
 

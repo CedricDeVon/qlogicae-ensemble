@@ -3,8 +3,8 @@
 
 <svg
    width="1024"
-   height="1024.4231"
-   viewBox="0 0 270.93333 271.04527"
+   height="1024"
+   viewBox="0 0 270.93333 270.93333"
    version="1.1"
    id="svg1"
    xml:space="preserve"
@@ -17,16 +17,10 @@
        id="color-profile2" /></defs><g
      id="g113"
      style="display:inline"
-     transform="translate(657.64751,-802.91275)"><g
+     transform="translate(657.64751,-803.0247)"><g
        id="g108"
        style="display:inline;opacity:1;stroke-width:0.75"
-       transform="matrix(1.3333333,0,0,1.3333333,-5.6444434,-5.6444434)"><rect
-         style="display:inline;opacity:1;fill:#fafafa;fill-opacity:0;stroke:none;stroke-width:0.793745;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
-         id="rect108"
-         width="203.11568"
-         height="203.11615"
-         x="-488.91806"
-         y="606.41791" /><circle
+       transform="matrix(1.3333333,0,0,1.3333333,-5.6444434,-5.6444434)"><circle
          style="display:inline;opacity:1;fill:#fafafa;fill-opacity:1;stroke:none;stroke-width:0.198437;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
          id="ellipse108"
          cx="-387.40231"

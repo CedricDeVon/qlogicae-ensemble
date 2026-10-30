@@ -1,6 +1,6 @@
 </br>
 <div style="width: 100%; display: flex; justify-content: center;">
-    <image alt="QLogicae logo" src="./project/asset/qlogicae.png" style="width: 100%; height: auto;">
+    <image alt="QLogicae logo" src="./project/asset/qlogicae-preview.png" style="width: 100%; height: auto;">
 </div>
 </br>
 

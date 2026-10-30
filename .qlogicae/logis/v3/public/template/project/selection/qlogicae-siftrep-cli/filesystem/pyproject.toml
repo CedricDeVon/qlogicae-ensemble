@@ -1,0 +1,216 @@
+[project]
+name = "${{ qlogicae-siftrep-brand-base-name }}"
+version = "${{ qlogicae-siftrep-version-current-number }}"
+description = "${{ qlogicae-siftrep-project-base-description }}"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.12"
+license = "MIT"
+license-files = [
+    "LICENSE"
+]
+dependencies = []
+keywords = [
+    "${{ qlogicae-siftrep-company-base-name }}",
+    "${{ qlogicae-siftrep-project-base-name }}"
+]
+classifiers = [
+    "Typing :: Typed",
+    "Topic :: Utilities",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: System :: Installation/Setup",
+    "Topic :: System :: Software Distribution",
+    "Topic :: System :: Systems Administration",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+authors = [
+    { name = "${{ qlogicae-siftrep-author-full-name }}", email = "${{ qlogicae-siftrep-author-base-email }}" }
+]
+maintainers = [
+    { name = "${{ qlogicae-siftrep-author-full-name }}", email = "${{ qlogicae-siftrep-author-base-email }}" }
+]
+
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "pytest-benchmark",
+    "ruff",
+    "mypy",
+    "hatch",
+    "twine",
+    "memray",
+    "scalene",
+    "pympler",
+    "vulture",
+    "bandit",
+    "detect-secrets",
+    "safety",
+    "pip-audit",   
+    "python-minifier"
+]
+
+[project.scripts]
+qlogicae-siftrep = "${{ qlogicae-siftrep-brand-source-name }}.${{ qlogicae-siftrep-active-major-version-label }}.main:main"
+
+
+[project.urls]
+Homepage = "${{ qlogicae-siftrep-repository-base-link }}"
+Repository = "${{ qlogicae-siftrep-repository-base-link }}"
+Documentation = "${{ qlogicae-siftrep-repository-base-link }}"
+Issues = "${{ qlogicae-siftrep-repository-base-link }}/issues"
+Changelog = "${{ qlogicae-siftrep-repository-base-link }}/releases"
+
+
+[build-system]
+requires = [
+    "hatchling"
+]
+build-backend = "hatchling.build"
+
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "."
+]
+python_files = [
+    "test_*.py"
+]
+addopts = "-ra"
+
+
+[tool.coverage.run]
+source = []
+branch = true
+
+
+[tool.hatch.build]
+include = [
+    "${{ qlogicae-siftrep-brand-source-name }}/**/*",
+    "${{ qlogicae-siftrep-brand-source-name }}/py.typed",
+]
+exclude = [
+    "**/__pycache__",
+    "**/*.pyc",
+    "test",
+    ".github",
+    ".gitignore",
+    ".vscode",
+    "requirements.txt",
+    "output",
+    "docs/**",
+    "project/**",
+    ".qlogicae",
+]
+
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+
+
+[tool.ruff]
+target-version = "py314"
+line-length = 88
+exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    ".output",
+    "output",
+    ".outputs",
+    "outputs",
+    ".dist",
+    "dist",
+    ".build",
+    "build",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".mypy_cache",
+    ".tox",
+    ".nox",
+    ".idea",
+    ".vscode",
+    ".qlogicae",
+]
+
+
+[tool.ruff.lint]
+select = [    
+    "E",
+    "W", # pycodestyle    
+    "F", # Pyflakes    
+    "I", # isort    
+    "UP", # pyupgrade    
+    "B", # flake8-bugbear
+    "PTH", # pathlib
+]
+ignore = [        
+    "E731",
+    "B008",
+    "S607",    
+    "S101", # allow assert statements    
+    "S603", # allow subprocess usage
+    "PLR2004", # allow magic values
+]
+fixable = [
+    "ALL"
+]
+unfixable = []
+
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+skip-magic-trailing-comma = false
+
+
+[tool.mypy]
+files = [
+    "${{ qlogicae-siftrep-brand-source-name }}/${{ qlogicae-siftrep-active-major-version-label }}",
+]
+exclude = [
+    '(^|/)_vendor(/|$)',
+]
+strict = true
+pretty = true
+color_output = true
+python_version = "3.12"
+show_error_codes = true
+show_error_context = true
+namespace_packages = true
+show_column_numbers = true
+explicit_package_bases = true
+
+
+[[tool.mypy.overrides]]
+module = [
+    "${{ qlogicae-siftrep-brand-source-name }}.${{ qlogicae-siftrep-active-major-version-label }}._vendor.*",
+]
+ignore_errors = true
+
+
+[tool.vulture]
+exclude = [
+    
+]
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "${{ qlogicae-siftrep-brand-source-name }}"
+]
+
+[tool.hatch.build.targets.wheel.force-include]
+"${{ qlogicae-siftrep-brand-source-name }}/py.typed" = "${{ qlogicae-siftrep-brand-source-name }}/py.typed"
+

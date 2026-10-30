@@ -28,11 +28,17 @@ macros:
         qlogicae-siftrep-company-base-logo-filesystem-path:
           value: ${{ main-company-base-logo-filesystem-path }}
 
+        qlogicae-siftrep-company-base-preview-filesystem-path:
+          value: ${{ main-company-base-preview-filesystem-path }}
+
         qlogicae-siftrep-brand-display-name:
           value: ${{ main-company-display-name }} ${{ qlogicae-siftrep-project-display-name }}
 
         qlogicae-siftrep-brand-base-name:
           value: ${{ main-company-base-name }}-${{ qlogicae-siftrep-project-base-name }}
+
+        qlogicae-siftrep-brand-source-name:
+          value: ${{ main-company-base-name }}_${{ qlogicae-siftrep-project-base-name }}
 
         qlogicae-siftrep-project-display-name:
           value: SiftRep
@@ -41,7 +47,7 @@ macros:
           value: siftrep
 
         qlogicae-siftrep-project-base-description:
-          value: An AI Agent For Git Commit Segregation
+          value: An AI Agent for Git Commit segregation
 
         qlogicae-siftrep-license-display-name:
           value: MIT

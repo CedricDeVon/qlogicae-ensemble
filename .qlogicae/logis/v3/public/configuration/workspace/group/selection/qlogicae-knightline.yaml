@@ -28,6 +28,9 @@ macros:
         qlogicae-knightline-company-base-logo-filesystem-path:
           value: ${{ main-company-base-logo-filesystem-path }}
 
+        qlogicae-knightline-company-base-preview-filesystem-path:
+          value: ${{ main-company-base-preview-filesystem-path }}
+
         qlogicae-knightline-brand-display-name:
           value: ${{ main-company-display-name }} ${{ qlogicae-knightline-project-display-name }}
 
@@ -41,7 +44,7 @@ macros:
           value: knightline
 
         qlogicae-knightline-project-base-description:
-          value: A Chess Console Application
+          value: A Chess console application
 
         qlogicae-knightline-license-display-name:
           value: MIT

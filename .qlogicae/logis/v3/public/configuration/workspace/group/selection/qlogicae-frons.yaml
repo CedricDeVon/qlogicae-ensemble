@@ -28,6 +28,9 @@ macros:
         qlogicae-frons-company-base-logo-filesystem-path:
           value: ${{ main-company-base-logo-filesystem-path }}
 
+        qlogicae-frons-company-base-preview-filesystem-path:
+          value: ${{ main-company-base-preview-filesystem-path }}
+
         qlogicae-frons-brand-display-name:
           value: ${{ main-company-display-name }} ${{ qlogicae-frons-project-display-name }}
 
@@ -41,7 +44,7 @@ macros:
           value: frons
 
         qlogicae-frons-project-base-description:
-          value: The Official Portfolio Website of Vaughn Cedric L. Araneta
+          value: Vaughn Cedric L. Araneta's official portfolio website
 
         qlogicae-frons-license-display-name:
           value: MIT

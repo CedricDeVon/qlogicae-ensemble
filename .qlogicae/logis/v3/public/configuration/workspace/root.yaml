@@ -263,7 +263,16 @@ macros:
 
         main-company-base-name:
           value: qlogicae
-        
+
+        main-base-logo-filesystem-path:
+          value: ${{ main-company-base-name }}-logo.png
+
+        main-base-preview-filesystem-path:
+          value: ${{ main-company-base-name }}-preview.png        
+
         main-company-base-logo-filesystem-path:
-          value: ./project/asset/${{ main-company-base-name }}.png
+          value: ./project/asset/${{ main-base-logo-filesystem-path }}
+
+        main-company-base-preview-filesystem-path:
+          value: ./project/asset/${{ main-base-preview-filesystem-path }}
 

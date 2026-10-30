@@ -28,6 +28,9 @@ macros:
         qlogicae-aleph-company-base-logo-filesystem-path:
           value: ${{ main-company-base-logo-filesystem-path }}
 
+        qlogicae-aleph-company-base-preview-filesystem-path:
+          value: ${{ main-company-base-preview-filesystem-path }}
+
         qlogicae-aleph-brand-display-name:
           value: ${{ main-company-display-name }} ${{ qlogicae-aleph-project-display-name }}
 
@@ -41,7 +44,7 @@ macros:
           value: aleph
 
         qlogicae-aleph-project-base-description:
-          value: The software monitoring tool for QLogicae projects.
+          value: The software release admin tool for QLogicae projects
 
         qlogicae-aleph-license-display-name:
           value: MIT

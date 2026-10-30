@@ -27,6 +27,9 @@ macros:
         qlogicae-ensemble-company-base-logo-filesystem-path:
           value: ${{ main-company-base-logo-filesystem-path }}
 
+        qlogicae-ensemble-company-base-preview-filesystem-path:
+          value: ${{ main-company-base-preview-filesystem-path }}
+
         qlogicae-ensemble-brand-display-name:
           value: ${{ main-company-display-name }} ${{ qlogicae-ensemble-project-display-name }}
 
@@ -40,7 +43,7 @@ macros:
           value: ensemble
 
         qlogicae-ensemble-project-base-description:
-          value: The filesystem repository for QLogicae projects.
+          value: The filesystem repository for QLogicae projects
 
         qlogicae-ensemble-license-display-name:
           value: MIT

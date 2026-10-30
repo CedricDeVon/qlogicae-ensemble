@@ -4,6 +4,7 @@ workspace:
       qlogicae-solutils:
         targets:
           qlogicae-solutils-root:
+          qlogicae-solutils-console:
           qlogicae-solutils-package:
 
 macros:
@@ -28,11 +29,17 @@ macros:
         qlogicae-solutils-company-base-logo-filesystem-path:
           value: ${{ main-company-base-logo-filesystem-path }}
 
+        qlogicae-solutils-company-base-preview-filesystem-path:
+          value: ${{ main-company-base-preview-filesystem-path }}
+
         qlogicae-solutils-brand-display-name:
           value: ${{ main-company-display-name }} ${{ qlogicae-solutils-project-display-name }}
 
         qlogicae-solutils-brand-base-name:
           value: ${{ main-company-base-name }}-${{ qlogicae-solutils-project-base-name }}
+
+        qlogicae-solutils-brand-source-name:
+          value: ${{ main-company-base-name }}_${{ qlogicae-solutils-project-base-name }}
 
         qlogicae-solutils-project-display-name:
           value: SolUtils
@@ -41,7 +48,7 @@ macros:
           value: solutils
 
         qlogicae-solutils-project-base-description:
-          value: A redundant collection of OS-independent scripts for QLogicae projects
+          value: OS-independent scripts for QLogicae projects
 
         qlogicae-solutils-license-display-name:
           value: MIT
@@ -50,7 +57,7 @@ macros:
           value: 0.0.1
 
         qlogicae-solutils-active-major-version-number:
-          value: 0
+          value: 1
 
         qlogicae-solutils-active-major-version-label:
           value: v${{ qlogicae-solutils-active-major-version-number }}

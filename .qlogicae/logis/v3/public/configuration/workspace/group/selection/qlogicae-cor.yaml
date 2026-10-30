@@ -30,6 +30,9 @@ macros:
         qlogicae-cor-company-base-logo-filesystem-path:
           value: ${{ main-company-base-logo-filesystem-path }}
 
+        qlogicae-cor-company-base-preview-filesystem-path:
+          value: ${{ main-company-base-preview-filesystem-path }}
+
         qlogicae-cor-brand-display-name:
           value: ${{ main-company-display-name }} ${{ qlogicae-cor-display-name }}
 

@@ -27,6 +27,9 @@ macros:
         qlogicae-pavolio-company-base-logo-filesystem-path:
           value: ${{ main-company-base-logo-filesystem-path }}
 
+        qlogicae-pavolio-company-base-preview-filesystem-path:
+          value: ${{ main-company-base-preview-filesystem-path }}
+
         qlogicae-pavolio-brand-display-name:
           value: ${{ main-company-display-name }} ${{ qlogicae-pavolio-project-display-name }}
 
@@ -40,7 +43,7 @@ macros:
           value: pavolio
 
         qlogicae-pavolio-project-base-description:
-          value: LaTex UI Design System Documentation Generator Project
+          value: A LaTex UI design system documentation generator project
 
         qlogicae-pavolio-license-display-name:
           value: MIT

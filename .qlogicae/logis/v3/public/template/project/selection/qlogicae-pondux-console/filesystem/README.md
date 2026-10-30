@@ -1,7 +1,7 @@
 </br>
 
 <div style="width: 100%; display: flex; justify-content: center;">
-    <image alt="${{ qlogicae-pondux-company-base-name }} logo" src="${{ qlogicae-pondux-company-base-logo-filesystem-path }}" style="width: 100%; height: auto;">
+    <image alt="${{ qlogicae-pondux-company-base-name }} logo" src="${{ qlogicae-pondux-company-base-preview-filesystem-path }}" style="width: 100%; height: auto;">
 </div>
 
 </br>
