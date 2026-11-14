@@ -2,7 +2,7 @@ annotated-doc==0.0.5
 annotated-types==0.8.0
 anyio==4.15.1
 ast_serialize==0.13.1
-Authlib==1.9.1
+Authlib==1.9.5
 bandit==1.9.4
 boolean.py==5.0
 CacheControl==0.14.4
@@ -22,7 +22,7 @@ distlib==0.4.4
 distro==1.9.0
 docutils==0.23
 dparse==0.6.4
-filelock==4.2.4
+filelock==4.2.10
 fonttools==4.68.0
 h11==0.16.0
 hatch==1.18.1
@@ -41,7 +41,7 @@ jaraco.functools==4.6.0
 jeepney==0.9.0
 Jinja2==3.1.6
 joblib==1.6.0
-joserfc==1.7.7
+joserfc==1.8.0
 keyring==25.7.0
 kiwisolver==1.5.1
 librt==0.16.0
@@ -125,5 +125,5 @@ tzdata==2026.6
 urllib3==2.8.0
 userpath==1.9.2
 uv==0.13.6
-virtualenv==21.15.0
+virtualenv==21.15.6
 vulture==2.16
