@@ -59,3 +59,6 @@ macros:
 
         qlogicae-cor-repository-base-link:
           value: https://github.com/${{ qlogicae-cor-author-base-username }}/${{ qlogicae-cor-brand-base-name }}
+
+        qlogicae-cor-repository-preview-link:
+          value: ${{ qlogicae-cor-repository-base-link }}/blob/feature/python/project/asset/qlogicae-preview.png

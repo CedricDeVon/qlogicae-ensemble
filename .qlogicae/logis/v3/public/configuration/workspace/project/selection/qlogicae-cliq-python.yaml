@@ -1,0 +1,236 @@
+workspace:
+  project:
+    selection:
+      qlogicae-cliq-python:
+        filesystem-path:
+          value: ${{ qlogicae-cliq-python-filesystem-path }}
+
+workflow:
+  selection:      
+    qlogicae-cliq-python-stage-release:
+      filesystem-path:
+        value: ${{ qlogicae-cliq-python-filesystem-path }}
+
+      scripts:
+        - run:
+            value: qlogicae-cliq-python-source
+
+        - run:
+            value: qlogicae-cliq-python-test
+
+        # - run:
+        #     value: qlogicae-cliq-python-benchmark
+
+        - run:
+            value: qlogicae-cliq-python-archive
+
+    qlogicae-cliq-python-source:
+      filesystem-path:
+        value: ${{ root-filesystem-path }}
+
+      scripts:
+        - run:
+            value: command-template-apply        
+          argument:
+            targets:
+              - qlogicae-cliq
+
+        - run:
+            value: command-filesystem-clean-path
+          argument:
+            target_paths:
+              - ${{ qlogicae-cliq-python-filesystem-path }}/dist
+              - ${{ qlogicae-cliq-python-filesystem-path }}/output
+
+        - run:
+            value: command-filesystem-tree-setup
+          argument:
+            target_paths:
+              - ${{ qlogicae-cliq-python-filesystem-path }}/archive
+              - ${{ qlogicae-cliq-python-filesystem-path }}/${{ qlogicae-cliq-python-output-build-release-filesystem-path }}
+              - ${{ qlogicae-cliq-python-filesystem-path }}/${{ qlogicae-cliq-python-output-test-unit-filesystem-path }}
+              - ${{ qlogicae-cliq-python-filesystem-path }}/${{ qlogicae-cliq-python-output-test-smoke-filesystem-path }}
+              - ${{ qlogicae-cliq-python-filesystem-path }}/${{ qlogicae-cliq-python-output-benchmark-filesystem-path }}
+                    
+        - run:
+            value: qlogicae-cliq-python-build
+
+
+    qlogicae-cliq-python-build:
+      filesystem-path:
+        value: ${{ qlogicae-cliq-python-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch build
+
+        - run:
+            value: command-filesystem-move       
+          argument:
+            source_path: dist
+            target_path: ${{ qlogicae-cliq-python-output-build-release-filesystem-path }}
+
+    qlogicae-cliq-python-test:
+      filesystem-path:
+        value: ${{ qlogicae-cliq-python-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch run test-check-and-apply-format
+
+        - run:
+            value: hatch run test-check-and-apply-lint
+
+        - run:
+            value: hatch run test-check-dependencies
+
+        - run:
+            value: hatch run test-check-hardcoded-secrets
+
+        - run:
+            value: hatch run test-check-security
+
+        - run:
+            value: hatch run test-check-pip-deployment-build
+
+        # - run:
+        #     value: hatch run test-run-unit
+
+        - run:
+            value: hatch run test-run-smoke      
+
+        - run:
+            value: hatch run usage-install-release
+
+        - run:
+            value: hatch run test-run-e2e
+
+        - run:
+            value: hatch run usage-uninstall-release
+            
+    qlogicae-cliq-python-benchmark:
+      filesystem-path:
+        value: ${{ qlogicae-cliq-python-filesystem-path }}
+        
+      scripts:
+        # - run:
+        #     value: hatch run benchmark-short-library-import-memory-usage
+
+        - run:
+            value: hatch run benchmark-create-memray-usage-import-only
+
+        - run:
+            value: hatch run benchmark-create-memray-usage-import-and-allocate
+
+        - run:
+            value: hatch run benchmark-view-memray-usage-import-only
+
+        - run:
+            value: hatch run benchmark-view-memray-usage-import-and-allocate
+
+        # - run:
+        #     value: hatch run benchmark-long-library-import-memory-usage
+
+        # - run:
+        #     value: hatch run benchmark-long-experiment-import-memory-usage
+
+    qlogicae-cliq-python-long-benchmark:
+      filesystem-path:
+        value: ${{ qlogicae-cliq-python-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch run benchmark-short-library-import-memory-usage
+
+        # - run:
+        #     value: hatch run benchmark-long-library-import-memory-usage
+
+        # - run:
+        #     value: hatch run benchmark-long-experiment-import-memory-usage
+
+    qlogicae-cliq-python-archive:
+      filesystem-path:
+        value: ${{ qlogicae-cliq-python-filesystem-path }}
+
+      scripts:          
+        - run:
+            value: command-filesystem-copy
+          argument:
+            source_paths:
+              - output
+            target_paths:
+              - ${{ qlogicae-cliq-python-archive-filesystem-path }}
+
+    qlogicae-cliq-python-deploy:
+      filesystem-path:
+        value: ${{ qlogicae-cliq-python-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch run deploy-build-release
+
+        - run:
+            value: qlogicae-cliq-python-post-deploy
+
+    qlogicae-cliq-python-post-deploy:
+      filesystem-path:
+        value: ${{ qlogicae-cliq-root-filesystem-path }}
+
+      scripts:
+        - run:
+            value: git add .
+
+        - run:
+            value: git commit -m "deployment attempt of '${{ qlogicae-cliq-python-version-current-label }}'"
+
+        - run:
+            value: git push
+
+        - run:
+            value: git tag ${{ qlogicae-cliq-python-version-current-label }}
+
+        - run:
+            value: git push --tags origin
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-cliq-python-filesystem-path:
+          value: ${{ qlogicae-cliq-root-filesystem-path }}/python
+
+        qlogicae-cliq-python-version-current-number:
+          value: 1.0.1
+
+        qlogicae-cliq-python-active-major-version-number:
+          value: 1
+
+        qlogicae-cliq-python-version-current-label:
+          value: python-v${{ qlogicae-cliq-python-version-current-number }}
+
+        qlogicae-cliq-python-archive-filesystem-path:
+          value: archive/${{ qlogicae-cliq-python-version-current-label }}/${{ current-timestamp }}
+
+        qlogicae-cliq-python-output-filesystem-path:
+          value: output
+
+        qlogicae-cliq-python-python3-script-filesystem-path:
+          value: ./.venv/bin/python
+
+        qlogicae-cliq-python-output-build-release-filesystem-path:
+          value: ${{ qlogicae-cliq-python-output-filesystem-path }}/build/release
+
+        qlogicae-cliq-python-output-test-unit-filesystem-path:
+          value: ${{ qlogicae-cliq-python-output-filesystem-path }}/test/unit
+
+        qlogicae-cliq-python-output-test-smoke-filesystem-path:
+          value: ${{ qlogicae-cliq-python-output-filesystem-path }}/test/smoke
+
+        qlogicae-cliq-python-output-benchmark-filesystem-path:
+          value: ${{ qlogicae-cliq-python-output-filesystem-path }}/benchmark
+
+        qlogicae-cliq-python-output-benchmark-import-experiment-memory-usage-filesystem-path:
+          value: ${{ qlogicae-cliq-python-output-benchmark-filesystem-path }}/import-experiment-memory-usage.json
+
+        qlogicae-cliq-python-output-benchmark-import-library-memory-usage-filesystem-path:
+          value: ${{ qlogicae-cliq-python-output-benchmark-filesystem-path }}/import-library-memory-usage.json

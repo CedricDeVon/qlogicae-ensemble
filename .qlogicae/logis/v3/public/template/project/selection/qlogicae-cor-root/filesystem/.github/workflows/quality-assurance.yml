@@ -1,0 +1,456 @@
+name: Quality Assurance
+
+on:
+    push:
+    pull_request:
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+    # python-v1-unit-test:
+    #     name: Python | V1 | Unit Test
+    #     runs-on: ubuntu-latest
+
+    #     defaults:
+    #         run:
+    #             working-directory: ./python
+
+    #     strategy:
+    #         fail-fast: false
+    #         matrix:
+    #             python-version:
+    #                 - "3.14"
+    #                 - "3.13"
+    #                 - "3.12"
+
+    #     steps:
+    #         - uses: actions/checkout@v4
+
+    #         - run: sleep 20
+
+    #         - name: Setup Python
+    #           uses: actions/setup-python@v5
+    #           with:
+    #             python-version: ${{ matrix.python-version }}
+
+    #         - name: Install Hatch
+    #           run: |
+    #             python -m pip install --upgrade pip
+    #             pip install hatch
+
+    #         - name: Install Dev Dependencies
+    #           run: python3 -m pip install -r requirements.txt
+
+    #         - name: Create Hatch environment
+    #           run: hatch env create
+
+    #         - name: Run Scripts      
+    #           run: hatch run github-workflow-test-unit
+
+    # python-v1-lint-test:
+    #     name: Python | V1 | Lint
+    #     runs-on: ubuntu-latest
+
+    #     defaults:
+    #         run:
+    #             working-directory: ./python
+
+    #     strategy:
+    #         fail-fast: false
+    #         matrix:
+    #             python-version:
+    #                 - "3.14"
+    #                 - "3.13"
+    #                 - "3.12"
+
+    #     steps:
+    #         - uses: actions/checkout@v4
+
+    #         - run: sleep 20
+
+    #         - name: Setup Python
+    #           uses: actions/setup-python@v5
+    #           with:
+    #             python-version: ${{ matrix.python-version }}
+
+    #         - name: Install Hatch
+    #           run: |
+    #             python -m pip install --upgrade pip
+    #             pip install hatch
+
+    #         - name: Install Dev Dependencies
+    #           run: python3 -m pip install -r requirements.txt
+
+    #         - name: Create Hatch environment
+    #           run: hatch env create
+
+    #         - name: Run Scripts              
+    #           run: hatch run github-workflow-test-unit
+
+    # python-v1-type-check-test:
+    #     name: Python | V1 | Type Check
+    #     runs-on: ubuntu-latest
+
+    #     defaults:
+    #         run:
+    #             working-directory: ./python
+
+    #     strategy:
+    #         fail-fast: false
+    #         matrix:
+    #             python-version:
+    #                 - "3.14"
+    #                 - "3.13"
+    #                 - "3.12"
+
+    #     steps:
+    #         - uses: actions/checkout@v4
+
+    #         - run: sleep 20
+
+    #         - name: Setup Python
+    #           uses: actions/setup-python@v5
+    #           with:
+    #             python-version: ${{ matrix.python-version }}
+
+    #         - name: Install Hatch
+    #           run: |
+    #             python -m pip install --upgrade pip
+    #             pip install hatch
+
+    #         - name: Install Dev Dependencies
+    #           run: python3 -m pip install -r requirements.txt
+
+    #         - name: Create Hatch environment
+    #           run: hatch env create
+
+    #         - name: Run Scripts        
+    #           run: hatch run github-workflow-test-type-check
+
+    # python-v1-e2e-test:
+    #   name: Python | V1 | End-To-End Test
+    #   runs-on: ubuntu-latest
+
+    #   defaults:
+    #       run:
+    #           working-directory: ./python/test/qlogicae_cor/v1/e2e
+
+    #   strategy:
+    #       fail-fast: false
+    #       matrix:
+    #           python-version:
+    #               - "3.14"
+    #               - "3.13"
+    #               - "3.12"
+
+    #   steps:
+    #       - uses: actions/checkout@v4
+
+    #       - name: PyPi Wait
+    #         run: sleep 20
+
+    #       - name: Setup Python
+    #         uses: actions/setup-python@v5
+    #         with:
+    #             python-version: ${{ matrix.python-version }}
+
+    #       - name: Setup Virtual Environment
+    #         run: python3 -m venv .venv
+
+    #       - name: Activate Virtual Environment
+    #         run: source .venv/bin/activate
+
+    #       - name: Install Package
+    #         run: pip install qlogicae-cor
+
+    #       - name: Run Package Existence Validation
+    #         run: qlogicae-cor
+
+
+    # python-v2-unit-test:
+    #     name: Python | V2 | Unit Test
+    #     runs-on: ubuntu-latest
+
+    #     defaults:
+    #         run:
+    #             working-directory: ./python
+
+    #     strategy:
+    #         fail-fast: false
+    #         matrix:
+    #             python-version:
+    #                 - "3.14"
+    #                 - "3.13"
+    #                 - "3.12"
+
+    #     steps:
+    #         - uses: actions/checkout@v4
+
+    #         - run: sleep 20
+
+    #         - name: Setup Python
+    #           uses: actions/setup-python@v5
+    #           with:
+    #             python-version: ${{ matrix.python-version }}
+
+    #         - name: Install Hatch
+    #           run: |
+    #             python -m pip install --upgrade pip
+    #             pip install hatch
+
+    #         - name: Install Dev Dependencies
+    #           run: python3 -m pip install -r requirements.txt
+
+    #         - name: Create Hatch environment
+    #           run: hatch env create
+
+    #         - name: Run Scripts      
+    #           run: hatch run github-workflow-test-unit
+
+    # python-v2-lint-test:
+    #     name: Python | V2 | Lint
+    #     runs-on: ubuntu-latest
+
+    #     defaults:
+    #         run:
+    #             working-directory: ./python
+
+    #     strategy:
+    #         fail-fast: false
+    #         matrix:
+    #             python-version:
+    #                 - "3.14"
+    #                 - "3.13"
+    #                 - "3.12"
+
+    #     steps:
+    #         - uses: actions/checkout@v4
+
+    #         - run: sleep 20
+
+    #         - name: Setup Python
+    #           uses: actions/setup-python@v5
+    #           with:
+    #             python-version: ${{ matrix.python-version }}
+
+    #         - name: Install Hatch
+    #           run: |
+    #             python -m pip install --upgrade pip
+    #             pip install hatch
+
+    #         - name: Install Dev Dependencies
+    #           run: python3 -m pip install -r requirements.txt
+
+    #         - name: Create Hatch environment
+    #           run: hatch env create
+
+    #         - name: Run Scripts              
+    #           run: hatch run github-workflow-test-unit
+
+    # python-v2-type-check-test:
+    #     name: Python | V2 | Type Check
+    #     runs-on: ubuntu-latest
+
+    #     defaults:
+    #         run:
+    #             working-directory: ./python
+
+    #     strategy:
+    #         fail-fast: false
+    #         matrix:
+    #             python-version:
+    #                 - "3.14"
+    #                 - "3.13"
+    #                 - "3.12"
+
+    #     steps:
+    #         - uses: actions/checkout@v4
+
+    #         - run: sleep 20
+
+    #         - name: Setup Python
+    #           uses: actions/setup-python@v5
+    #           with:
+    #             python-version: ${{ matrix.python-version }}
+
+    #         - name: Install Hatch
+    #           run: |
+    #             python -m pip install --upgrade pip
+    #             pip install hatch
+
+    #         - name: Install Dev Dependencies
+    #           run: python3 -m pip install -r requirements.txt
+
+    #         - name: Create Hatch environment
+    #           run: hatch env create
+
+    #         - name: Run Scripts        
+    #           run: hatch run github-workflow-test-type-check
+
+    # python-v2-e2e-test:
+    #   name: Python | V2 | End-To-End Test
+    #   runs-on: ubuntu-latest
+
+    #   defaults:
+    #       run:
+    #           working-directory: ./python/test/qlogicae_cor/v2/e2e
+
+    #   strategy:
+    #       fail-fast: false
+    #       matrix:
+    #           python-version:
+    #               - "3.14"
+    #               - "3.13"
+    #               - "3.12"
+
+    #   steps:
+    #       - uses: actions/checkout@v4
+
+    #       - name: PyPi Wait
+    #         run: sleep 20
+
+    #       - name: Setup Python
+    #         uses: actions/setup-python@v5
+    #         with:
+    #             python-version: ${{ matrix.python-version }}
+
+    #       - name: Setup Virtual Environment
+    #         run: python3 -m venv .venv
+
+    #       - name: Activate Virtual Environment
+    #         run: source .venv/bin/activate
+
+    #       - name: Install Package
+    #         run: pip install qlogicae-cor
+
+    #       - name: Run Package Existence Validation
+    #         run: qlogicae-cor
+
+
+
+    typescript-unit-test:
+      name: Typescript | Unit Test (${{ matrix.runtime }})
+      runs-on: ubuntu-latest
+
+      strategy:
+        fail-fast: false
+        matrix:
+          runtime:
+            - bun
+
+      defaults:
+        run:
+          working-directory: ./typescript
+
+      steps:
+        - uses: actions/checkout@v4
+
+        - run: sleep 20
+
+        - if: matrix.runtime == 'bun'
+          uses: oven-sh/setup-bun@v2
+          with:
+            bun-version: latest
+
+        - if: matrix.runtime == 'bun'
+          run: bun install --frozen-lockfile
+
+        - if: matrix.runtime == 'bun'
+          run: bun run workflow:test:unit
+
+    typescript-e2e-test:
+      name: Typescript | V1 | E2E (${{ matrix.package_manager }}${{ matrix.node_version && format(' / Node {0}', matrix.node_version) || '' }})
+      runs-on: ubuntu-latest
+
+      strategy:
+        fail-fast: false
+        matrix:
+          include:
+            - package_manager: bun
+              node_version: 22
+
+            - package_manager: bun
+              node_version: 24
+
+      defaults:
+        run:
+          working-directory: ./typescript/test/e2e/v1
+
+      steps:
+        - uses: actions/checkout@v4
+
+        - run: sleep 20
+
+        - if: matrix.package_manager == 'bun'
+          uses: oven-sh/setup-bun@v2
+          with:
+            bun-version: latest
+
+        - if: matrix.package_manager != 'bun'
+          uses: actions/setup-node@v4
+          with:
+            node-version: ${{ matrix.node_version }}
+
+        - if: matrix.package_manager == 'bun'
+          run: bun add qlogicae-cor@latest
+
+        - if: matrix.package_manager == 'bun'
+          run: |
+            bunx qlogicae-cor
+            bun usage.ts
+  
+    typescript-install:
+        name: Typescript | Install via ${{ matrix.package_manager }} on Node ${{ matrix.node_version }}
+        runs-on: ubuntu-latest
+
+        strategy:
+            fail-fast: false
+            matrix:
+                node_version: [22, 24]
+                package_manager:
+                    - npm
+                    - pnpm
+                    - yarn
+                    - bun
+
+        steps:
+            - run: sleep 20
+
+            - if: matrix.package_manager == 'npm'
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node_version }}
+
+            - if: matrix.package_manager == 'pnpm'
+              uses: pnpm/action-setup@v4
+              with:
+                  version: latest
+
+            - if: matrix.package_manager == 'pnpm'
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node_version }}
+
+            - if: matrix.package_manager == 'yarn'
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node_version }}
+
+            - if: matrix.package_manager == 'bun'
+              uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: latest
+
+            - if: matrix.package_manager == 'npm'
+              run: npm install qlogicae-cor1@latest
+
+            - if: matrix.package_manager == 'pnpm'
+              run: pnpm add qlogicae-cor1@latest
+
+            - if: matrix.package_manager == 'yarn'
+              run: yarn add qlogicae-cor1@latest
+
+            - if: matrix.package_manager == 'bun'
+              run: bun add qlogicae-cor1@latest

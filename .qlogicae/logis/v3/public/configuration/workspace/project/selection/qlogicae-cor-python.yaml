@@ -7,7 +7,7 @@ workspace:
 
 workflow:
   selection:      
-    qlogicae-cor-python-stage:
+    qlogicae-cor-python-stage-release:
       filesystem-path:
         value: ${{ qlogicae-cor-python-filesystem-path }}
 
@@ -17,6 +17,9 @@ workflow:
 
         - run:
             value: qlogicae-cor-python-test
+
+        # - run:
+        #     value: qlogicae-cor-python-benchmark
 
         - run:
             value: qlogicae-cor-python-archive
@@ -40,13 +43,14 @@ workflow:
               - ${{ qlogicae-cor-python-filesystem-path }}/output
 
         - run:
-            value: command-filesystem-tree-setup          
+            value: command-filesystem-tree-setup
           argument:
             target_paths:
               - ${{ qlogicae-cor-python-filesystem-path }}/archive
               - ${{ qlogicae-cor-python-filesystem-path }}/${{ qlogicae-cor-python-output-build-release-filesystem-path }}
               - ${{ qlogicae-cor-python-filesystem-path }}/${{ qlogicae-cor-python-output-test-unit-filesystem-path }}
-              - ${{ qlogicae-cor-python-filesystem-path }}/${{ qlogicae-cor-python-output-test-benchmark-filesystem-path }}
+              - ${{ qlogicae-cor-python-filesystem-path }}/${{ qlogicae-cor-python-output-test-smoke-filesystem-path }}
+              - ${{ qlogicae-cor-python-filesystem-path }}/${{ qlogicae-cor-python-output-benchmark-filesystem-path }}
                     
         - run:
             value: qlogicae-cor-python-build
@@ -72,16 +76,77 @@ workflow:
         
       scripts:
         - run:
-            value: hatch run test-type-check
+            value: hatch run test-check-and-apply-format
 
         - run:
-            value: hatch run test-lint
+            value: hatch run test-check-and-apply-lint
 
         - run:
-            value: hatch run test-unit        
+            value: hatch run test-check-dependencies
 
         - run:
-            value: hatch run test-pip-deployment
+            value: hatch run test-check-hardcoded-secrets
+
+        - run:
+            value: hatch run test-check-security
+
+        - run:
+            value: hatch run test-check-pip-deployment-build
+
+        - run:
+            value: hatch run test-run-unit
+
+        - run:
+            value: hatch run test-run-smoke      
+
+        - run:
+            value: hatch run usage-install-release
+
+        # - run:
+        #     value: hatch run test-run-e2e
+
+        - run:
+            value: hatch run usage-uninstall-release
+            
+    qlogicae-cor-python-benchmark:
+      filesystem-path:
+        value: ${{ qlogicae-cor-python-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch run benchmark-short-library-import-memory-usage
+
+        - run:
+            value: hatch run benchmark-create-memray-usage-import-only
+
+        - run:
+            value: hatch run benchmark-create-memray-usage-import-and-allocate
+
+        - run:
+            value: hatch run benchmark-view-memray-usage-import-only
+
+        - run:
+            value: hatch run benchmark-view-memray-usage-import-and-allocate
+
+        # - run:
+        #     value: hatch run benchmark-long-library-import-memory-usage
+
+        # - run:
+        #     value: hatch run benchmark-long-experiment-import-memory-usage
+
+    qlogicae-cor-python-long-benchmark:
+      filesystem-path:
+        value: ${{ qlogicae-cor-python-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: hatch run benchmark-short-library-import-memory-usage
+
+        # - run:
+        #     value: hatch run benchmark-long-library-import-memory-usage
+
+        # - run:
+        #     value: hatch run benchmark-long-experiment-import-memory-usage
 
     qlogicae-cor-python-archive:
       filesystem-path:
@@ -102,9 +167,32 @@ workflow:
         
       scripts:
         - run:
-            value: hatch run deploy
+            value: hatch run deploy-build-release
 
-macros:  
+        - run:
+            value: qlogicae-cor-python-post-deploy
+
+    qlogicae-cor-python-post-deploy:
+      filesystem-path:
+        value: ${{ qlogicae-cor-root-filesystem-path }}
+
+      scripts:
+        - run:
+            value: git add .
+
+        - run:
+            value: git commit -m "deployment attempt of '${{ qlogicae-cor-python-version-current-label }}'"
+
+        - run:
+            value: git push
+
+        - run:
+            value: git tag ${{ qlogicae-cor-python-version-current-label }}
+
+        - run:
+            value: git push --tags origin
+
+macros:
   static:
     file:
       targets:
@@ -112,10 +200,10 @@ macros:
           value: ${{ qlogicae-cor-root-filesystem-path }}/python
 
         qlogicae-cor-python-version-current-number:
-          value: 2.2.1
+          value: 3.3.1
 
         qlogicae-cor-python-active-major-version-number:
-          value: 2
+          value: 3
 
         qlogicae-cor-python-version-current-label:
           value: python-v${{ qlogicae-cor-python-version-current-number }}
@@ -126,11 +214,23 @@ macros:
         qlogicae-cor-python-output-filesystem-path:
           value: output
 
+        qlogicae-cor-python-python3-script-filesystem-path:
+          value: ./.venv/bin/python
+
         qlogicae-cor-python-output-build-release-filesystem-path:
           value: ${{ qlogicae-cor-python-output-filesystem-path }}/build/release
 
         qlogicae-cor-python-output-test-unit-filesystem-path:
           value: ${{ qlogicae-cor-python-output-filesystem-path }}/test/unit
 
-        qlogicae-cor-python-output-test-benchmark-filesystem-path:
-          value: ${{ qlogicae-cor-python-output-filesystem-path }}/test/benchmark
+        qlogicae-cor-python-output-test-smoke-filesystem-path:
+          value: ${{ qlogicae-cor-python-output-filesystem-path }}/test/smoke
+
+        qlogicae-cor-python-output-benchmark-filesystem-path:
+          value: ${{ qlogicae-cor-python-output-filesystem-path }}/benchmark
+
+        qlogicae-cor-python-output-benchmark-import-experiment-memory-usage-filesystem-path:
+          value: ${{ qlogicae-cor-python-output-benchmark-filesystem-path }}/import-experiment-memory-usage.json
+
+        qlogicae-cor-python-output-benchmark-import-library-memory-usage-filesystem-path:
+          value: ${{ qlogicae-cor-python-output-benchmark-filesystem-path }}/import-library-memory-usage.json

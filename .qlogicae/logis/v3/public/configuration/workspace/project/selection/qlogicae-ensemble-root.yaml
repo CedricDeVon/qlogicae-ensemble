@@ -34,6 +34,21 @@ workflow:
             target_paths:
               - ${{ qlogicae-ensemble-root-filesystem-path }}/.qlogicae
 
+    qlogicae-ensemble-deploy:
+      filesystem-path:
+        value: ${{ qlogicae-ensemble-root-filesystem-path }}
+        
+      scripts:
+        - run:
+            value: git add .
+
+        - run:
+            value: git commit -m "homogenous update"
+
+        - run:
+            value: git push
+
+            
 macros:
   static:
     file:

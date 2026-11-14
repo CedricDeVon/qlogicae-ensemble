@@ -1,7 +1,7 @@
 
 <h1>📝 Release Notes</h1>
 
-<p> > <a href="../README.md">Home</a> > <a href="./index.md">Versions</a></p>
+<p><a href="../README.md">Home</a> > <a href="./index.md">Versions</a></p>
 
 </br>
 
@@ -12,7 +12,7 @@
 <h3>Overview</h3>
 
 <p>
-    Initial Public Deployment 
+    Initial Public Release
 </p>
 
 
@@ -25,7 +25,26 @@
 
 
 
-<h2>📦 < 3.2.0</h2>
+<h2>📦 3.1.11</h2>
+
+<h3>Overview</h3>
+
+<p>
+    Initial M.V.P. Release
+</p>
+
+<h3>Description</h3>
+
+<p>
+    The initial project's M.V.P. release. Operational, and complete with its features. Not yet suitable for public usage due to a lack of dedicated documentation. These problems will be resolved on version '3.2.0' as its designated 'public' release.
+</p>
+
+</br>
+
+
+
+
+<h2>📦 < 3.1.11</h2>
 
 <h3>Overview</h3>
 

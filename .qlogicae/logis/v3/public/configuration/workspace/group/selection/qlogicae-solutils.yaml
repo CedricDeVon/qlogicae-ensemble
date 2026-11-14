@@ -4,7 +4,7 @@ workspace:
       qlogicae-solutils:
         targets:
           qlogicae-solutils-root:
-          qlogicae-solutils-console:
+          qlogicae-solutils-cli:
           qlogicae-solutils-package:
 
 macros:
@@ -48,7 +48,7 @@ macros:
           value: solutils
 
         qlogicae-solutils-project-base-description:
-          value: OS-independent scripts for QLogicae projects
+          value: A local OS-independent CI/CD tool for QLogicae projects
 
         qlogicae-solutils-license-display-name:
           value: MIT

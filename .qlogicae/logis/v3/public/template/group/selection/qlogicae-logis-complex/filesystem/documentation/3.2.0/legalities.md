@@ -1,7 +1,7 @@
 
 <h1>🏛️ Legalities</h1>
 
-<p> > <a href="../README.md">Home</a> > <a href="../index.md">Versions</a> > <a href="./index.md">Extended Documentation</a></p>
+<p><a href="../../README.md">Home</a> - <a href="../index.md">Versions</a> - <a href="./index.md">Extended Documentation</a></p>
 
 </br>
 

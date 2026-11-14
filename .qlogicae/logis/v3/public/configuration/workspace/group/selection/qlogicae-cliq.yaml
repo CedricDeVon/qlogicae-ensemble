@@ -1,0 +1,59 @@
+workspace:
+  group:
+    selection:
+      qlogicae-cliq:
+        targets:
+          qlogicae-cliq-root:
+          qlogicae-cliq-python:
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-cliq-author-full-name:
+          value: ${{ main-author-full-name }}
+
+        qlogicae-cliq-author-base-username:
+          value: ${{ main-author-base-username }}
+
+        qlogicae-cliq-author-base-email:
+          value: ${{ main-author-base-email }}
+    
+        qlogicae-cliq-company-display-name:
+          value: ${{ main-company-display-name }}
+
+        qlogicae-cliq-company-base-name:
+          value: ${{ main-company-base-name }}
+        
+        qlogicae-cliq-company-base-logo-filesystem-path:
+          value: ${{ main-company-base-logo-filesystem-path }}
+
+        qlogicae-cliq-company-base-preview-filesystem-path:
+          value: ${{ main-company-base-preview-filesystem-path }}
+
+        qlogicae-cliq-brand-display-name:
+          value: ${{ main-company-display-name }} ${{ qlogicae-cliq-display-name }}
+
+        qlogicae-cliq-brand-base-name:
+          value: ${{ main-company-base-name }}-${{ qlogicae-cliq-base-name }}
+
+        qlogicae-cliq-brand-source-name:
+          value: ${{ main-company-base-name }}_${{ qlogicae-cliq-base-name }}
+
+        qlogicae-cliq-display-name:
+          value: Cliq
+
+        qlogicae-cliq-base-name:
+          value: cliq
+
+        qlogicae-cliq-base-description:
+          value: The CLI framework for QLogicae projects
+
+        qlogicae-cliq-license-display-name:
+          value: MIT
+
+        qlogicae-cliq-license-filesystem-path:
+          value: LICENSE
+
+        qlogicae-cliq-repository-base-link:
+          value: https://github.com/${{ qlogicae-cliq-author-base-username }}/${{ qlogicae-cliq-brand-base-name }}

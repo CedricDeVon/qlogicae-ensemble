@@ -14,7 +14,6 @@ keywords = [
     "${{ qlogicae-solutils-project-base-name }}"
 ]
 classifiers = [
-    "Typing :: Typed",
     "Topic :: Utilities",
     "Topic :: Software Development",
     "Topic :: Software Development :: Build Tools",
@@ -42,7 +41,9 @@ maintainers = [
 dev = [
     "pytest",
     "pytest-cov",
-    "pytest-benchmark",
+    "pytest-asyncio",
+    "pytest-timeout",
+    "pybenchmark",
     "ruff",
     "mypy",
     "hatch",
@@ -206,41 +207,3 @@ exclude = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = [
-    "${{ qlogicae-solutils-brand-source-name }}"
-]
-
-[tool.hatch.build.targets.wheel.force-include]
-"${{ qlogicae-solutils-brand-source-name }}/py.typed" = "${{ qlogicae-solutils-brand-source-name }}/py.typed"
-
-
-[tool.hatch.envs.default.scripts]
-test-check-staleness = """
-    vulture \
-        qlogicae_solutils \
-"""
-
-test-check-format = """
-    ruff \
-        check qlogicae_solutils --fix \
-"""
-
-test-check-lint = """
-    mypy \
-"""
-
-test-check-dependencies = """
-    pip-audit \
-        -r requirements.txt \
-"""
-
-test-hardcoded-secrets = """
-    detect-secrets scan \
-"""
-
-test-security = """
-    bandit \
-        -r qlogicae_solutils \
-"""
-
-

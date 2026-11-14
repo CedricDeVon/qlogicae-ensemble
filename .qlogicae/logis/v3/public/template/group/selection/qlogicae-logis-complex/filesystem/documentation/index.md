@@ -62,6 +62,7 @@
 <table style="width: 100%;">
     <thead>
         <tr>
+            <th style="text-align: left">Status</th>
             <th style="text-align: left">Name</th>
             <th style="text-align: left">Date</th>
             <th style="text-align: left">Summary</th>
@@ -70,16 +71,29 @@
     </thead>
     <tbody>
         <tr>
-            <td style="text-align: right">3.2.0</td>
-            <td style="text-align: right">2026-12-1</td>
+            <td style="text-align: left">⌛ Developing</td>
+            <td style="text-align: left">3.2.0</td>
+            <td style="text-align: left">2026-12-1</td>
             <td style="text-align: left">Initial public release</td>
-            <td style="text-align: left">None</td>
+            <td style="text-align: left">
+              <a href="./3.2.0/index.md">
+                Link
+              </a>
+            </td>
         </tr>
         <tr>
-            <td style="text-align: right">🔥 < 3.2.0</td>
-            <td style="text-align: right">< 2026</td>
+            <td style="text-align: left">🔥 Latest</td>
+            <td style="text-align: left">3.1.11</td>
+            <td style="text-align: left">2026-08-xx</td>
+            <td style="text-align: left">Initial M.V.P. Release</td>
+            <td style="text-align: left"></td>
+        </tr>
+        <tr>
+            <td style="text-align: left"></td>
+            <td style="text-align: left">< 3.1.11</td>
+            <td style="text-align: left">2026-xx-xx</td>
             <td style="text-align: left">Pre-releases</td>
-            <td style="text-align: left">None</td>
+            <td style="text-align: left"></td>
         </tr>
     </tbody>
 </table>

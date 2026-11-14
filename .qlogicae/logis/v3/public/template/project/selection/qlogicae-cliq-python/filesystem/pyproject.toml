@@ -1,0 +1,265 @@
+[project]
+name = "${{ qlogicae-cliq-brand-base-name }}"
+version = "${{ qlogicae-cliq-python-version-current-number }}"
+description = "${{ qlogicae-cliq-base-description }}"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.12"
+license = "${{ qlogicae-cliq-license-display-name }}"
+license-files = [
+    "${{ qlogicae-cliq-license-filesystem-path }}"
+]
+authors = [
+    { name = "${{ qlogicae-cliq-author-full-name }}", email = "${{ qlogicae-cliq-author-base-email }}" }
+]
+maintainers = [
+    { name = "${{ qlogicae-cliq-author-full-name }}", email = "${{ qlogicae-cliq-author-base-email }}" }
+]
+keywords = [
+    "${{ qlogicae-cliq-company-base-name }}",
+    "${{ qlogicae-cliq-base-name }}"
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "pytest-asyncio",
+    "pytest-timeout",
+    "pybenchmark",
+    "ruff",
+    "mypy",
+    "hatch",
+    "twine",
+    "memray",
+    "scalene",
+    "pympler",
+    "vulture",
+    "bandit",
+    "detect-secrets",
+    "pip-audit",   
+    "python-minifier"
+]
+
+[project.scripts]
+qlogicae-cor = "${{ qlogicae-cliq-brand-source-name }}.v1.app:main"
+
+[project.urls]
+Homepage = "${{ qlogicae-cliq-repository-base-link }}"
+Repository = "${{ qlogicae-cliq-repository-base-link }}"
+Documentation = "${{ qlogicae-cliq-repository-base-link }}"
+Issues = "${{ qlogicae-cliq-repository-base-link }}/issues"
+Changelog = "${{ qlogicae-cliq-repository-base-link }}/releases"
+
+
+[build-system]
+requires = [
+    "hatchling"
+]
+build-backend = "hatchling.build"
+
+
+[tool.setuptools]
+package-dir = {"" = "${{ qlogicae-cliq-brand-source-name }}"}
+
+
+[tool.setuptools.packages.find]
+where = ["${{ qlogicae-cliq-brand-source-name }}"]
+
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = [
+    "./test/${{ qlogicae-cliq-brand-source-name }}/v1/unit"
+]
+python_files = ["test_*.py"]
+addopts = "-ra"
+
+
+[tool.coverage.run]
+source = []
+branch = true
+
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+
+
+[tool.ruff]
+target-version = "py312"
+line-length = 88
+exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    ".output",
+    "output",
+    ".outputs",
+    "outputs",
+    ".dist",
+    "dist",
+    ".build",
+    "build",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".mypy_cache",
+    ".tox",
+    ".nox",
+    ".idea",
+    ".vscode",
+]
+
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+skip-magic-trailing-comma = false
+
+
+[tool.ruff.lint]
+select = [    
+    "E",
+    "W", # pycodestyle    
+    "F", # Pyflakes    
+    "I", # isort    
+    "UP", # pyupgrade    
+    "B", # flake8-bugbear
+    "PTH", # pathlib
+]
+ignore = [    
+    "S607",    
+    "E731",
+    "S101", # allow assert statements    
+    "S603", # allow subprocess usage
+    "PLR2004", # allow magic values
+]
+fixable = [
+    "ALL"
+]
+unfixable = []
+
+
+[tool.hatch.build]
+include = [
+    "${{ qlogicae-cliq-brand-source-name }}/**/*.py",
+    "${{ qlogicae-cliq-brand-source-name }}/py.typed",
+]
+exclude = [
+    "**/__pycache__",
+    "**/*.pyc",
+    "test",
+    ".github",
+    ".gitignore",
+    ".vscode",
+    "requirements.txt",
+    "output",
+    "docs/**",
+    "project/**",
+]
+
+[tool.hatch.build.targets.wheel.force-include]
+"${{ qlogicae-cliq-brand-source-name }}/py.typed" = "${{ qlogicae-cliq-brand-source-name }}/py.typed"
+
+
+[tool.hatch.build.targets.wheel]
+packages = ["${{ qlogicae-cliq-brand-source-name }}"]
+
+
+[tool.hatch.envs.default.scripts]
+test-check-and-apply-format = """
+    ruff check ${{ qlogicae-cliq-brand-source-name }}/v1 --fix
+"""
+
+test-check-and-apply-lint = """
+
+"""
+
+test-run-unit = """
+    pytest -vv --cov --cov-branch --cov-report=term-missing --cov-report=html:\"${{ qlogicae-cliq-python-output-test-unit-filesystem-path }}/html\" --cov-report=xml:\"${{ qlogicae-cliq-python-output-test-unit-filesystem-path }}/coverage.xml\" --cov-report=json:\"${{ qlogicae-cliq-python-output-test-unit-filesystem-path }}/coverage.json\" --junitxml=\"${{ qlogicae-cliq-python-output-test-unit-filesystem-path }}/junit.xml\"
+"""
+
+test-run-smoke = """
+    pytest -vv test/qlogicae_cliq/v1/smoke/test_imports.py
+"""
+
+test-run-e2e = """
+    
+"""
+
+test-check-feature-staleness = """
+    vulture ${{ qlogicae-cliq-brand-source-name }} 
+"""
+
+test-check-dependencies = """
+    pip-audit -r requirements.txt
+"""
+
+test-check-hardcoded-secrets = """
+    detect-secrets scan 
+"""
+
+test-check-security = """
+    bandit -r ${{ qlogicae-cliq-brand-source-name }}
+"""
+
+test-check-pip-deployment-build = """
+    twine check ${{ qlogicae-cliq-python-output-build-release-filesystem-path }}/dist/*
+"""
+
+benchmark-create-memray-usage-import-only = """
+    memray run -o ${{ qlogicae-cliq-python-output-benchmark-filesystem-path }}/usage.import_only.bin -m benchmark.${{ qlogicae-cliq-brand-source-name }}.v1.memory.import.usage.import_only --force
+"""
+
+benchmark-view-memray-usage-import-only = """
+    memray tree ${{ qlogicae-cliq-python-output-benchmark-filesystem-path }}/usage.import_only.bin
+"""
+
+benchmark-create-memray-usage-import-and-allocate = """
+    memray run -o ${{ qlogicae-cliq-python-output-benchmark-filesystem-path }}/usage.import_and_allocate.bin -m benchmark.${{ qlogicae-cliq-brand-source-name }}.v1.memory.import.usage.import_and_allocate --force
+"""
+
+benchmark-view-memray-usage-import-and-allocate = """
+    memray tree ${{ qlogicae-cliq-python-output-benchmark-filesystem-path }}/usage.import_and_allocate.bin
+"""
+
+benchmark-short-library-import-memory-usage = """
+    ${{ qlogicae-cliq-python-python3-script-filesystem-path }} -m benchmark.${{ qlogicae-cliq-brand-source-name }}.v1.tool ${{ qlogicae-cliq-brand-source-name }}.v1 --json-output ${{ qlogicae-cliq-python-output-benchmark-import-library-memory-usage-filesystem-path }} --repetitions 10
+"""
+
+benchmark-long-experiment-import-memory-usage = """
+    ${{ qlogicae-cliq-python-python3-script-filesystem-path }} -m benchmark.${{ qlogicae-cliq-brand-source-name }}.v1.tool benchmark.${{ qlogicae-cliq-brand-source-name }}.v1.memory.import.experiment.static_import benchmark.${{ qlogicae-cliq-brand-source-name }}.v1.memory.import.experiment.old_dynamic_import benchmark.${{ qlogicae-cliq-brand-source-name }}.v1.memory.import.experiment.typeless_with_static_class_import benchmark.${{ qlogicae-cliq-brand-source-name }}.v1.memory.import.experiment.typeless_with_dynamic_class_import benchmark.${{ qlogicae-cliq-brand-source-name }}.v1.memory.import.experiment.empty_package --json-output ${{ qlogicae-cliq-python-output-benchmark-import-experiment-memory-usage-filesystem-path }}/ --repetitions 20
+"""
+
+benchmark-long-library-import-memory-usage = """
+    ${{ qlogicae-cliq-python-python3-script-filesystem-path }} -m benchmark.${{ qlogicae-cliq-brand-source-name }}.v1.tool ${{ qlogicae-cliq-brand-source-name }}.v1 ${{ qlogicae-cliq-brand-source-name }}.v2 ${{ qlogicae-cliq-brand-source-name }}.v1 --json-output ${{ qlogicae-cliq-python-output-benchmark-import-library-memory-usage-filesystem-path }} --repetitions 20
+"""
+
+deploy-build-release = """
+    twine upload ${{ qlogicae-cliq-python-output-build-release-filesystem-path }}/dist/* --config-file .pypirc
+"""
+
+usage-install-release = """
+    ${{ qlogicae-cliq-python-python3-script-filesystem-path }} -m pip install --force-reinstall ${{ qlogicae-cliq-python-output-build-release-filesystem-path }}/dist/*.whl
+"""
+
+usage-uninstall-release = """
+    ${{ qlogicae-cliq-python-python3-script-filesystem-path }} -m pip uninstall -y ${{ qlogicae-cliq-python-output-build-release-filesystem-path }}/dist/*.whl
+"""

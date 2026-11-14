@@ -1,0 +1,13 @@
+workspace:
+  project:
+    selection:
+      qlogicae-solutils-cli:
+        filesystem-path:
+          value: ${{ qlogicae-solutils-cli-filesystem-path }}
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-solutils-cli-filesystem-path:
+          value: ${{ qlogicae-solutils-root-filesystem-path }}/cli

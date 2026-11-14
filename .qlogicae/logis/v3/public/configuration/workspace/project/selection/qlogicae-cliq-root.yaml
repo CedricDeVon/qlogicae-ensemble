@@ -1,0 +1,29 @@
+workspace:
+  project:
+    selection:
+      qlogicae-cliq-root:
+        filesystem-path:
+          value: ${{ qlogicae-cliq-root-filesystem-path }}
+
+workflow:
+  selection:      
+    qlogicae-cliq-stage-release:
+      filesystem-path:
+        value: ${{ qlogicae-cliq-root-filesystem-path }}
+    
+      scripts:
+        - run:
+            value: command-template-apply        
+          argument:
+            targets:
+              - qlogicae-cliq
+
+        - run:
+            value: qlogicae-ensemble-synchronize-backups
+
+macros:
+  static:  
+    file:
+      targets:
+        qlogicae-cliq-root-filesystem-path:
+          value: ${{ selection-filesystem-path }}/${{ qlogicae-cliq-brand-base-name }}
