@@ -34,7 +34,7 @@ workflow:
             target_paths:
               - ${{ qlogicae-ensemble-root-filesystem-path }}/.qlogicae
 
-    qlogicae-ensemble-deploy:
+    qlogicae-ensemble-update:
       filesystem-path:
         value: ${{ qlogicae-ensemble-root-filesystem-path }}
         
